@@ -22,7 +22,7 @@
 </div>
 {{ if gt (len $blogPages) $maxItems }}
 <div style="margin-top: 10px;">
-    <a href="{{ " /blog/" | relURL }}"
+    <a href="{{- "/blog/" | relURL -}}"
         style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
 </div>
 {{ end }}
@@ -40,7 +40,7 @@
 </div>
 {{ if gt (len $projectPages) $maxItems }}
 <div style="margin-top: 10px;">
-    <a href="{{ " /projects/" | relURL }}"
+    <a href="{{- "/projects/" | relURL -}}"
         style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
 </div>
 {{ end }}
@@ -58,16 +58,16 @@
 </div>
 {{ if gt (len $publicationPages) $maxItems }}
 <div style="margin-top: 10px;">
-    <a href="{{ " /publications/" | relURL }}"
+    <a href="{{- "/publications/" | relURL -}}"
         style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
 </div>
 {{ end }}
 {{ end }}
 
 <p>
-    <a href="{{ " /blog/" | relURL }}">blog</a> |
-    <a href="{{ " /publications/" | relURL }}">publications</a> |
-    <a href="{{ " /projects/" | relURL }}">projects</a>
+    <a href="{{- "/blog/" | relURL -}}">blog</a> |
+    <a href="{{- "/publications/" | relURL -}}">publications</a> |
+    <a href="{{- "/projects/" | relURL -}}">projects</a>
 </p>
 {{ end }}
 {{ end }}

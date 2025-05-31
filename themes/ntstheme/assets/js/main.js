@@ -1,5 +1,6 @@
 // raw HTML with minimal functionality
-document.addEventListener('DOMContentLoaded', function () {    // theme toggle
+document.addEventListener('DOMContentLoaded', function () {
+    // theme toggle
     const toggle = document.querySelector('#theme-toggle');
     if (toggle) {
         const theme = localStorage.getItem('theme') || 'light';
@@ -8,7 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {    // theme toggle
         }
 
         toggle.addEventListener('click', function () {
-            const isDark = document.body.style.backgroundColor === 'rgb(0, 0, 0)';
+            const isDark = document.body.style.backgroundColor === 'rgb(0, 0, 0)' ||
+                document.body.style.backgroundColor === '#000' ||
+                document.body.style.backgroundColor === '#000000';
             if (isDark) {
                 applyLightTheme();
             } else {
@@ -40,33 +43,9 @@ document.addEventListener('DOMContentLoaded', function () {    // theme toggle
             darkStyle.remove();
         }
         localStorage.setItem('theme', 'light');
-    }// math rendering - ensure KaTeX is loaded
-    function renderMath() {
-        if (typeof renderMathInElement !== 'undefined') {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: '$$', right: '$$', display: true },
-                    { left: '$', right: '$', display: false },
-                    { left: '\\(', right: '\\)', display: false },
-                    { left: '\\[', right: '\\]', display: true }
-                ],
-                throwOnError: false,
-                macros: {
-                    "\\RR": "\\mathbb{R}",
-                    "\\NN": "\\mathbb{N}",
-                    "\\ZZ": "\\mathbb{Z}",
-                    "\\QQ": "\\mathbb{Q}",
-                    "\\CC": "\\mathbb{C}"
-                }
-            });
-        } else {
-            // Retry after a delay if KaTeX not yet loaded
-            setTimeout(renderMath, 100);
-        }
-    }    // Wait for KaTeX to load before rendering
-    if (document.readyState === 'loading') {
-        setTimeout(renderMath, 200);
-    } else {
-        renderMath();
     }
+
+    // All KaTeX related code has been removed from here.
+    // It is now handled in themes/ntstheme/layouts/_partials/head.html
+    console.log("main.js loaded, KaTeX logic deferred to head.html");
 });

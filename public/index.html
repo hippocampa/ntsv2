@@ -2,7 +2,7 @@
 <html lang="en-us" dir="ltr">
 
 <head>
-	<meta name="generator" content="Hugo 0.147.4"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=52826&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.147.4"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@ mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1
     content="research, projects, and notes.
 mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1)}{2}$$">
 <meta property="og:type" content="website">
-<meta property="og:url" content="http://localhost:52826/">
+<meta property="og:url" content="http://localhost:1313/">
 <meta property="og:site_name" content="notesbyts">
 
 
@@ -31,22 +31,42 @@ mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1
 mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1)}{2}$$">
 
 
-<link rel="canonical" href="http://localhost:52826/">
+<link rel="canonical" href="http://localhost:1313/">
 
 
-
-<link rel="alternate" type="application/rss+xml" href="http://localhost:52826/index.xml" title="notesbyts" />
-
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="notesbyts" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-    integrity="sha384-XjKyOOlGwcjNTAIQHIpVOBD+PyJbkH2OjL7mnyMHFw5y5N12sKGaT9y5jc4nBIzG"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
     crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
-
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("KaTeX (from head.html): DOMContentLoaded event fired.");
+        if (typeof renderMathInElement === 'function') {
+            console.log("KaTeX (from head.html): renderMathInElement is available. Attempting to render math.");
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false
+                });
+                console.log("KaTeX (from head.html): renderMathInElement executed.");
+            } catch (e) {
+                console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX (from head.html): renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
     <link rel="stylesheet" href="/css/main.css">
 
 
@@ -60,11 +80,11 @@ mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Your Name",
-  "url": "http:\/\/localhost:52826\/",
+  "url": "http:\/\/localhost:1313\/",
   "description": "Academic notes, research, and technical insights",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http:\/\/localhost:52826\/"
+    "@id": "http:\/\/localhost:1313\/"
   }
 }
 </script>

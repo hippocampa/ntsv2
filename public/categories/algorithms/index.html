@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
@@ -17,7 +17,7 @@
 <meta property="og:description"
     content="Academic notes, research, and technical insights">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://example.org/categories/algorithms/">
+<meta property="og:url" content="http://localhost:1313/categories/algorithms/">
 <meta property="og:site_name" content="notesbyts">
 
 
@@ -27,12 +27,10 @@
     content="Academic notes, research, and technical insights">
 
 
-<link rel="canonical" href="https://example.org/categories/algorithms/">
+<link rel="canonical" href="http://localhost:1313/categories/algorithms/">
 
 
-
-<link rel="alternate" type="application/rss+xml" href="https://example.org/categories/algorithms/index.xml" title="notesbyts" />
-
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/algorithms/index.xml" title="notesbyts" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
@@ -41,12 +39,34 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("KaTeX: DOMContentLoaded event fired.");
+        if (typeof renderMathInElement === 'function') {
+            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false 
+                });
+                console.log("KaTeX: renderMathInElement executed.");
+            } catch (e) {
+                console.error("KaTeX: Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
+    <link rel="stylesheet" href="/css/main.css">
 
 
-      <link rel="stylesheet" href="/css/main.min.9d8faf5b73ba16d442c79d538942aa2720695bcfd5c4002e651f5b2134030aee.css" integrity="sha256-nY&#43;vW3O6FtRCx51TiUKqJyBpW8/VxAAuZR9bITQDCu4=" crossorigin="anonymous">
-
-
-        <script src="/js/main.6c409276cd7e5727976213e68dc28d29bc9bfce7a824c74b596fbb16ee583bcb.js" integrity="sha256-bECSds1&#43;VyeXYhPmjcKNKbyb/OeoJMdLWW&#43;7Fu5YO8s=" crossorigin="anonymous"></script>
+      <script src="/js/main.js"></script>
 
 
 

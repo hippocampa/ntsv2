@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
@@ -10,7 +10,7 @@
 <title>About | notesbyts</title>
 <meta name="description"
     content="Background
-Welcome! I&rsquo;m [Your Name], and this is my academic and technical portfolio.
+Welcome! I&#39;m [Your Name], and this is my academic and technical portfolio.
 Education
 [Your Degree] - [University Name]
 [Year - Year]
@@ -43,7 +43,7 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
 <meta property="og:title" content="About">
 <meta property="og:description"
     content="Background
-Welcome! I&rsquo;m [Your Name], and this is my academic and technical portfolio.
+Welcome! I&#39;m [Your Name], and this is my academic and technical portfolio.
 Education
 [Your Degree] - [University Name]
 [Year - Year]
@@ -71,7 +71,7 @@ ORCID: [orcid.org/your-id] (if applicable)
 
 This page serves as a brief overview. For detailed CV or resume, please contact me directly.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://example.org/about/">
+<meta property="og:url" content="http://localhost:1313/about/">
 <meta property="og:site_name" content="notesbyts">
 
 
@@ -79,7 +79,7 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
 <meta name="twitter:title" content="About">
 <meta name="twitter:description"
     content="Background
-Welcome! I&rsquo;m [Your Name], and this is my academic and technical portfolio.
+Welcome! I&#39;m [Your Name], and this is my academic and technical portfolio.
 Education
 [Your Degree] - [University Name]
 [Year - Year]
@@ -108,8 +108,7 @@ ORCID: [orcid.org/your-id] (if applicable)
 This page serves as a brief overview. For detailed CV or resume, please contact me directly.">
 
 
-<link rel="canonical" href="https://example.org/about/">
-
+<link rel="canonical" href="http://localhost:1313/about/">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
@@ -120,12 +119,34 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("KaTeX: DOMContentLoaded event fired.");
+        if (typeof renderMathInElement === 'function') {
+            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false 
+                });
+                console.log("KaTeX: renderMathInElement executed.");
+            } catch (e) {
+                console.error("KaTeX: Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
+    <link rel="stylesheet" href="/css/main.css">
 
 
-      <link rel="stylesheet" href="/css/main.min.9d8faf5b73ba16d442c79d538942aa2720695bcfd5c4002e651f5b2134030aee.css" integrity="sha256-nY&#43;vW3O6FtRCx51TiUKqJyBpW8/VxAAuZR9bITQDCu4=" crossorigin="anonymous">
-
-
-        <script src="/js/main.6c409276cd7e5727976213e68dc28d29bc9bfce7a824c74b596fbb16ee583bcb.js" integrity="sha256-bECSds1&#43;VyeXYhPmjcKNKbyb/OeoJMdLWW&#43;7Fu5YO8s=" crossorigin="anonymous"></script>
+      <script src="/js/main.js"></script>
 
 
 
@@ -151,7 +172,7 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
   <time datetime="0001-01-01T00:00:00&#43;00:00">January 1, 1</time>
 
   <h2 id="background">Background</h2>
-<p>Welcome! I&rsquo;m [Your Name], and this is my academic and technical portfolio.</p>
+<p>Welcome! I'm [Your Name], and this is my academic and technical portfolio.</p>
 <h2 id="education">Education</h2>
 <p><strong>[Your Degree]</strong> - [University Name]<br>
 <em>[Year - Year]</em></p>

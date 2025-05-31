@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
@@ -39,7 +39,7 @@ $\LaTeX$ compatibility: Supports most common $\LaTeX$ commands
 Basic Setup
 To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://example.org/blog/katex-mathematical-notation/">
+<meta property="og:url" content="http://localhost:1313/blog/katex-mathematical-notation/">
 <meta property="og:site_name" content="notesbyts">
 
 
@@ -60,8 +60,7 @@ Basic Setup
 To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 
 
-<link rel="canonical" href="https://example.org/blog/katex-mathematical-notation/">
-
+<link rel="canonical" href="http://localhost:1313/blog/katex-mathematical-notation/">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
@@ -72,12 +71,34 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("KaTeX: DOMContentLoaded event fired.");
+        if (typeof renderMathInElement === 'function') {
+            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false 
+                });
+                console.log("KaTeX: renderMathInElement executed.");
+            } catch (e) {
+                console.error("KaTeX: Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
+    <link rel="stylesheet" href="/css/main.css">
 
 
-      <link rel="stylesheet" href="/css/main.min.9d8faf5b73ba16d442c79d538942aa2720695bcfd5c4002e651f5b2134030aee.css" integrity="sha256-nY&#43;vW3O6FtRCx51TiUKqJyBpW8/VxAAuZR9bITQDCu4=" crossorigin="anonymous">
-
-
-        <script src="/js/main.6c409276cd7e5727976213e68dc28d29bc9bfce7a824c74b596fbb16ee583bcb.js" integrity="sha256-bECSds1&#43;VyeXYhPmjcKNKbyb/OeoJMdLWW&#43;7Fu5YO8s=" crossorigin="anonymous"></script>
+      <script src="/js/main.js"></script>
 
 
 
@@ -99,10 +120,10 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
     "name": "Your Name"
   },
   "description": "\u003ch2 id=\u0022introduction\u0022\u003eIntroduction\u003c\/h2\u003e\n\u003cp\u003eWhen building academic or technical websites, the ability to render mathematical notation is crucial. KaTeX has emerged as the go-to solution for fast, server-side rendering of mathematical expressions in web browsers.\u003c\/p\u003e\n\u003ch2 id=\u0022why-katex\u0022\u003eWhy KaTeX?\u003c\/h2\u003e\n\u003cp\u003eKaTeX offers several advantages over alternatives like MathJax:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003ePerformance\u003c\/strong\u003e: Renders math expressions significantly faster\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eSelf-contained\u003c\/strong\u003e: No external dependencies for basic functionality\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eServer-side rendering\u003c\/strong\u003e: Can generate static HTML\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e$\\LaTeX$ compatibility\u003c\/strong\u003e: Supports most common $\\LaTeX$ commands\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch2 id=\u0022basic-setup\u0022\u003eBasic Setup\u003c\/h2\u003e\n\u003cp\u003eTo integrate KaTeX into a website, you need both the CSS and JavaScript files:\u003c\/p\u003e",
-  "url": "https:\/\/example.org\/blog\/katex-mathematical-notation\/",
+  "url": "http:\/\/localhost:1313\/blog\/katex-mathematical-notation\/",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https:\/\/example.org\/blog\/katex-mathematical-notation\/"
+    "@id": "http:\/\/localhost:1313\/blog\/katex-mathematical-notation\/"
   }
 }
 </script>
@@ -163,7 +184,7 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 </ul>
 <h3 id="calculus">Calculus</h3>
 <p>Derivatives and integrals are commonly used in academic content:</p>
-<p>$$\frac{d}{dx}[f(x) \cdot g(x)] = f&rsquo;(x)g(x) + f(x)g&rsquo;(x)$$</p>
+<p>$$\frac{d}{dx}[f(x) \cdot g(x)] = f'(x)g(x) + f(x)g'(x)$$</p>
 <p>$$\int_{a}^{b} f(x) , dx = F(b) - F(a)$$</p>
 <h3 id="linear-algebra">Linear Algebra</h3>
 <p>Matrices and vectors are essential for many technical fields:</p>
@@ -234,7 +255,7 @@ a_{31} &amp; a_{32} &amp; a_{33}
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#1f2328">});</span>
 </span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>KaTeX provides an excellent solution for rendering mathematical notation in academic and technical websites. Its performance, compatibility, and ease of integration make it the ideal choice for projects requiring mathematical typesetting.</p>
-<p>The combination of Hugo&rsquo;s static site generation and KaTeX&rsquo;s fast rendering creates a powerful platform for academic content that loads quickly and displays beautifully across all devices.</p>
+<p>The combination of Hugo's static site generation and KaTeX's fast rendering creates a powerful platform for academic content that loads quickly and displays beautifully across all devices.</p>
 <hr>
 <p><em>This post demonstrates the power of combining technical writing with mathematical notation in a web-friendly format.</em></p>
 

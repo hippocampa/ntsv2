@@ -3,10 +3,12 @@ languageCode = 'en-us'
 title = 'notesbyts'
 theme = 'ntstheme'
 
+
 [params]
 description = "Academic notes, research, and technical insights"
 author = "Your Name"
 homepageMaxItems = 3
+math = true
 
 [sitemap]
 changefreq = "weekly"
@@ -28,6 +30,8 @@ lineNos = true
 lineNumbersInTable = false
 tabWidth = 4
 codeFences = true
+[markup.goldmark.extensions]
+typographer = false
 
 [menus]
 [[menus.main]]

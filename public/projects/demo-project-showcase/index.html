@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
@@ -10,7 +10,7 @@
 <title>Demo Project for Load More Showcase | notesbyts</title>
 <meta name="description"
     content="Project Overview
-This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &ldquo;[load more]&rdquo; button to appear.
+This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &quot;[load more]&quot; button to appear.
 Features
 
 Interactive UI: Demonstrates modern web interaction patterns
@@ -26,7 +26,7 @@ The load more functionality uses vanilla JavaScript:">
 <meta property="og:title" content="Demo Project for Load More Showcase">
 <meta property="og:description"
     content="Project Overview
-This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &ldquo;[load more]&rdquo; button to appear.
+This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &quot;[load more]&quot; button to appear.
 Features
 
 Interactive UI: Demonstrates modern web interaction patterns
@@ -37,7 +37,7 @@ Accessibility: Works without JavaScript as a fallback
 Technical Implementation
 The load more functionality uses vanilla JavaScript:">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://example.org/projects/demo-project-showcase/">
+<meta property="og:url" content="http://localhost:1313/projects/demo-project-showcase/">
 <meta property="og:site_name" content="notesbyts">
 
 
@@ -45,7 +45,7 @@ The load more functionality uses vanilla JavaScript:">
 <meta name="twitter:title" content="Demo Project for Load More Showcase">
 <meta name="twitter:description"
     content="Project Overview
-This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &ldquo;[load more]&rdquo; button to appear.
+This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &quot;[load more]&quot; button to appear.
 Features
 
 Interactive UI: Demonstrates modern web interaction patterns
@@ -57,8 +57,7 @@ Technical Implementation
 The load more functionality uses vanilla JavaScript:">
 
 
-<link rel="canonical" href="https://example.org/projects/demo-project-showcase/">
-
+<link rel="canonical" href="http://localhost:1313/projects/demo-project-showcase/">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
@@ -69,12 +68,34 @@ The load more functionality uses vanilla JavaScript:">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("KaTeX: DOMContentLoaded event fired.");
+        if (typeof renderMathInElement === 'function') {
+            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false 
+                });
+                console.log("KaTeX: renderMathInElement executed.");
+            } catch (e) {
+                console.error("KaTeX: Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
+    <link rel="stylesheet" href="/css/main.css">
 
 
-      <link rel="stylesheet" href="/css/main.min.9d8faf5b73ba16d442c79d538942aa2720695bcfd5c4002e651f5b2134030aee.css" integrity="sha256-nY&#43;vW3O6FtRCx51TiUKqJyBpW8/VxAAuZR9bITQDCu4=" crossorigin="anonymous">
-
-
-        <script src="/js/main.6c409276cd7e5727976213e68dc28d29bc9bfce7a824c74b596fbb16ee583bcb.js" integrity="sha256-bECSds1&#43;VyeXYhPmjcKNKbyb/OeoJMdLWW&#43;7Fu5YO8s=" crossorigin="anonymous"></script>
+      <script src="/js/main.js"></script>
 
 
 
@@ -117,7 +138,7 @@ The load more functionality uses vanilla JavaScript:">
 
     <div>
         <h2 id="project-overview">Project Overview</h2>
-<p>This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &ldquo;[load more]&rdquo; button to appear.</p>
+<p>This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &quot;[load more]&quot; button to appear.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li><strong>Interactive UI</strong>: Demonstrates modern web interaction patterns</li>
@@ -147,7 +168,7 @@ The load more functionality uses vanilla JavaScript:">
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>npm install
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>npm start
 </span></span></code></pre></div><h2 id="live-demo">Live Demo</h2>
-<p>Navigate to the homepage to see this project listed under the &ldquo;projects&rdquo; section with the interactive load more functionality.</p>
+<p>Navigate to the homepage to see this project listed under the &quot;projects&quot; section with the interactive load more functionality.</p>
 <h2 id="repository">Repository</h2>
 <ul>
 <li><strong>GitHub</strong>: <a href="https://github.com/example/demo-project">github.com/example/demo-project</a> (fictional)</li>

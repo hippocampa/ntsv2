@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
@@ -10,7 +10,7 @@
 <title>Sample Post to Showcase Load More Functionality | notesbyts</title>
 <meta name="description"
     content="Introduction
-This is a sample blog post created specifically to demonstrate the &ldquo;load more&rdquo; functionality on the homepage. When you have more than 3 posts in a section, a clickable &ldquo;[load more]&rdquo; button will appear next to the section heading.
+This is a sample blog post created specifically to demonstrate the &quot;load more&quot; functionality on the homepage. When you have more than 3 posts in a section, a clickable &quot;[load more]&quot; button will appear next to the section heading.
 How It Works
 The load more functionality:
 
@@ -18,20 +18,20 @@ Initial Display: Shows only the first 3 items in each section (blog, projects, p
 Load More Button: Appears when there are 4&#43; items in a section
 Toggle Behavior:
 
-Click &ldquo;[load more]&rdquo; → Shows all items, button changes to &ldquo;[show less]&rdquo;
-Click &ldquo;[show less]&rdquo; → Hides items beyond the first 3, button reverts to &ldquo;[load more]&rdquo;
+Click &quot;[load more]&quot; → Shows all items, button changes to &quot;[show less]&quot;
+Click &quot;[show less]&quot; → Hides items beyond the first 3, button reverts to &quot;[load more]&quot;
 
 
 
 Mathematical Notation Example
-Since this site supports KaTeX, here&rsquo;s a sample equation to test the math rendering:">
+Since this site supports KaTeX, here&#39;s a sample equation to test the math rendering:">
 <meta name="author" content="Your Name">
 
 
 <meta property="og:title" content="Sample Post to Showcase Load More Functionality">
 <meta property="og:description"
     content="Introduction
-This is a sample blog post created specifically to demonstrate the &ldquo;load more&rdquo; functionality on the homepage. When you have more than 3 posts in a section, a clickable &ldquo;[load more]&rdquo; button will appear next to the section heading.
+This is a sample blog post created specifically to demonstrate the &quot;load more&quot; functionality on the homepage. When you have more than 3 posts in a section, a clickable &quot;[load more]&quot; button will appear next to the section heading.
 How It Works
 The load more functionality:
 
@@ -39,15 +39,15 @@ Initial Display: Shows only the first 3 items in each section (blog, projects, p
 Load More Button: Appears when there are 4&#43; items in a section
 Toggle Behavior:
 
-Click &ldquo;[load more]&rdquo; → Shows all items, button changes to &ldquo;[show less]&rdquo;
-Click &ldquo;[show less]&rdquo; → Hides items beyond the first 3, button reverts to &ldquo;[load more]&rdquo;
+Click &quot;[load more]&quot; → Shows all items, button changes to &quot;[show less]&quot;
+Click &quot;[show less]&quot; → Hides items beyond the first 3, button reverts to &quot;[load more]&quot;
 
 
 
 Mathematical Notation Example
-Since this site supports KaTeX, here&rsquo;s a sample equation to test the math rendering:">
+Since this site supports KaTeX, here&#39;s a sample equation to test the math rendering:">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://example.org/blog/sample-post-showcase/">
+<meta property="og:url" content="http://localhost:1313/blog/sample-post-showcase/">
 <meta property="og:site_name" content="notesbyts">
 
 
@@ -55,7 +55,7 @@ Since this site supports KaTeX, here&rsquo;s a sample equation to test the math 
 <meta name="twitter:title" content="Sample Post to Showcase Load More Functionality">
 <meta name="twitter:description"
     content="Introduction
-This is a sample blog post created specifically to demonstrate the &ldquo;load more&rdquo; functionality on the homepage. When you have more than 3 posts in a section, a clickable &ldquo;[load more]&rdquo; button will appear next to the section heading.
+This is a sample blog post created specifically to demonstrate the &quot;load more&quot; functionality on the homepage. When you have more than 3 posts in a section, a clickable &quot;[load more]&quot; button will appear next to the section heading.
 How It Works
 The load more functionality:
 
@@ -63,17 +63,16 @@ Initial Display: Shows only the first 3 items in each section (blog, projects, p
 Load More Button: Appears when there are 4&#43; items in a section
 Toggle Behavior:
 
-Click &ldquo;[load more]&rdquo; → Shows all items, button changes to &ldquo;[show less]&rdquo;
-Click &ldquo;[show less]&rdquo; → Hides items beyond the first 3, button reverts to &ldquo;[load more]&rdquo;
+Click &quot;[load more]&quot; → Shows all items, button changes to &quot;[show less]&quot;
+Click &quot;[show less]&quot; → Hides items beyond the first 3, button reverts to &quot;[load more]&quot;
 
 
 
 Mathematical Notation Example
-Since this site supports KaTeX, here&rsquo;s a sample equation to test the math rendering:">
+Since this site supports KaTeX, here&#39;s a sample equation to test the math rendering:">
 
 
-<link rel="canonical" href="https://example.org/blog/sample-post-showcase/">
-
+<link rel="canonical" href="http://localhost:1313/blog/sample-post-showcase/">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
@@ -84,12 +83,34 @@ Since this site supports KaTeX, here&rsquo;s a sample equation to test the math 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("KaTeX: DOMContentLoaded event fired.");
+        if (typeof renderMathInElement === 'function') {
+            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false 
+                });
+                console.log("KaTeX: renderMathInElement executed.");
+            } catch (e) {
+                console.error("KaTeX: Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
+    <link rel="stylesheet" href="/css/main.css">
 
 
-      <link rel="stylesheet" href="/css/main.min.9d8faf5b73ba16d442c79d538942aa2720695bcfd5c4002e651f5b2134030aee.css" integrity="sha256-nY&#43;vW3O6FtRCx51TiUKqJyBpW8/VxAAuZR9bITQDCu4=" crossorigin="anonymous">
-
-
-        <script src="/js/main.6c409276cd7e5727976213e68dc28d29bc9bfce7a824c74b596fbb16ee583bcb.js" integrity="sha256-bECSds1&#43;VyeXYhPmjcKNKbyb/OeoJMdLWW&#43;7Fu5YO8s=" crossorigin="anonymous"></script>
+      <script src="/js/main.js"></script>
 
 
 
@@ -110,11 +131,11 @@ Since this site supports KaTeX, here&rsquo;s a sample equation to test the math 
     "@type": "Person",
     "name": "Your Name"
   },
-  "description": "\u003ch2 id=\u0022introduction\u0022\u003eIntroduction\u003c\/h2\u003e\n\u003cp\u003eThis is a sample blog post created specifically to demonstrate the \u0026ldquo;load more\u0026rdquo; functionality on the homepage. When you have more than 3 posts in a section, a clickable \u0026ldquo;[load more]\u0026rdquo; button will appear next to the section heading.\u003c\/p\u003e\n\u003ch2 id=\u0022how-it-works\u0022\u003eHow It Works\u003c\/h2\u003e\n\u003cp\u003eThe load more functionality:\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eInitial Display\u003c\/strong\u003e: Shows only the first 3 items in each section (blog, projects, publications)\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eLoad More Button\u003c\/strong\u003e: Appears when there are 4\u002b items in a section\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eToggle Behavior\u003c\/strong\u003e:\n\u003cul\u003e\n\u003cli\u003eClick \u0026ldquo;[load more]\u0026rdquo; → Shows all items, button changes to \u0026ldquo;[show less]\u0026rdquo;\u003c\/li\u003e\n\u003cli\u003eClick \u0026ldquo;[show less]\u0026rdquo; → Hides items beyond the first 3, button reverts to \u0026ldquo;[load more]\u0026rdquo;\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003ch2 id=\u0022mathematical-notation-example\u0022\u003eMathematical Notation Example\u003c\/h2\u003e\n\u003cp\u003eSince this site supports KaTeX, here\u0026rsquo;s a sample equation to test the math rendering:\u003c\/p\u003e",
-  "url": "https:\/\/example.org\/blog\/sample-post-showcase\/",
+  "description": "\u003ch2 id=\u0022introduction\u0022\u003eIntroduction\u003c\/h2\u003e\n\u003cp\u003eThis is a sample blog post created specifically to demonstrate the \u0026quot;load more\u0026quot; functionality on the homepage. When you have more than 3 posts in a section, a clickable \u0026quot;[load more]\u0026quot; button will appear next to the section heading.\u003c\/p\u003e\n\u003ch2 id=\u0022how-it-works\u0022\u003eHow It Works\u003c\/h2\u003e\n\u003cp\u003eThe load more functionality:\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eInitial Display\u003c\/strong\u003e: Shows only the first 3 items in each section (blog, projects, publications)\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eLoad More Button\u003c\/strong\u003e: Appears when there are 4\u002b items in a section\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eToggle Behavior\u003c\/strong\u003e:\n\u003cul\u003e\n\u003cli\u003eClick \u0026quot;[load more]\u0026quot; → Shows all items, button changes to \u0026quot;[show less]\u0026quot;\u003c\/li\u003e\n\u003cli\u003eClick \u0026quot;[show less]\u0026quot; → Hides items beyond the first 3, button reverts to \u0026quot;[load more]\u0026quot;\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003ch2 id=\u0022mathematical-notation-example\u0022\u003eMathematical Notation Example\u003c\/h2\u003e\n\u003cp\u003eSince this site supports KaTeX, here\u0027s a sample equation to test the math rendering:\u003c\/p\u003e",
+  "url": "http:\/\/localhost:1313\/blog\/sample-post-showcase\/",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https:\/\/example.org\/blog\/sample-post-showcase\/"
+    "@id": "http:\/\/localhost:1313\/blog\/sample-post-showcase\/"
   }
 }
 </script>
@@ -149,7 +170,7 @@ Since this site supports KaTeX, here&rsquo;s a sample equation to test the math 
 
     <div>
         <h2 id="introduction">Introduction</h2>
-<p>This is a sample blog post created specifically to demonstrate the &ldquo;load more&rdquo; functionality on the homepage. When you have more than 3 posts in a section, a clickable &ldquo;[load more]&rdquo; button will appear next to the section heading.</p>
+<p>This is a sample blog post created specifically to demonstrate the &quot;load more&quot; functionality on the homepage. When you have more than 3 posts in a section, a clickable &quot;[load more]&quot; button will appear next to the section heading.</p>
 <h2 id="how-it-works">How It Works</h2>
 <p>The load more functionality:</p>
 <ol>
@@ -157,17 +178,17 @@ Since this site supports KaTeX, here&rsquo;s a sample equation to test the math 
 <li><strong>Load More Button</strong>: Appears when there are 4+ items in a section</li>
 <li><strong>Toggle Behavior</strong>:
 <ul>
-<li>Click &ldquo;[load more]&rdquo; → Shows all items, button changes to &ldquo;[show less]&rdquo;</li>
-<li>Click &ldquo;[show less]&rdquo; → Hides items beyond the first 3, button reverts to &ldquo;[load more]&rdquo;</li>
+<li>Click &quot;[load more]&quot; → Shows all items, button changes to &quot;[show less]&quot;</li>
+<li>Click &quot;[show less]&quot; → Hides items beyond the first 3, button reverts to &quot;[load more]&quot;</li>
 </ul>
 </li>
 </ol>
 <h2 id="mathematical-notation-example">Mathematical Notation Example</h2>
-<p>Since this site supports KaTeX, here&rsquo;s a sample equation to test the math rendering:</p>
+<p>Since this site supports KaTeX, here's a sample equation to test the math rendering:</p>
 <p>The quadratic formula: $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$</p>
 <p>And some inline math: The famous equation $E = mc^2$ shows the mass-energy equivalence.</p>
 <h2 id="code-example">Code Example</h2>
-<p>Here&rsquo;s a simple JavaScript function that demonstrates the toggle functionality:</p>
+<p>Here's a simple JavaScript function that demonstrates the toggle functionality:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#cf222e">function</span> <span style="color:#1f2328">toggleVisibility</span><span style="color:#1f2328">(</span><span style="color:#1f2328">items</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">threshold</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    <span style="color:#1f2328">items</span><span style="color:#1f2328">.</span><span style="color:#1f2328">forEach</span><span style="color:#1f2328">((</span><span style="color:#1f2328">item</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">index</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">index</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#1f2328">threshold</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
@@ -176,7 +197,7 @@ Since this site supports KaTeX, here&rsquo;s a sample equation to test the math 
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    <span style="color:#1f2328">});</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
-<p>This post serves as the 4th blog entry, which should trigger the appearance of the &ldquo;[load more]&rdquo; button on the homepage. Navigate back to the home page to see the functionality in action!</p>
+<p>This post serves as the 4th blog entry, which should trigger the appearance of the &quot;[load more]&quot; button on the homepage. Navigate back to the home page to see the functionality in action!</p>
 <p>The raw HTML aesthetic is preserved while adding modern interactive features that enhance the user experience without compromising the minimalist design philosophy.</p>
 
     </div>

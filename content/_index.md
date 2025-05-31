@@ -1,5 +1,6 @@
 ---
 title: "notesbyts"
+math: true
 ---
 
 research, projects, and notes.

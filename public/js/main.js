@@ -8,7 +8,7 @@
         applyDarkTheme();
       }
       toggle.addEventListener("click", function() {
-        const isDark = document.body.style.backgroundColor === "rgb(0, 0, 0)";
+        const isDark = document.body.style.backgroundColor === "rgb(0, 0, 0)" || document.body.style.backgroundColor === "#000" || document.body.style.backgroundColor === "#000000";
         if (isDark) {
           applyLightTheme();
         } else {
@@ -37,32 +37,6 @@
       }
       localStorage.setItem("theme", "light");
     }
-    function renderMath() {
-      if (typeof renderMathInElement !== "undefined") {
-        renderMathInElement(document.body, {
-          delimiters: [
-            { left: "$$", right: "$$", display: true },
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "\\[", right: "\\]", display: true }
-          ],
-          throwOnError: false,
-          macros: {
-            "\\RR": "\\mathbb{R}",
-            "\\NN": "\\mathbb{N}",
-            "\\ZZ": "\\mathbb{Z}",
-            "\\QQ": "\\mathbb{Q}",
-            "\\CC": "\\mathbb{C}"
-          }
-        });
-      } else {
-        setTimeout(renderMath, 100);
-      }
-    }
-    if (document.readyState === "loading") {
-      setTimeout(renderMath, 200);
-    } else {
-      renderMath();
-    }
+    console.log("main.js loaded, KaTeX logic deferred to head.html");
   });
 })();

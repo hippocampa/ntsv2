@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mathematics on notesbyts</title>
-    <link>https://example.org/categories/mathematics/</link>
+    <link>http://localhost:1313/categories/mathematics/</link>
     <description>Recent content in Mathematics on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.org/categories/mathematics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/mathematics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Understanding KaTeX and Mathematical Notation in Web Development</title>
-      <link>https://example.org/blog/katex-mathematical-notation/</link>
+      <link>http://localhost:1313/blog/katex-mathematical-notation/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://example.org/blog/katex-mathematical-notation/</guid>
+      <guid>http://localhost:1313/blog/katex-mathematical-notation/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;When building academic or technical websites, the ability to render mathematical notation is crucial. KaTeX has emerged as the go-to solution for fast, server-side rendering of mathematical expressions in web browsers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-katex&#34;&gt;Why KaTeX?&lt;/h2&gt;&#xA;&lt;p&gt;KaTeX offers several advantages over alternatives like MathJax:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: Renders math expressions significantly faster&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Self-contained&lt;/strong&gt;: No external dependencies for basic functionality&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Server-side rendering&lt;/strong&gt;: Can generate static HTML&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;$\LaTeX$ compatibility&lt;/strong&gt;: Supports most common $\LaTeX$ commands&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;basic-setup&#34;&gt;Basic Setup&lt;/h2&gt;&#xA;&lt;p&gt;To integrate KaTeX into a website, you need both the CSS and JavaScript files:&lt;/p&gt;</description>
     </item>
   </channel>

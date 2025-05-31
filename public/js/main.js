@@ -37,6 +37,5 @@
       }
       localStorage.setItem("theme", "light");
     }
-    console.log("main.js loaded, KaTeX logic deferred to head.html");
   });
 })();

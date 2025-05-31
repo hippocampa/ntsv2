@@ -44,8 +44,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         localStorage.setItem('theme', 'light');
     }
-
-    // All KaTeX related code has been removed from here.
-    // It is now handled in themes/ntstheme/layouts/_partials/head.html
-    console.log("main.js loaded, KaTeX logic deferred to head.html");
 });

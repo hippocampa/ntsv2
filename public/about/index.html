@@ -114,16 +114,14 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-    integrity="sha384-XjKyOOlGwcjNTAIQHIpVOBD+PyJbkH2OjL7mnyMHFw5y5N12sKGaT9y5jc4nBIzG"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
     crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        console.log("KaTeX: DOMContentLoaded event fired.");
         if (typeof renderMathInElement === 'function') {
-            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
             try {
                 renderMathInElement(document.body, {
                     delimiters: [
@@ -132,14 +130,13 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
                         {left: '\\(', right: '\\)', display: false},
                         {left: '\\[', right: '\\]', display: true}
                     ],
-                    throwOnError: false 
+                    throwOnError: false
                 });
-                console.log("KaTeX: renderMathInElement executed.");
             } catch (e) {
-                console.error("KaTeX: Error during renderMathInElement execution:", e);
+                console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
             }
         } else {
-            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+            console.error("KaTeX (from head.html): renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
         }
     });
 </script>

@@ -44,9 +44,7 @@ Posts often include mathematical formulations, code examples, and detailed expla
     crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        console.log("KaTeX (from head.html): DOMContentLoaded event fired.");
         if (typeof renderMathInElement === 'function') {
-            console.log("KaTeX (from head.html): renderMathInElement is available. Attempting to render math.");
             try {
                 renderMathInElement(document.body, {
                     delimiters: [
@@ -57,7 +55,6 @@ Posts often include mathematical formulations, code examples, and detailed expla
                     ],
                     throwOnError: false
                 });
-                console.log("KaTeX (from head.html): renderMathInElement executed.");
             } catch (e) {
                 console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
             }

@@ -64,34 +64,5 @@
     } else {
       renderMath();
     }
-    function setupLoadMore(sectionName) {
-      const loadMoreBtn = document.getElementById(sectionName + "-load-more");
-      const items = document.querySelectorAll("." + sectionName.replace("s", "") + "-item");
-      if (loadMoreBtn && items.length > 3) {
-        let expanded = false;
-        loadMoreBtn.addEventListener("click", function() {
-          if (!expanded) {
-            Array.from(items).forEach((item, index) => {
-              if (index >= 3) {
-                item.style.display = "block";
-              }
-            });
-            loadMoreBtn.textContent = "[show less]";
-            expanded = true;
-          } else {
-            Array.from(items).forEach((item, index) => {
-              if (index >= 3) {
-                item.style.display = "none";
-              }
-            });
-            loadMoreBtn.textContent = "[load more]";
-            expanded = false;
-          }
-        });
-      }
-    }
-    setupLoadMore("blog");
-    setupLoadMore("projects");
-    setupLoadMore("publications");
   });
 })();

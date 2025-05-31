@@ -68,40 +68,5 @@ document.addEventListener('DOMContentLoaded', function () {    // theme toggle
         setTimeout(renderMath, 200);
     } else {
         renderMath();
-    }    // Load more functionality for homepage sections
-    function setupLoadMore(sectionName) {
-        const loadMoreBtn = document.getElementById(sectionName + '-load-more');
-        const items = document.querySelectorAll('.' + sectionName.replace('s', '') + '-item');
-
-        if (loadMoreBtn && items.length > 3) {
-            let expanded = false;
-
-            loadMoreBtn.addEventListener('click', function () {
-                if (!expanded) {
-                    // Show all items
-                    Array.from(items).forEach((item, index) => {
-                        if (index >= 3) {
-                            item.style.display = 'block';
-                        }
-                    });
-                    loadMoreBtn.textContent = '[show less]';
-                    expanded = true;
-                } else {
-                    // Hide items beyond first 3
-                    Array.from(items).forEach((item, index) => {
-                        if (index >= 3) {
-                            item.style.display = 'none';
-                        }
-                    });
-                    loadMoreBtn.textContent = '[load more]';
-                    expanded = false;
-                }
-            });
-        }
     }
-
-    // Setup load more for each section
-    setupLoadMore('blog');
-    setupLoadMore('projects');
-    setupLoadMore('publications');
 });

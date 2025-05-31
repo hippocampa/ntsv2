@@ -1,0 +1,32 @@
+{
+  // Hugo template formatting settings
+  "html.format.templating": true,
+  "html.format.wrapAttributes": "preserve",
+  "html.format.preserveNewLines": true,
+  
+  // Disable auto-formatting for HTML files with Hugo templates
+  "[html]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  
+  // Prettier settings (if using Prettier)
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.ignorePath": ".prettierignore",
+  
+  // Disable specific formatters for Hugo template files
+  "emmet.excludeLanguages": ["html"],
+  
+  // File associations for Hugo templates
+  "files.associations": {
+    "*.html": "html",
+    "layouts/**/*.html": "go-template",
+    "themes/**/layouts/**/*.html": "go-template"
+  },
+  
+  // Language-specific settings for Go templates
+  "[go-template]": {
+    "editor.formatOnSave": false,
+    "editor.autoIndent": "none"
+  }
+}

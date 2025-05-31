@@ -6,6 +6,7 @@ theme = 'ntstheme'
 [params]
 description = "Academic notes, research, and technical insights"
 author = "Your Name"
+homepageMaxItems = 3
 
 [sitemap]
 changefreq = "weekly"

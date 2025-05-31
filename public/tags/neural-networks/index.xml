@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Neural Networks on notesbyts</title>
-    <link>http://localhost:1313/tags/neural-networks/</link>
+    <link>http://localhost:52377/tags/neural-networks/</link>
     <description>Recent content in Neural Networks on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/neural-networks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:52377/tags/neural-networks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Novel Approach to Machine Learning Optimization</title>
-      <link>http://localhost:1313/publications/ml-optimization-2024/</link>
+      <link>http://localhost:52377/publications/ml-optimization-2024/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publications/ml-optimization-2024/</guid>
+      <guid>http://localhost:52377/publications/ml-optimization-2024/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Deep learning optimization remains a fundamental challenge in machine learning. Traditional gradient descent methods often struggle with convergence speed and local minima. This work addresses these limitations through a novel adaptive optimization strategy.&lt;/p&gt;&#xA;&lt;h2 id=&#34;methodology&#34;&gt;Methodology&lt;/h2&gt;&#xA;&lt;p&gt;Our approach builds upon the mathematical foundation of gradient descent:&lt;/p&gt;&#xA;&lt;p&gt;$$\theta_{t+1} = \theta_t - \alpha \nabla_\theta J(\theta_t)$$&lt;/p&gt;&#xA;&lt;p&gt;Where $\theta$ represents the model parameters, $\alpha$ is the learning rate, and $J(\theta)$ is the loss function.&lt;/p&gt;&#xA;&lt;p&gt;We introduce an adaptive component that modifies the learning rate based on the historical gradient information:&lt;/p&gt;</description>
     </item>
   </channel>

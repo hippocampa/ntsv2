@@ -2,192 +2,234 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on notesbyts</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>http://localhost:52377/tags/</link>
     <description>Recent content in Tags on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:52377/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Academic</title>
-      <link>http://localhost:1313/tags/academic/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/academic/</guid>
+      <title>Demo</title>
+      <link>http://localhost:52377/tags/demo/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/demo/</guid>
       <description></description>
     </item>
     <item>
-      <title>Open Source</title>
-      <link>http://localhost:1313/tags/open-source/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/open-source/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Static Site Generator</title>
-      <link>http://localhost:1313/tags/static-site-generator/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/static-site-generator/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Web Development</title>
-      <link>http://localhost:1313/tags/web-development/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/web-development/</guid>
+      <title>Hugo</title>
+      <link>http://localhost:52377/tags/hugo/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Javascript</title>
-      <link>http://localhost:1313/tags/javascript/</link>
-      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/javascript/</guid>
+      <link>http://localhost:52377/tags/javascript/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ui</title>
+      <link>http://localhost:52377/tags/ui/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/ui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Showcase</title>
+      <link>http://localhost:52377/tags/showcase/</link>
+      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/showcase/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Academic</title>
+      <link>http://localhost:52377/tags/academic/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/academic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open Source</title>
+      <link>http://localhost:52377/tags/open-source/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/open-source/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Static Site Generator</title>
+      <link>http://localhost:52377/tags/static-site-generator/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/static-site-generator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web Development</title>
+      <link>http://localhost:52377/tags/web-development/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/web-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Katex</title>
-      <link>http://localhost:1313/tags/katex/</link>
+      <link>http://localhost:52377/tags/katex/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/katex/</guid>
+      <guid>http://localhost:52377/tags/katex/</guid>
       <description></description>
     </item>
     <item>
       <title>Latex</title>
-      <link>http://localhost:1313/tags/latex/</link>
+      <link>http://localhost:52377/tags/latex/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/latex/</guid>
+      <guid>http://localhost:52377/tags/latex/</guid>
       <description></description>
     </item>
     <item>
       <title>Math</title>
-      <link>http://localhost:1313/tags/math/</link>
+      <link>http://localhost:52377/tags/math/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/math/</guid>
+      <guid>http://localhost:52377/tags/math/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ui-Patterns</title>
+      <link>http://localhost:52377/tags/ui-patterns/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/ui-patterns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web-Interfaces</title>
+      <link>http://localhost:52377/tags/web-interfaces/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52377/tags/web-interfaces/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithms</title>
-      <link>http://localhost:1313/tags/algorithms/</link>
+      <link>http://localhost:52377/tags/algorithms/</link>
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/algorithms/</guid>
+      <guid>http://localhost:52377/tags/algorithms/</guid>
       <description></description>
     </item>
     <item>
       <title>Competitive Programming</title>
-      <link>http://localhost:1313/tags/competitive-programming/</link>
+      <link>http://localhost:52377/tags/competitive-programming/</link>
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/competitive-programming/</guid>
+      <guid>http://localhost:52377/tags/competitive-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Complexity</title>
-      <link>http://localhost:1313/tags/complexity/</link>
+      <link>http://localhost:52377/tags/complexity/</link>
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/complexity/</guid>
+      <guid>http://localhost:52377/tags/complexity/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Structures</title>
-      <link>http://localhost:1313/tags/data-structures/</link>
+      <link>http://localhost:52377/tags/data-structures/</link>
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/data-structures/</guid>
+      <guid>http://localhost:52377/tags/data-structures/</guid>
       <description></description>
     </item>
     <item>
       <title>Optimization</title>
-      <link>http://localhost:1313/tags/optimization/</link>
+      <link>http://localhost:52377/tags/optimization/</link>
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/optimization/</guid>
+      <guid>http://localhost:52377/tags/optimization/</guid>
       <description></description>
     </item>
     <item>
       <title>D3js</title>
-      <link>http://localhost:1313/tags/d3js/</link>
+      <link>http://localhost:52377/tags/d3js/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/d3js/</guid>
+      <guid>http://localhost:52377/tags/d3js/</guid>
       <description></description>
     </item>
     <item>
       <title>Dashboard</title>
-      <link>http://localhost:1313/tags/dashboard/</link>
+      <link>http://localhost:52377/tags/dashboard/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/dashboard/</guid>
+      <guid>http://localhost:52377/tags/dashboard/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Visualization</title>
-      <link>http://localhost:1313/tags/data-visualization/</link>
+      <link>http://localhost:52377/tags/data-visualization/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/data-visualization/</guid>
+      <guid>http://localhost:52377/tags/data-visualization/</guid>
       <description></description>
     </item>
     <item>
       <title>Full-Stack</title>
-      <link>http://localhost:1313/tags/full-stack/</link>
+      <link>http://localhost:52377/tags/full-stack/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/full-stack/</guid>
+      <guid>http://localhost:52377/tags/full-stack/</guid>
       <description></description>
     </item>
     <item>
       <title>React</title>
-      <link>http://localhost:1313/tags/react/</link>
+      <link>http://localhost:52377/tags/react/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/react/</guid>
+      <guid>http://localhost:52377/tags/react/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>http://localhost:1313/tags/machine-learning/</link>
+      <link>http://localhost:52377/tags/machine-learning/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <guid>http://localhost:52377/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Neural Networks</title>
-      <link>http://localhost:1313/tags/neural-networks/</link>
+      <link>http://localhost:52377/tags/neural-networks/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/neural-networks/</guid>
+      <guid>http://localhost:52377/tags/neural-networks/</guid>
       <description></description>
     </item>
     <item>
       <title>Distributed Systems</title>
-      <link>http://localhost:1313/tags/distributed-systems/</link>
+      <link>http://localhost:52377/tags/distributed-systems/</link>
       <pubDate>Sun, 15 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/distributed-systems/</guid>
+      <guid>http://localhost:52377/tags/distributed-systems/</guid>
       <description></description>
     </item>
     <item>
       <title>Graph Neural Networks</title>
-      <link>http://localhost:1313/tags/graph-neural-networks/</link>
+      <link>http://localhost:52377/tags/graph-neural-networks/</link>
       <pubDate>Sun, 15 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/graph-neural-networks/</guid>
+      <guid>http://localhost:52377/tags/graph-neural-networks/</guid>
       <description></description>
     </item>
     <item>
       <title>Scalability</title>
-      <link>http://localhost:1313/tags/scalability/</link>
+      <link>http://localhost:52377/tags/scalability/</link>
       <pubDate>Sun, 15 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/scalability/</guid>
+      <guid>http://localhost:52377/tags/scalability/</guid>
       <description></description>
     </item>
     <item>
       <title>Blue</title>
-      <link>http://localhost:1313/tags/blue/</link>
+      <link>http://localhost:52377/tags/blue/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/blue/</guid>
+      <guid>http://localhost:52377/tags/blue/</guid>
       <description></description>
     </item>
     <item>
       <title>Green</title>
-      <link>http://localhost:1313/tags/green/</link>
+      <link>http://localhost:52377/tags/green/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/green/</guid>
+      <guid>http://localhost:52377/tags/green/</guid>
       <description></description>
     </item>
     <item>
       <title>Red</title>
-      <link>http://localhost:1313/tags/red/</link>
+      <link>http://localhost:52377/tags/red/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/red/</guid>
+      <guid>http://localhost:52377/tags/red/</guid>
       <description></description>
     </item>
   </channel>

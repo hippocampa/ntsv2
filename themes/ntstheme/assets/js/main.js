@@ -21,23 +21,68 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem('theme', 'dark');
             }
         });
-    }
-
-    // math rendering - ensure KaTeX is loaded
+    }    // math rendering - ensure KaTeX is loaded
     function renderMath() {
         if (typeof renderMathInElement !== 'undefined') {
             renderMathInElement(document.body, {
                 delimiters: [
                     { left: '$$', right: '$$', display: true },
-                    { left: '$', right: '$', display: false }
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
                 ],
-                throwOnError: false
+                throwOnError: false,
+                macros: {
+                    "\\RR": "\\mathbb{R}",
+                    "\\NN": "\\mathbb{N}",
+                    "\\ZZ": "\\mathbb{Z}",
+                    "\\QQ": "\\mathbb{Q}",
+                    "\\CC": "\\mathbb{C}"
+                }
             });
         } else {
             // Retry after a delay if KaTeX not yet loaded
             setTimeout(renderMath, 100);
         }
+    }    // Wait for KaTeX to load before rendering
+    if (document.readyState === 'loading') {
+        setTimeout(renderMath, 200);
+    } else {
+        renderMath();
+    }    // Load more functionality for homepage sections
+    function setupLoadMore(sectionName) {
+        const loadMoreBtn = document.getElementById(sectionName + '-load-more');
+        const items = document.querySelectorAll('.' + sectionName.replace('s', '') + '-item');
+
+        if (loadMoreBtn && items.length > 3) {
+            let expanded = false;
+
+            loadMoreBtn.addEventListener('click', function () {
+                if (!expanded) {
+                    // Show all items
+                    Array.from(items).forEach((item, index) => {
+                        if (index >= 3) {
+                            item.style.display = 'block';
+                        }
+                    });
+                    loadMoreBtn.textContent = '[show less]';
+                    expanded = true;
+                } else {
+                    // Hide items beyond first 3
+                    Array.from(items).forEach((item, index) => {
+                        if (index >= 3) {
+                            item.style.display = 'none';
+                        }
+                    });
+                    loadMoreBtn.textContent = '[load more]';
+                    expanded = false;
+                }
+            });
+        }
     }
 
-    renderMath();
+    // Setup load more for each section
+    setupLoadMore('blog');
+    setupLoadMore('projects');
+    setupLoadMore('publications');
 });

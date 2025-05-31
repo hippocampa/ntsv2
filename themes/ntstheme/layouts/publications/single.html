@@ -1,0 +1,61 @@
+{{ define "main" }}
+<article>
+    <h1>{{ .Title }}</h1>
+
+    <div>
+        {{ if .Params.authors }}
+        <small><strong>Authors:</strong> {{ delimit .Params.authors ", " " and " }}</small><br>
+        {{ end }}
+        {{ if .Params.year }}
+        <small><strong>Year:</strong> {{ .Params.year }}</small><br>
+        {{ end }}
+        {{ if .Params.venue }}
+        <small><strong>Publication Venue:</strong> {{ .Params.venue }}</small><br>
+        {{ end }}
+        {{ if .Params.volume }}
+        <small><strong>Volume:</strong> {{ .Params.volume }}</small><br>
+        {{ end }}
+        {{ if .Params.pages }}
+        <small><strong>Pages:</strong> {{ .Params.pages }}</small><br>
+        {{ end }}
+    </div>
+
+    <div>
+        {{ if .Params.doi }}
+        <a href="https://doi.org/{{ .Params.doi }}" target="_blank">View on Publisher Site</a> |
+        {{ end }}
+        {{ if .Params.arxiv }}
+        <a href="https://arxiv.org/abs/{{ .Params.arxiv }}" target="_blank">arXiv</a> |
+        {{ end }}
+        {{ if .Params.pdf }}
+        <a href="{{ .Params.pdf }}" target="_blank">PDF</a> |
+        {{ end }}
+        {{ if .Params.code }}
+        <a href="{{ .Params.code }}" target="_blank">Code</a> |
+        {{ end }}
+        {{ if .Params.data }}
+        <a href="{{ .Params.data }}" target="_blank">Dataset</a>
+        {{ end }}
+    </div>
+
+    {{ if .Params.abstract }}
+    <div>
+        <h3>Abstract</h3>
+        <p>{{ .Params.abstract }}</p>
+    </div>
+    {{ end }}
+
+    <div>
+        {{ .Content }}
+    </div>
+
+    {{ if .Params.tags }}
+    <div>
+        <h3>Tags</h3>
+        {{ range .Params.tags }}
+        <span>{{ . }}</span>{{ if not (eq . (index $.Params.tags (sub (len $.Params.tags) 1))) }}, {{ end }}
+        {{ end }}
+    </div>
+    {{ end }}
+</article>
+{{ end }}

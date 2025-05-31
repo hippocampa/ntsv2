@@ -26,14 +26,56 @@
         renderMathInElement(document.body, {
           delimiters: [
             { left: "$$", right: "$$", display: true },
-            { left: "$", right: "$", display: false }
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "\\[", right: "\\]", display: true }
           ],
-          throwOnError: false
+          throwOnError: false,
+          macros: {
+            "\\RR": "\\mathbb{R}",
+            "\\NN": "\\mathbb{N}",
+            "\\ZZ": "\\mathbb{Z}",
+            "\\QQ": "\\mathbb{Q}",
+            "\\CC": "\\mathbb{C}"
+          }
         });
       } else {
         setTimeout(renderMath, 100);
       }
     }
-    renderMath();
+    if (document.readyState === "loading") {
+      setTimeout(renderMath, 200);
+    } else {
+      renderMath();
+    }
+    function setupLoadMore(sectionName) {
+      const loadMoreBtn = document.getElementById(sectionName + "-load-more");
+      const items = document.querySelectorAll("." + sectionName.replace("s", "") + "-item");
+      if (loadMoreBtn && items.length > 3) {
+        let expanded = false;
+        loadMoreBtn.addEventListener("click", function() {
+          if (!expanded) {
+            Array.from(items).forEach((item, index) => {
+              if (index >= 3) {
+                item.style.display = "block";
+              }
+            });
+            loadMoreBtn.textContent = "[show less]";
+            expanded = true;
+          } else {
+            Array.from(items).forEach((item, index) => {
+              if (index >= 3) {
+                item.style.display = "none";
+              }
+            });
+            loadMoreBtn.textContent = "[load more]";
+            expanded = false;
+          }
+        });
+      }
+    }
+    setupLoadMore("blog");
+    setupLoadMore("projects");
+    setupLoadMore("publications");
   });
 })();

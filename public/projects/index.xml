@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on notesbyts</title>
+    <link>http://localhost:1313/projects/</link>
+    <description>Recent content in Projects on notesbyts</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Academic Theme Generator</title>
+      <link>http://localhost:1313/projects/hugo-academic-theme/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/hugo-academic-theme/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;A minimalistic, fast-loading academic theme for Hugo static site generator. Designed specifically for researchers, academics, and technical professionals who need a clean, professional web presence.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Minimalistic Design&lt;/strong&gt;: Clean, distraction-free layout focusing on content&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Academic Focus&lt;/strong&gt;: Built-in support for publications, projects, and research notes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Math Support&lt;/strong&gt;: Full $\LaTeX$ support using KaTeX for mathematical notation&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Fast Loading&lt;/strong&gt;: Optimized for performance with minimal JavaScript&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;SEO Friendly&lt;/strong&gt;: Comprehensive meta tags and structured data&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Responsive&lt;/strong&gt;: Mobile-first design that works on all devices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-implementation&#34;&gt;Technical Implementation&lt;/h2&gt;&#xA;&lt;p&gt;The theme is built using Hugo&amp;rsquo;s powerful templating system. Key components include:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Interactive Data Visualization Dashboard</title>
+      <link>http://localhost:1313/projects/data-viz-dashboard/</link>
+      <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/data-viz-dashboard/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;&#xA;&lt;p&gt;An interactive web application for visualizing complex datasets with real-time updates and customizable chart types. Built for data scientists and analysts who need flexible, performant visualization tools.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time Data Streaming&lt;/strong&gt;: WebSocket integration for live data updates&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Multiple Chart Types&lt;/strong&gt;: Bar, line, scatter, heatmap, and custom visualizations&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Interactive Filtering&lt;/strong&gt;: Dynamic data filtering and drill-down capabilities&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Export Functionality&lt;/strong&gt;: PDF, PNG, and SVG export options&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Responsive Design&lt;/strong&gt;: Works seamlessly across desktop and mobile devices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;&#xA;&lt;p&gt;The application follows a modern full-stack architecture:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

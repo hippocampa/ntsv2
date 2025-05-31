@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="home-content">
+    <!-- Site Title and Description Only -->
+    <section class="intro">
+        {{ .Content }}
+    </section>
+
+    <!-- Recent Content - Top 5 Latest from All Sections -->
+    {{ $allPages := slice }}
+    {{ range site.RegularPages }}
+    {{ if and (ne .Section "") (in (slice "blog" "publications" "projects") .Section) }}
+    {{ $allPages = $allPages | append . }}
+    {{ end }}
+    {{ end }}
+    {{ $recentPages := $allPages | first 5 }}
+
+    {{ if $recentPages }}
+    <section class="recent-content">
+        <h2>Latest</h2>
+        <ul class="content-list">
+            {{ range $recentPages }}
+            <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <span class="content-date">{{ .Date.Format "2006-01-02" }}</span>
+                <span class="content-type">[{{ .Section }}]</span>
+            </li>
+            {{ end }}
+        </ul>
+
+        <div class="load-more-section">
+            <a href="/blog" class="load-more">blog</a>
+            <a href="/publications" class="load-more">publications</a>
+            <a href="/projects" class="load-more">projects</a>
+        </div>
+    </section>
+    {{ end }}
+</div>
+{{ end }}

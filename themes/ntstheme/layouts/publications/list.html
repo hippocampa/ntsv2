@@ -1,0 +1,11 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+
+{{ range (.Pages.ByParam "year").Reverse }}
+<div>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <small>{{ if .Params.year }}{{ .Params.year }}{{ else }}{{ .Date.Format "06" }}{{ end }}</small>
+</div>
+{{ end }}
+{{ end }}

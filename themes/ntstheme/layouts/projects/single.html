@@ -1,0 +1,49 @@
+{{ define "main" }}
+<article>
+    <h1>{{ .Title }}</h1>
+
+    <div>
+        {{ if .Date }}
+        <small><strong>Date:</strong> {{ .Date.Format "January 2, 2006" }}</small><br>
+        {{ end }}
+        {{ if .Params.status }}
+        <small><strong>Status:</strong> {{ .Params.status }}</small><br>
+        {{ end }}
+        {{ if .Params.technologies }}
+        <small><strong>Technologies:</strong> {{ delimit .Params.technologies ", " }}</small><br>
+        {{ end }}
+        {{ if .Params.collaborators }}
+        <small><strong>Collaborators:</strong> {{ delimit .Params.collaborators ", " }}</small><br>
+        {{ end }}
+    </div>
+
+    <div>
+        {{ if .Params.github }}
+        <a href="{{ .Params.github }}" target="_blank">GitHub Repository</a> |
+        {{ end }}
+        {{ if .Params.gitlab }}
+        <a href="{{ .Params.gitlab }}" target="_blank">GitLab Repository</a> |
+        {{ end }}
+        {{ if .Params.demo }}
+        <a href="{{ .Params.demo }}" target="_blank">Live Demo</a> |
+        {{ end }}
+        {{ if .Params.website }}
+        <a href="{{ .Params.website }}" target="_blank">Project Website</a> |
+        {{ end }}
+        {{ if .Params.paper }}
+        <a href="{{ .Params.paper }}" target="_blank">Related Paper</a>
+        {{ end }}
+    </div>
+
+    <div>
+        {{ .Content }}
+    </div> {{ if .Params.tags }}
+    <div>
+        <h3>Tags</h3>
+        {{ range .Params.tags }}
+        <span>{{ . }}</span>{{ if not (eq . (index $.Params.tags (sub (len $.Params.tags) 1))) }}, {{ end }}
+        {{ end }}
+    </div>
+    {{ end }}
+</article>
+{{ end }}

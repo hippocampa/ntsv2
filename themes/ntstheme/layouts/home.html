@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ .Content }}
+
+{{ $allPages := slice }}
+{{ range site.RegularPages }}
+{{ if in (slice "blog" "publications" "projects") .Section }}
+{{ $allPages = $allPages | append . }}
+{{ end }}
+{{ end }}
+{{ $recent := $allPages | first 5 }}
+
+{{ if $recent }}
+<h2>recent</h2>
+{{ range $recent }}
+<div>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <small>{{ .Date.Format "06.01.02" }}</small>
+</div>
+{{ end }}
+
+<p>
+    <a href="/blog">blog</a> |
+    <a href="/publications">publications</a> |
+    <a href="/projects">projects</a>
+</p>
+{{ end }}
+{{ end }}

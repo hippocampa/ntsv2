@@ -1,0 +1,55 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'notesbyts'
+theme = 'ntstheme'
+
+[params]
+description = "Academic notes, research, and technical insights"
+author = "Your Name"
+
+[sitemap]
+changefreq = "weekly"
+priority = 0.5
+filename = "sitemap.xml"
+
+[outputs]
+home = ["HTML", "RSS"]
+section = ["HTML", "RSS"]
+page = ["HTML"]
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+[markup.highlight]
+style = "github"
+lineNos = true
+lineNumbersInTable = false
+tabWidth = 4
+codeFences = true
+
+[menus]
+[[menus.main]]
+name = 'Home'
+url = '/'
+weight = 10
+
+[[menus.main]]
+name = 'Publications'
+url = '/publications'
+weight = 20
+
+[[menus.main]]
+name = 'Projects'
+url = '/projects'
+weight = 30
+
+[[menus.main]]
+name = 'Blog'
+url = '/blog'
+weight = 40
+
+[[menus.main]]
+name = 'About'
+url = '/about'
+weight = 50

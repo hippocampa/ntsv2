@@ -1,0 +1,41 @@
+{{ define "main" }}
+<article>
+    <h1>{{ .Title }}</h1>
+
+    <div>
+        <small><strong>Published:</strong> {{ .Date.Format "January 2, 2006" }}</small>
+        {{ if .Lastmod }}
+        <br><small><strong>Last Updated:</strong> {{ .Lastmod.Format "January 2, 2006" }}</small>
+        {{ end }}
+        {{ if .Params.categories }}
+        <br><small><strong>Categories:</strong> {{ delimit .Params.categories ", " }}</small>
+        {{ end }}
+    </div>
+
+    <div>
+        {{ .Content }}
+    </div>
+
+    {{ if .Params.tags }}
+    <div>
+        <h3>Tags</h3>
+        {{ range .Params.tags }}
+        <span>{{ . }}</span>{{ if not (eq . (index $.Params.tags (sub (len $.Params.tags) 1))) }}, {{ end }}
+        {{ end }}
+    </div>
+    {{ end }}
+
+    <nav>
+        {{ if .PrevInSection }}
+        <div>
+            <a href="{{ .PrevInSection.RelPermalink }}">← {{ .PrevInSection.Title }}</a>
+        </div>
+        {{ end }}
+        {{ if .NextInSection }}
+        <div>
+            <a href="{{ .NextInSection.RelPermalink }}">{{ .NextInSection.Title }} →</a>
+        </div>
+        {{ end }}
+    </nav>
+</article>
+{{ end }}

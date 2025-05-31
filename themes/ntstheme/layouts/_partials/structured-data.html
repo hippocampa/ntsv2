@@ -1,0 +1,70 @@
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.Params.author }}",
+  "url": "{{ site.BaseURL }}",
+  "description": "{{ site.Params.description }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.BaseURL }}"
+  }
+}
+</script>
+{{ else if eq .Section "publications" }}
+{{ if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "{{ .Title }}",
+  "author": [
+    {{ range $index, $author := .Params.authors }}
+    {{ if $index }},{{ end }}
+    {
+      "@type": "Person",
+      "name": "{{ $author }}"
+    }
+    {{ end }}
+  ],
+  "datePublished": "{{ .Params.year }}-01-01",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Params.venue }}"
+  },
+  {{ if .Params.doi }}
+  "sameAs": "https://doi.org/{{ .Params.doi }}",
+  {{ end }}
+  "abstract": "{{ .Params.abstract | default .Summary }}",
+  "url": "{{ .Permalink }}"
+}
+</script>
+{{ end }}
+{{ else if eq .Section "blog" }}
+{{ if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ .Title }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.Params.author }}"
+  },
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.Params.author }}"
+  },
+  "description": "{{ .Summary }}",
+  "url": "{{ .Permalink }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  }
+}
+</script>
+{{ end }}
+{{ end }}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>notesbyts</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on notesbyts</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Academic Theme Generator</title>
+      <link>http://localhost:1313/projects/hugo-academic-theme/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/hugo-academic-theme/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;A minimalistic, fast-loading academic theme for Hugo static site generator. Designed specifically for researchers, academics, and technical professionals who need a clean, professional web presence.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Minimalistic Design&lt;/strong&gt;: Clean, distraction-free layout focusing on content&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Academic Focus&lt;/strong&gt;: Built-in support for publications, projects, and research notes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Math Support&lt;/strong&gt;: Full $\LaTeX$ support using KaTeX for mathematical notation&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Fast Loading&lt;/strong&gt;: Optimized for performance with minimal JavaScript&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;SEO Friendly&lt;/strong&gt;: Comprehensive meta tags and structured data&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Responsive&lt;/strong&gt;: Mobile-first design that works on all devices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-implementation&#34;&gt;Technical Implementation&lt;/h2&gt;&#xA;&lt;p&gt;The theme is built using Hugo&amp;rsquo;s powerful templating system. Key components include:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding KaTeX and Mathematical Notation in Web Development</title>
+      <link>http://localhost:1313/blog/katex-mathematical-notation/</link>
+      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/katex-mathematical-notation/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;When building academic or technical websites, the ability to render mathematical notation is crucial. KaTeX has emerged as the go-to solution for fast, server-side rendering of mathematical expressions in web browsers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-katex&#34;&gt;Why KaTeX?&lt;/h2&gt;&#xA;&lt;p&gt;KaTeX offers several advantages over alternatives like MathJax:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: Renders math expressions significantly faster&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Self-contained&lt;/strong&gt;: No external dependencies for basic functionality&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Server-side rendering&lt;/strong&gt;: Can generate static HTML&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;$\LaTeX$ compatibility&lt;/strong&gt;: Supports most common $\LaTeX$ commands&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;basic-setup&#34;&gt;Basic Setup&lt;/h2&gt;&#xA;&lt;p&gt;To integrate KaTeX into a website, you need both the CSS and JavaScript files:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Efficient Algorithms: Lessons from Competitive Programming</title>
+      <link>http://localhost:1313/blog/competitive-programming-lessons/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/competitive-programming-lessons/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Competitive programming has been an incredible teacher in my journey as a computer scientist. Beyond the thrill of solving complex problems under time pressure, it has fundamentally shaped how I approach algorithm design and optimization in real-world applications.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I&amp;rsquo;ll share key insights from competitive programming that have proven invaluable in academic research and software development.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-art-of-problem-analysis&#34;&gt;The Art of Problem Analysis&lt;/h2&gt;&#xA;&lt;h3 id=&#34;understanding-constraints&#34;&gt;Understanding Constraints&lt;/h3&gt;&#xA;&lt;p&gt;The first skill competitive programming teaches is constraint analysis. Every problem comes with specific limits:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Interactive Data Visualization Dashboard</title>
+      <link>http://localhost:1313/projects/data-viz-dashboard/</link>
+      <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/data-viz-dashboard/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;&#xA;&lt;p&gt;An interactive web application for visualizing complex datasets with real-time updates and customizable chart types. Built for data scientists and analysts who need flexible, performant visualization tools.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time Data Streaming&lt;/strong&gt;: WebSocket integration for live data updates&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Multiple Chart Types&lt;/strong&gt;: Bar, line, scatter, heatmap, and custom visualizations&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Interactive Filtering&lt;/strong&gt;: Dynamic data filtering and drill-down capabilities&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Export Functionality&lt;/strong&gt;: PDF, PNG, and SVG export options&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Responsive Design&lt;/strong&gt;: Works seamlessly across desktop and mobile devices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;&#xA;&lt;p&gt;The application follows a modern full-stack architecture:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A Novel Approach to Machine Learning Optimization</title>
+      <link>http://localhost:1313/publications/ml-optimization-2024/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/ml-optimization-2024/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Deep learning optimization remains a fundamental challenge in machine learning. Traditional gradient descent methods often struggle with convergence speed and local minima. This work addresses these limitations through a novel adaptive optimization strategy.&lt;/p&gt;&#xA;&lt;h2 id=&#34;methodology&#34;&gt;Methodology&lt;/h2&gt;&#xA;&lt;p&gt;Our approach builds upon the mathematical foundation of gradient descent:&lt;/p&gt;&#xA;&lt;p&gt;$$\theta_{t+1} = \theta_t - \alpha \nabla_\theta J(\theta_t)$$&lt;/p&gt;&#xA;&lt;p&gt;Where $\theta$ represents the model parameters, $\alpha$ is the learning rate, and $J(\theta)$ is the loss function.&lt;/p&gt;&#xA;&lt;p&gt;We introduce an adaptive component that modifies the learning rate based on the historical gradient information:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Math Test</title>
+      <link>http://localhost:1313/blog/math-test/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/math-test/</guid>
+      <description>&lt;h1 id=&#34;mathematical-notation-test&#34;&gt;Mathematical Notation Test&lt;/h1&gt;&#xA;&lt;p&gt;This is a test of inline math: $E = mc^2$&lt;/p&gt;&#xA;&lt;p&gt;And here&amp;rsquo;s a display equation:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;The quadratic formula:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Some inline math in a sentence: The function $f(x) = x^2 + 2x + 1$ is a perfect square.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Scalable Graph Neural Networks for Large-Scale Networks</title>
+      <link>http://localhost:1313/publications/scalable-gnn-2023/</link>
+      <pubDate>Sun, 15 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/scalable-gnn-2023/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Graph Neural Networks (GNNs) have shown remarkable success in various domains, from social network analysis to molecular property prediction. However, scaling these models to large real-world graphs remains a significant challenge due to memory constraints and computational complexity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;problem-formulation&#34;&gt;Problem Formulation&lt;/h2&gt;&#xA;&lt;p&gt;Consider a graph $G = (V, E)$ with node features $X \in \mathbb{R}^{|V| \times d}$. A typical GNN layer performs message passing:&lt;/p&gt;&#xA;&lt;p&gt;$$h_v^{(l+1)} = \sigma\left(\sum_{u \in N(v)} \frac{1}{\sqrt{|N(v)||N(u)|}} W^{(l)} h_u^{(l)}\right)$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post 3</title>
+      <link>http://localhost:1313/posts/post-3/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-3/</guid>
+      <description>&lt;p&gt;Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post 2</title>
+      <link>http://localhost:1313/posts/post-2/</link>
+      <pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-2/</guid>
+      <description>&lt;p&gt;Anim eiusmod irure incididunt sint cupidatat. Incididunt irure irure irure nisi ipsum do ut quis fugiat consectetur proident cupidatat incididunt cillum. Dolore voluptate occaecat qui mollit laborum ullamco et. Ipsum laboris officia anim laboris culpa eiusmod ex magna ex cupidatat anim ipsum aute. Mollit aliquip occaecat qui sunt velit ut cupidatat reprehenderit enim sunt laborum. Velit veniam in officia nulla adipisicing ut duis officia.&lt;/p&gt;&#xA;&lt;p&gt;Exercitation voluptate irure in irure tempor mollit Lorem nostrud ad officia. Velit id fugiat occaecat do tempor. Sit officia Lorem aliquip eu deserunt consectetur. Aute proident deserunt in nulla aliquip dolore ipsum Lorem ut cupidatat consectetur sit sint laborum. Esse cupidatat sit sint sunt tempor exercitation deserunt. Labore dolor duis laborum est do nisi ut veniam dolor et nostrud nostrud.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post 1</title>
+      <link>http://localhost:1313/posts/post-1/</link>
+      <pubDate>Sun, 15 Jan 2023 09:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-1/</guid>
+      <description>&lt;p&gt;Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.&lt;/p&gt;&#xA;&lt;p&gt;Occaecat nulla excepteur dolore excepteur duis eiusmod ullamco officia anim in voluptate ea occaecat officia. Cillum sint esse velit ea officia minim fugiat. Elit ea esse id aliquip pariatur cupidatat id duis minim incididunt ea ea. Anim ut duis sunt nisi. Culpa cillum sit voluptate voluptate eiusmod dolor. Enim nisi Lorem ipsum irure est excepteur voluptate eu in enim nisi. Nostrud ipsum Lorem anim sint labore consequat do.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;Welcome! I&amp;rsquo;m [Your Name], and this is my academic and technical portfolio.&lt;/p&gt;&#xA;&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;[Your Degree]&lt;/strong&gt; - [University Name]&lt;br&gt;&#xA;&lt;em&gt;[Year - Year]&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Focus area: [Your specialization]&lt;/li&gt;&#xA;&lt;li&gt;Thesis: [Thesis title if applicable]&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;research-interests&#34;&gt;Research Interests&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[Research area 1]&lt;/li&gt;&#xA;&lt;li&gt;[Research area 2]&lt;/li&gt;&#xA;&lt;li&gt;[Research area 3]&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-skills&#34;&gt;Technical Skills&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Programming Languages:&lt;/strong&gt; Python, JavaScript, Go, Rust, C++&lt;br&gt;&#xA;&lt;strong&gt;Frameworks &amp;amp; Tools:&lt;/strong&gt; TensorFlow, PyTorch, React, Hugo&lt;br&gt;&#xA;&lt;strong&gt;Areas of Expertise:&lt;/strong&gt; Machine Learning, Data Science, Web Development&lt;/p&gt;&#xA;&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; [your.email@domain.com]&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;GitHub:&lt;/strong&gt; [github.com/yourhandle]&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;LinkedIn:&lt;/strong&gt; [linkedin.com/in/yourprofile]&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;ORCID:&lt;/strong&gt; [orcid.org/your-id] (if applicable)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;This page serves as a brief overview. For detailed CV or resume, please contact me directly.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

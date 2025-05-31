@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on notesbyts</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blog on notesbyts</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding KaTeX and Mathematical Notation in Web Development</title>
+      <link>http://localhost:1313/blog/katex-mathematical-notation/</link>
+      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/katex-mathematical-notation/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;When building academic or technical websites, the ability to render mathematical notation is crucial. KaTeX has emerged as the go-to solution for fast, server-side rendering of mathematical expressions in web browsers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-katex&#34;&gt;Why KaTeX?&lt;/h2&gt;&#xA;&lt;p&gt;KaTeX offers several advantages over alternatives like MathJax:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: Renders math expressions significantly faster&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Self-contained&lt;/strong&gt;: No external dependencies for basic functionality&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Server-side rendering&lt;/strong&gt;: Can generate static HTML&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;$\LaTeX$ compatibility&lt;/strong&gt;: Supports most common $\LaTeX$ commands&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;basic-setup&#34;&gt;Basic Setup&lt;/h2&gt;&#xA;&lt;p&gt;To integrate KaTeX into a website, you need both the CSS and JavaScript files:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Efficient Algorithms: Lessons from Competitive Programming</title>
+      <link>http://localhost:1313/blog/competitive-programming-lessons/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/competitive-programming-lessons/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Competitive programming has been an incredible teacher in my journey as a computer scientist. Beyond the thrill of solving complex problems under time pressure, it has fundamentally shaped how I approach algorithm design and optimization in real-world applications.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I&amp;rsquo;ll share key insights from competitive programming that have proven invaluable in academic research and software development.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-art-of-problem-analysis&#34;&gt;The Art of Problem Analysis&lt;/h2&gt;&#xA;&lt;h3 id=&#34;understanding-constraints&#34;&gt;Understanding Constraints&lt;/h3&gt;&#xA;&lt;p&gt;The first skill competitive programming teaches is constraint analysis. Every problem comes with specific limits:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Math Test</title>
+      <link>http://localhost:1313/blog/math-test/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/math-test/</guid>
+      <description>&lt;h1 id=&#34;mathematical-notation-test&#34;&gt;Mathematical Notation Test&lt;/h1&gt;&#xA;&lt;p&gt;This is a test of inline math: $E = mc^2$&lt;/p&gt;&#xA;&lt;p&gt;And here&amp;rsquo;s a display equation:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;The quadratic formula:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Some inline math in a sentence: The function $f(x) = x^2 + 2x + 1$ is a perfect square.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

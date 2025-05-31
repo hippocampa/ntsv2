@@ -1,0 +1,113 @@
+/* nostyleplease academic - ultra minimal */
+
+/* reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* vars */
+:root {
+  --bg: white;
+  --fg: black;
+  --link: black;
+}
+
+[data-theme="dark"] {
+  --bg: black;
+  --fg: white;
+  --link: white;
+}
+
+/* base */
+html { font: 18px/1.5 monospace; }
+body { 
+  background: var(--bg); 
+  color: var(--fg); 
+  max-width: 65ch; 
+  margin: 0 auto; 
+  padding: 2rem 1rem;
+}
+
+/* typography */
+h1, h2, h3, h4, h5, h6 { 
+  font-weight: normal; 
+  font-size: 1rem; 
+  margin: 2rem 0 1rem 0;
+}
+
+h1 { font-size: 1.2rem; }
+
+p { margin-bottom: 1rem; }
+
+/* links */
+a { 
+  color: var(--link); 
+  text-decoration: underline;
+}
+
+a:hover { background: var(--fg); color: var(--bg); }
+
+/* lists */
+ul, ol { list-style: none; }
+li { margin-bottom: 0.5rem; }
+
+/* code */
+pre, code { 
+  font-family: monospace; 
+  background: none;
+  border: none;
+}
+
+pre { 
+  white-space: pre-wrap; 
+  margin: 1rem 0;
+}
+
+/* minimal chrome */
+.header { margin-bottom: 3rem; }
+.header h1 { margin: 0; font-size: 1.2rem; }
+.header p { margin: 0.5rem 0 0 0; opacity: 0.7; }
+
+/* content */
+.content-item { 
+  display: flex; 
+  justify-content: space-between; 
+  margin-bottom: 0.5rem;
+}
+
+.content-item a { text-decoration: none; }
+.content-item a:hover { text-decoration: underline; }
+
+.content-date { 
+  opacity: 0.5; 
+  font-size: 0.9rem;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+/* theme toggle */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: 1px solid var(--fg);
+  color: var(--fg);
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* math */
+.katex { font-size: 1em !important; }
+.katex-display { margin: 1rem 0; text-align: left; }
+
+/* responsive */
+@media (max-width: 600px) {
+  .content-item { flex-direction: column; }
+  .content-date { margin-left: 0; opacity: 0.5; }
+  .theme-toggle { position: static; margin-bottom: 1rem; }
+}

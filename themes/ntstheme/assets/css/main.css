@@ -7,6 +7,20 @@ body {
   padding: 1rem;
 }
 
+/* link styling */
+a {
+  color: #2563eb; /* blue-600 */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #2563eb; /* keep same blue color for visited links */
+}
+
 /* code styling */
 pre, code {
   font-family: 'Courier New', monospace;

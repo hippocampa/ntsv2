@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dashboard on notesbyts</title>
-    <link>http://localhost:52377/tags/dashboard/</link>
+    <link>https://example.org/tags/dashboard/</link>
     <description>Recent content in Dashboard on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:52377/tags/dashboard/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/dashboard/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Interactive Data Visualization Dashboard</title>
-      <link>http://localhost:52377/projects/data-viz-dashboard/</link>
+      <link>https://example.org/projects/data-viz-dashboard/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:52377/projects/data-viz-dashboard/</guid>
+      <guid>https://example.org/projects/data-viz-dashboard/</guid>
       <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;&#xA;&lt;p&gt;An interactive web application for visualizing complex datasets with real-time updates and customizable chart types. Built for data scientists and analysts who need flexible, performant visualization tools.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time Data Streaming&lt;/strong&gt;: WebSocket integration for live data updates&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Multiple Chart Types&lt;/strong&gt;: Bar, line, scatter, heatmap, and custom visualizations&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Interactive Filtering&lt;/strong&gt;: Dynamic data filtering and drill-down capabilities&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Export Functionality&lt;/strong&gt;: PDF, PNG, and SVG export options&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Responsive Design&lt;/strong&gt;: Works seamlessly across desktop and mobile devices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;&#xA;&lt;p&gt;The application follows a modern full-stack architecture:&lt;/p&gt;</description>
     </item>
   </channel>

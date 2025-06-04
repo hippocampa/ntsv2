@@ -1,27 +1,73 @@
 {{ define "main" }}
 {{ .Content }}
 
-{{ $allPages := slice }}
-{{ range site.RegularPages }}
-{{ if in (slice "blog" "publications" "projects") .Section }}
-{{ $allPages = $allPages | append . }}
-{{ end }}
-{{ end }}
-{{ $recent := $allPages | first 5 }}
+{{ $blogPages := where site.RegularPages "Section" "blog" }}
+{{ $projectPages := where site.RegularPages "Section" "projects" }}
+{{ $publicationPages := where site.RegularPages "Section" "publications" }}
 
-{{ if $recent }}
+{{ $maxItems := site.Params.homepageMaxItems | default 3 }}
+
+{{ if or $blogPages $projectPages $publicationPages }}
 <h2>recent</h2>
-{{ range $recent }}
-<div>
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    <small>{{ .Date.Format "06.01.02" }}</small>
+
+{{ if $blogPages }}
+<h3>blog</h3>
+<div id="blog-list">
+    {{ range $index, $page := (first $maxItems $blogPages) }}
+    <div class="blog-item">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <small>{{ .Date.Format "06.01.02" }}</small>
+    </div>
+    {{ end }}
 </div>
+{{ if gt (len $blogPages) $maxItems }}
+<div style="margin-top: 10px;">
+    <a href="{{- "/blog/" | relURL -}}"
+        style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
+</div>
+{{ end }}
+{{ end }}
+
+{{ if $projectPages }}
+<h3>projects</h3>
+<div id="projects-list">
+    {{ range $index, $page := (first $maxItems $projectPages) }}
+    <div class="project-item">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <small>{{ .Date.Format "06.01.02" }}</small>
+    </div>
+    {{ end }}
+</div>
+{{ if gt (len $projectPages) $maxItems }}
+<div style="margin-top: 10px;">
+    <a href="{{- "/projects/" | relURL -}}"
+        style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
+</div>
+{{ end }}
+{{ end }}
+
+{{ if $publicationPages }}
+<h3>publications</h3>
+<div id="publications-list">
+    {{ range $index, $page := (first $maxItems $publicationPages) }}
+    <div class="publication-item">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <small>{{ .Date.Format "06.01.02" }}</small>
+    </div>
+    {{ end }}
+</div>
+{{ if gt (len $publicationPages) $maxItems }}
+<div style="margin-top: 10px;">
+    <a href="{{- "/publications/" | relURL -}}"
+        style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
+</div>
+{{ end }}
 {{ end }}
 
 <p>
-    <a href="/blog">blog</a> |
-    <a href="/publications">publications</a> |
-    <a href="/projects">projects</a>
+    <a href="{{- "/blog/" | relURL -}}">blog</a> |
+    <a href="{{- "/publications/" | relURL -}}">publications</a> |
+    <a href="{{- "/projects/" | relURL -}}">projects</a>
 </p>
 {{ end }}
 {{ end }}

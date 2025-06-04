@@ -11,7 +11,7 @@
 <meta name="description"
     content="Introduction
 Competitive programming has been an incredible teacher in my journey as a computer scientist. Beyond the thrill of solving complex problems under time pressure, it has fundamentally shaped how I approach algorithm design and optimization in real-world applications.
-In this post, I&rsquo;ll share key insights from competitive programming that have proven invaluable in academic research and software development.
+In this post, I&#39;ll share key insights from competitive programming that have proven invaluable in academic research and software development.
 The Art of Problem Analysis
 Understanding Constraints
 The first skill competitive programming teaches is constraint analysis. Every problem comes with specific limits:">
@@ -22,7 +22,7 @@ The first skill competitive programming teaches is constraint analysis. Every pr
 <meta property="og:description"
     content="Introduction
 Competitive programming has been an incredible teacher in my journey as a computer scientist. Beyond the thrill of solving complex problems under time pressure, it has fundamentally shaped how I approach algorithm design and optimization in real-world applications.
-In this post, I&rsquo;ll share key insights from competitive programming that have proven invaluable in academic research and software development.
+In this post, I&#39;ll share key insights from competitive programming that have proven invaluable in academic research and software development.
 The Art of Problem Analysis
 Understanding Constraints
 The first skill competitive programming teaches is constraint analysis. Every problem comes with specific limits:">
@@ -36,7 +36,7 @@ The first skill competitive programming teaches is constraint analysis. Every pr
 <meta name="twitter:description"
     content="Introduction
 Competitive programming has been an incredible teacher in my journey as a computer scientist. Beyond the thrill of solving complex problems under time pressure, it has fundamentally shaped how I approach algorithm design and optimization in real-world applications.
-In this post, I&rsquo;ll share key insights from competitive programming that have proven invaluable in academic research and software development.
+In this post, I&#39;ll share key insights from competitive programming that have proven invaluable in academic research and software development.
 The Art of Problem Analysis
 Understanding Constraints
 The first skill competitive programming teaches is constraint analysis. Every problem comes with specific limits:">
@@ -45,17 +45,35 @@ The first skill competitive programming teaches is constraint analysis. Every pr
 <link rel="canonical" href="http://localhost:1313/blog/competitive-programming-lessons/">
 
 
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-    integrity="sha384-XjKyOOlGwcjNTAIQHIpVOBD+PyJbkH2OjL7mnyMHFw5y5N12sKGaT9y5jc4nBIzG"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
     crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
-
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement === 'function') {
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false
+                });
+            } catch (e) {
+                console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX (from head.html): renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
     <link rel="stylesheet" href="/css/main.css">
 
 
@@ -80,7 +98,7 @@ The first skill competitive programming teaches is constraint analysis. Every pr
     "@type": "Person",
     "name": "Your Name"
   },
-  "description": "\u003ch2 id=\u0022introduction\u0022\u003eIntroduction\u003c\/h2\u003e\n\u003cp\u003eCompetitive programming has been an incredible teacher in my journey as a computer scientist. Beyond the thrill of solving complex problems under time pressure, it has fundamentally shaped how I approach algorithm design and optimization in real-world applications.\u003c\/p\u003e\n\u003cp\u003eIn this post, I\u0026rsquo;ll share key insights from competitive programming that have proven invaluable in academic research and software development.\u003c\/p\u003e\n\u003ch2 id=\u0022the-art-of-problem-analysis\u0022\u003eThe Art of Problem Analysis\u003c\/h2\u003e\n\u003ch3 id=\u0022understanding-constraints\u0022\u003eUnderstanding Constraints\u003c\/h3\u003e\n\u003cp\u003eThe first skill competitive programming teaches is constraint analysis. Every problem comes with specific limits:\u003c\/p\u003e",
+  "description": "\u003ch2 id=\u0022introduction\u0022\u003eIntroduction\u003c\/h2\u003e\n\u003cp\u003eCompetitive programming has been an incredible teacher in my journey as a computer scientist. Beyond the thrill of solving complex problems under time pressure, it has fundamentally shaped how I approach algorithm design and optimization in real-world applications.\u003c\/p\u003e\n\u003cp\u003eIn this post, I\u0027ll share key insights from competitive programming that have proven invaluable in academic research and software development.\u003c\/p\u003e\n\u003ch2 id=\u0022the-art-of-problem-analysis\u0022\u003eThe Art of Problem Analysis\u003c\/h2\u003e\n\u003ch3 id=\u0022understanding-constraints\u0022\u003eUnderstanding Constraints\u003c\/h3\u003e\n\u003cp\u003eThe first skill competitive programming teaches is constraint analysis. Every problem comes with specific limits:\u003c\/p\u003e",
   "url": "http:\/\/localhost:1313\/blog\/competitive-programming-lessons\/",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -94,10 +112,15 @@ The first skill competitive programming teaches is constraint analysis. Every pr
 
 <body>
   <div>
-    <h1><a href="/%20/">notesbyts</a></h1>
+    <h1><a href="/">notesbyts</a></h1>
     <p>Academic notes, research, and technical insights</p>
     <button id="theme-toggle">◐</button>
 </div>
+
+<div>
+    <a href="/">← home</a>
+</div>
+
   
 <article>
     <h1>Building Efficient Algorithms: Lessons from Competitive Programming</h1>
@@ -115,7 +138,7 @@ The first skill competitive programming teaches is constraint analysis. Every pr
     <div>
         <h2 id="introduction">Introduction</h2>
 <p>Competitive programming has been an incredible teacher in my journey as a computer scientist. Beyond the thrill of solving complex problems under time pressure, it has fundamentally shaped how I approach algorithm design and optimization in real-world applications.</p>
-<p>In this post, I&rsquo;ll share key insights from competitive programming that have proven invaluable in academic research and software development.</p>
+<p>In this post, I'll share key insights from competitive programming that have proven invaluable in academic research and software development.</p>
 <h2 id="the-art-of-problem-analysis">The Art of Problem Analysis</h2>
 <h3 id="understanding-constraints">Understanding Constraints</h3>
 <p>The first skill competitive programming teaches is constraint analysis. Every problem comes with specific limits:</p>
@@ -296,7 +319,7 @@ The first skill competitive programming teaches is constraint analysis. Every pr
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        <span style="color:#cf222e">return</span> <span style="color:#cf222e">None</span>  <span style="color:#57606a"># Inverse doesn&#39;t exist</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">(</span>x <span style="color:#0550ae">%</span> m <span style="color:#0550ae">+</span> m<span style="color:#1f2328">)</span> <span style="color:#0550ae">%</span> m
 </span></span></code></pre></div><h3 id="graph-theory-algorithms">Graph Theory Algorithms</h3>
-<h4 id="dijkstras-algorithm-with-priority-queue">Dijkstra&rsquo;s Algorithm with Priority Queue</h4>
+<h4 id="dijkstras-algorithm-with-priority-queue">Dijkstra's Algorithm with Priority Queue</h4>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#cf222e">import</span> <span style="color:#24292e">heapq</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#cf222e">from</span> <span style="color:#24292e">collections</span> <span style="color:#cf222e">import</span> defaultdict
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
@@ -512,7 +535,7 @@ The first skill competitive programming teaches is constraint analysis. Every pr
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">float_equal</span><span style="color:#1f2328">(</span>a<span style="color:#1f2328">,</span> b<span style="color:#1f2328">,</span> epsilon<span style="color:#0550ae">=</span><span style="color:#0550ae">1e-9</span><span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    <span style="color:#cf222e">return</span> <span style="color:#6639ba">abs</span><span style="color:#1f2328">(</span>a <span style="color:#0550ae">-</span> b<span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;</span> epsilon
 </span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
-<p>Competitive programming has been more than just a hobby—it&rsquo;s been a fundamental part of my education as a computer scientist. The skills developed through solving thousands of algorithmic problems have proven invaluable in:</p>
+<p>Competitive programming has been more than just a hobby—it's been a fundamental part of my education as a computer scientist. The skills developed through solving thousands of algorithmic problems have proven invaluable in:</p>
 <ul>
 <li><strong>Research</strong>: Designing efficient algorithms for novel problems</li>
 <li><strong>Software Development</strong>: Writing optimized, bug-free code</li>
@@ -523,7 +546,7 @@ The first skill competitive programming teaches is constraint analysis. Every pr
 <p>For anyone interested in computer science, whether in academia or industry, I highly recommend engaging with competitive programming. Start with platforms like Codeforces, AtCoder, or LeetCode, and gradually work your way up to more challenging problems.</p>
 <p>The journey is challenging but incredibly rewarding, and the skills you develop will serve you throughout your career in computer science.</p>
 <hr>
-<p><em>What has been your experience with competitive programming? I&rsquo;d love to hear about the algorithmic insights that have influenced your work in the comments below.</em></p>
+<p><em>What has been your experience with competitive programming? I'd love to hear about the algorithmic insights that have influenced your work in the comments below.</em></p>
 
     </div>
 

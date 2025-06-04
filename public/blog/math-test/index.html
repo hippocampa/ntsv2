@@ -11,7 +11,7 @@
 <meta name="description"
     content="Mathematical Notation Test
 This is a test of inline math: $E = mc^2$
-And here&rsquo;s a display equation:
+And here&#39;s a display equation:
 $$
 \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
 $$
@@ -27,7 +27,7 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
 <meta property="og:description"
     content="Mathematical Notation Test
 This is a test of inline math: $E = mc^2$
-And here&rsquo;s a display equation:
+And here&#39;s a display equation:
 $$
 \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
 $$
@@ -46,7 +46,7 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
 <meta name="twitter:description"
     content="Mathematical Notation Test
 This is a test of inline math: $E = mc^2$
-And here&rsquo;s a display equation:
+And here&#39;s a display equation:
 $$
 \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
 $$
@@ -60,7 +60,6 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
 <link rel="canonical" href="http://localhost:1313/blog/math-test/">
 
 
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
@@ -69,8 +68,30 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
-
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("KaTeX: DOMContentLoaded event fired.");
+        if (typeof renderMathInElement === 'function') {
+            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false 
+                });
+                console.log("KaTeX: renderMathInElement executed.");
+            } catch (e) {
+                console.error("KaTeX: Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
     <link rel="stylesheet" href="/css/main.css">
 
 
@@ -95,7 +116,7 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
     "@type": "Person",
     "name": "Your Name"
   },
-  "description": "\u003ch1 id=\u0022mathematical-notation-test\u0022\u003eMathematical Notation Test\u003c\/h1\u003e\n\u003cp\u003eThis is a test of inline math: $E = mc^2$\u003c\/p\u003e\n\u003cp\u003eAnd here\u0026rsquo;s a display equation:\u003c\/p\u003e\n\u003cp\u003e$$\n\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}\n$$\u003c\/p\u003e\n\u003cp\u003eThe quadratic formula:\u003c\/p\u003e\n\u003cp\u003e$$\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n$$\u003c\/p\u003e\n\u003cp\u003eSome inline math in a sentence: The function $f(x) = x^2 \u002b 2x \u002b 1$ is a perfect square.\u003c\/p\u003e",
+  "description": "\u003ch1 id=\u0022mathematical-notation-test\u0022\u003eMathematical Notation Test\u003c\/h1\u003e\n\u003cp\u003eThis is a test of inline math: $E = mc^2$\u003c\/p\u003e\n\u003cp\u003eAnd here\u0027s a display equation:\u003c\/p\u003e\n\u003cp\u003e$$\n\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}\n$$\u003c\/p\u003e\n\u003cp\u003eThe quadratic formula:\u003c\/p\u003e\n\u003cp\u003e$$\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n$$\u003c\/p\u003e\n\u003cp\u003eSome inline math in a sentence: The function $f(x) = x^2 \u002b 2x \u002b 1$ is a perfect square.\u003c\/p\u003e",
   "url": "http:\/\/localhost:1313\/blog\/math-test\/",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -109,10 +130,15 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
 
 <body>
   <div>
-    <h1><a href="/%20/">notesbyts</a></h1>
+    <h1><a href="/">notesbyts</a></h1>
     <p>Academic notes, research, and technical insights</p>
     <button id="theme-toggle">◐</button>
 </div>
+
+<div>
+    <a href="/">← home</a>
+</div>
+
   
 <article>
     <h1>Math Test</h1>
@@ -128,7 +154,7 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
     <div>
         <h1 id="mathematical-notation-test">Mathematical Notation Test</h1>
 <p>This is a test of inline math: $E = mc^2$</p>
-<p>And here&rsquo;s a display equation:</p>
+<p>And here's a display equation:</p>
 <p>$$
 \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
 $$</p>

@@ -1,0 +1,8 @@
+# Ignore Hugo template files to prevent formatting issues
+themes/**/layouts/**/*.html
+layouts/**/*.html
+*.html
+
+# Ignore Hugo generated files
+public/
+resources/

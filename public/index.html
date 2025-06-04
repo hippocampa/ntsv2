@@ -11,14 +11,16 @@
 <title>notesbyts</title>
 <meta name="description"
     content="research, projects, and notes.
-mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1)}{2}$$">
+Find out more about me.
+Here are fancy mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1)}{2}$$">
 <meta name="author" content="Your Name">
 
 
 <meta property="og:title" content="notesbyts">
 <meta property="og:description"
     content="research, projects, and notes.
-mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1)}{2}$$">
+Find out more about me.
+Here are fancy mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1)}{2}$$">
 <meta property="og:type" content="website">
 <meta property="og:url" content="http://localhost:1313/">
 <meta property="og:site_name" content="notesbyts">
@@ -28,25 +30,43 @@ mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1
 <meta name="twitter:title" content="notesbyts">
 <meta name="twitter:description"
     content="research, projects, and notes.
-mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1)}{2}$$">
+Find out more about me.
+Here are fancy mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1)}{2}$$">
 
 
 <link rel="canonical" href="http://localhost:1313/">
 
 
-
 <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="notesbyts" />
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-    integrity="sha384-XjKyOOlGwcjNTAIQHIpVOBD+PyJbkH2OjL7mnyMHFw5y5N12sKGaT9y5jc4nBIzG"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
     crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
-
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement === 'function') {
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false
+                });
+            } catch (e) {
+                console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX (from head.html): renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
     <link rel="stylesheet" href="/css/main.css">
 
 
@@ -73,47 +93,15 @@ mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1
 
 <body>
   <div>
-    <h1><a href="/%20/">notesbyts</a></h1>
+    <h1><a href="/">notesbyts</a></h1>
     <p>Academic notes, research, and technical insights</p>
     <button id="theme-toggle">◐</button>
 </div>
+
   
 <p>research, projects, and notes.</p>
-<p>mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$$</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p>Find out more <a href="/about/">about me</a>.</p>
+<p>Here are fancy mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$$</p>
 
 
 
@@ -125,42 +113,91 @@ mathematical notation works: $E = mc^2$ and $$\sum_{i=1}^{n} i = \frac{n(n&#43;1
 
 <h2>recent</h2>
 
-<div>
-    <a href="/projects/hugo-academic-theme/">Hugo Academic Theme Generator</a>
-    <small>24.12.15</small>
+
+<h3>blog</h3>
+<div id="blog-list">
+    
+    <div class="blog-item">
+        <a href="/blog/sample-post-showcase/">Sample Post to Showcase Load More Functionality</a>
+        <small>24.12.20</small>
+    </div>
+    
+    <div class="blog-item">
+        <a href="/blog/katex-mathematical-notation/">Understanding KaTeX and Mathematical Notation in Web Development</a>
+        <small>24.12.10</small>
+    </div>
+    
+    <div class="blog-item">
+        <a href="/blog/competitive-programming-lessons/">Building Efficient Algorithms: Lessons from Competitive Programming</a>
+        <small>24.05.25</small>
+    </div>
+    
 </div>
 
-<div>
-    <a href="/blog/katex-mathematical-notation/">Understanding KaTeX and Mathematical Notation in Web Development</a>
-    <small>24.12.10</small>
+<div style="margin-top: 10px;">
+    <a href="/blog/"
+        style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
 </div>
 
-<div>
-    <a href="/blog/competitive-programming-lessons/">Building Efficient Algorithms: Lessons from Competitive Programming</a>
-    <small>24.05.25</small>
+
+
+
+<h3>projects</h3>
+<div id="projects-list">
+    
+    <div class="project-item">
+        <a href="/projects/demo-project-showcase/">Demo Project for Load More Showcase</a>
+        <small>24.12.18</small>
+    </div>
+    
+    <div class="project-item">
+        <a href="/projects/hugo-academic-theme/">Hugo Academic Theme Generator</a>
+        <small>24.12.15</small>
+    </div>
+    
+    <div class="project-item">
+        <a href="/projects/data-viz-dashboard/">Interactive Data Visualization Dashboard</a>
+        <small>24.05.20</small>
+    </div>
+    
 </div>
 
-<div>
-    <a href="/projects/data-viz-dashboard/">Interactive Data Visualization Dashboard</a>
-    <small>24.05.20</small>
+
+
+
+<h3>publications</h3>
+<div id="publications-list">
+    
+    <div class="publication-item">
+        <a href="/publications/load-more-ui-patterns-demo/">Demonstration of Load More UI Patterns in Academic Web Interfaces</a>
+        <small>24.12.01</small>
+    </div>
+    
+    <div class="publication-item">
+        <a href="/publications/ml-optimization-2024/">A Novel Approach to Machine Learning Optimization</a>
+        <small>24.03.15</small>
+    </div>
+    
+    <div class="publication-item">
+        <a href="/publications/scalable-gnn-2023/">Scalable Graph Neural Networks for Large-Scale Networks</a>
+        <small>23.10.15</small>
+    </div>
+    
 </div>
 
-<div>
-    <a href="/publications/ml-optimization-2024/">A Novel Approach to Machine Learning Optimization</a>
-    <small>24.03.15</small>
-</div>
 
 
 <p>
-    <a href="/blog">blog</a> |
-    <a href="/publications">publications</a> |
-    <a href="/projects">projects</a>
+    <a href="/blog/">blog</a> |
+    <a href="/publications/">publications</a> |
+    <a href="/projects/">projects</a>
 </p>
 
 
   <div class="footer-content">
     <p>&copy; 2025 Your Name. All rights reserved.</p>
-    <p>Built with <a href="https://gohugo.io/">Hugo</a> and <a href="#">NTS Academic Theme</a></p>
+    <p>Unless otherwise specified, all original content on this blog is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    <p>Built with <a href="https://gohugo.io/">Hugo</a>.</p>
 </div>
 </body>
 

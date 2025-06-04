@@ -63,7 +63,6 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 <link rel="canonical" href="http://localhost:1313/blog/katex-mathematical-notation/">
 
 
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
@@ -72,8 +71,30 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
-
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("KaTeX: DOMContentLoaded event fired.");
+        if (typeof renderMathInElement === 'function') {
+            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false 
+                });
+                console.log("KaTeX: renderMathInElement executed.");
+            } catch (e) {
+                console.error("KaTeX: Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
     <link rel="stylesheet" href="/css/main.css">
 
 
@@ -112,10 +133,15 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 
 <body>
   <div>
-    <h1><a href="/%20/">notesbyts</a></h1>
+    <h1><a href="/">notesbyts</a></h1>
     <p>Academic notes, research, and technical insights</p>
     <button id="theme-toggle">◐</button>
 </div>
+
+<div>
+    <a href="/">← home</a>
+</div>
+
   
 <article>
     <h1>Understanding KaTeX and Mathematical Notation in Web Development</h1>
@@ -158,7 +184,7 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 </ul>
 <h3 id="calculus">Calculus</h3>
 <p>Derivatives and integrals are commonly used in academic content:</p>
-<p>$$\frac{d}{dx}[f(x) \cdot g(x)] = f&rsquo;(x)g(x) + f(x)g&rsquo;(x)$$</p>
+<p>$$\frac{d}{dx}[f(x) \cdot g(x)] = f'(x)g(x) + f(x)g'(x)$$</p>
 <p>$$\int_{a}^{b} f(x) , dx = F(b) - F(a)$$</p>
 <h3 id="linear-algebra">Linear Algebra</h3>
 <p>Matrices and vectors are essential for many technical fields:</p>
@@ -229,7 +255,7 @@ a_{31} &amp; a_{32} &amp; a_{33}
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#1f2328">});</span>
 </span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>KaTeX provides an excellent solution for rendering mathematical notation in academic and technical websites. Its performance, compatibility, and ease of integration make it the ideal choice for projects requiring mathematical typesetting.</p>
-<p>The combination of Hugo&rsquo;s static site generation and KaTeX&rsquo;s fast rendering creates a powerful platform for academic content that loads quickly and displays beautifully across all devices.</p>
+<p>The combination of Hugo's static site generation and KaTeX's fast rendering creates a powerful platform for academic content that loads quickly and displays beautifully across all devices.</p>
 <hr>
 <p><em>This post demonstrates the power of combining technical writing with mathematical notation in a web-friendly format.</em></p>
 
@@ -258,6 +284,10 @@ a_{31} &amp; a_{32} &amp; a_{33}
             <a href="/blog/competitive-programming-lessons/">← Building Efficient Algorithms: Lessons from Competitive Programming</a>
         </div>
         
+        
+        <div>
+            <a href="/blog/sample-post-showcase/">Sample Post to Showcase Load More Functionality →</a>
+        </div>
         
     </nav>
 </article>

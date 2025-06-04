@@ -1,0 +1,107 @@
+# Hugo generated files
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Hugo cache directory
+/resources/
+/resources/_gen/
+
+# Node.js dependencies (if using npm/yarn for asset processing)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Package manager files
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and editor files
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Windows specific
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Hugo development server
+.hugo_build.lock
+
+# Asset processing (if using PostCSS, Sass, etc.)
+*.css.map
+*.js.map
+
+# Build artifacts
+dist/
+build/
+
+# Hugo modules
+go.mod
+go.sum
+
+# Local configuration overrides
+config/local/
+hugo.local.toml
+hugo.local.yaml
+hugo.local.json
+
+# Backup files
+*.bak
+*.backup
+
+# Draft content (uncomment if you don't want to track drafts)
+# content/drafts/
+
+# Local data files that shouldn't be tracked
+data/local/
+
+# Deployment specific files
+.netlify/
+.vercel/
+
+# Docker
+.dockerignore
+Dockerfile.local
+
+# Platform specific
+.platform/
+
+# Local testing
+test/
+tests/
+
+# Coverage reports
+coverage/
+*.cover
+
+# Dependency directories
+vendor/
+
+# Hugo themes (if installed via git submodules or hugo modules)
+# Uncomment the next line if themes are managed externally
+# themes/
+
+# Local theme development
+themes/*/node_modules/
+themes/*/public/
+themes/*/resources/
+
+# Site-specific ignores
+# Add any project-specific files here

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Demo on notesbyts</title>
+    <link>http://localhost:1313/tags/demo/</link>
+    <description>Recent content in Demo on notesbyts</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/demo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sample Post to Showcase Load More Functionality</title>
+      <link>http://localhost:1313/blog/sample-post-showcase/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/sample-post-showcase/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is a sample blog post created specifically to demonstrate the &amp;quot;load more&amp;quot; functionality on the homepage. When you have more than 3 posts in a section, a clickable &amp;quot;[load more]&amp;quot; button will appear next to the section heading.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-it-works&#34;&gt;How It Works&lt;/h2&gt;&#xA;&lt;p&gt;The load more functionality:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Initial Display&lt;/strong&gt;: Shows only the first 3 items in each section (blog, projects, publications)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Load More Button&lt;/strong&gt;: Appears when there are 4+ items in a section&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Toggle Behavior&lt;/strong&gt;:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Click &amp;quot;[load more]&amp;quot; → Shows all items, button changes to &amp;quot;[show less]&amp;quot;&lt;/li&gt;&#xA;&lt;li&gt;Click &amp;quot;[show less]&amp;quot; → Hides items beyond the first 3, button reverts to &amp;quot;[load more]&amp;quot;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;mathematical-notation-example&#34;&gt;Mathematical Notation Example&lt;/h2&gt;&#xA;&lt;p&gt;Since this site supports KaTeX, here&#39;s a sample equation to test the math rendering:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Demo Project for Load More Showcase</title>
+      <link>http://localhost:1313/projects/demo-project-showcase/</link>
+      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/demo-project-showcase/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;&#xA;&lt;p&gt;This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &amp;quot;[load more]&amp;quot; button to appear.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Interactive UI&lt;/strong&gt;: Demonstrates modern web interaction patterns&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Minimal Design&lt;/strong&gt;: Maintains the raw HTML aesthetic&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: Lightweight JavaScript implementation&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Accessibility&lt;/strong&gt;: Works without JavaScript as a fallback&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-implementation&#34;&gt;Technical Implementation&lt;/h2&gt;&#xA;&lt;p&gt;The load more functionality uses vanilla JavaScript:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Demonstration of Load More UI Patterns in Academic Web Interfaces</title>
+      <link>http://localhost:1313/publications/load-more-ui-patterns-demo/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/load-more-ui-patterns-demo/</guid>
+      <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;&#xA;&lt;p&gt;This demonstration publication showcases the implementation of progressive disclosure patterns in academic web interfaces, specifically focusing on &amp;quot;load more&amp;quot; functionality for content-heavy sections. The research examines user interaction patterns and performance implications of such implementations.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Keywords&lt;/strong&gt;: progressive disclosure, web interfaces, academic publishing, user experience, load more patterns&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In academic web interfaces, the challenge of presenting large amounts of content while maintaining usability has led to the adoption of progressive disclosure patterns. This paper demonstrates the implementation and effectiveness of &amp;quot;load more&amp;quot; functionality in sectioned content displays.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

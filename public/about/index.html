@@ -10,7 +10,7 @@
 <title>About | notesbyts</title>
 <meta name="description"
     content="Background
-Welcome! I&rsquo;m [Your Name], and this is my academic and technical portfolio.
+Welcome! I&#39;m [Your Name], and this is my academic and technical portfolio.
 Education
 [Your Degree] - [University Name]
 [Year - Year]
@@ -43,7 +43,7 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
 <meta property="og:title" content="About">
 <meta property="og:description"
     content="Background
-Welcome! I&rsquo;m [Your Name], and this is my academic and technical portfolio.
+Welcome! I&#39;m [Your Name], and this is my academic and technical portfolio.
 Education
 [Your Degree] - [University Name]
 [Year - Year]
@@ -79,7 +79,7 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
 <meta name="twitter:title" content="About">
 <meta name="twitter:description"
     content="Background
-Welcome! I&rsquo;m [Your Name], and this is my academic and technical portfolio.
+Welcome! I&#39;m [Your Name], and this is my academic and technical portfolio.
 Education
 [Your Degree] - [University Name]
 [Year - Year]
@@ -111,17 +111,35 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
 <link rel="canonical" href="http://localhost:1313/about/">
 
 
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-    integrity="sha384-XjKyOOlGwcjNTAIQHIpVOBD+PyJbkH2OjL7mnyMHFw5y5N12sKGaT9y5jc4nBIzG"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
     crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
-
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement === 'function') {
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false
+                });
+            } catch (e) {
+                console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX (from head.html): renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
     <link rel="stylesheet" href="/css/main.css">
 
 
@@ -134,10 +152,15 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
 
 <body>
   <div>
-    <h1><a href="/%20/">notesbyts</a></h1>
+    <h1><a href="/">notesbyts</a></h1>
     <p>Academic notes, research, and technical insights</p>
     <button id="theme-toggle">◐</button>
 </div>
+
+<div>
+    <a href="/">← home</a>
+</div>
+
   
   <h1>About</h1>
 
@@ -146,7 +169,7 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
   <time datetime="0001-01-01T00:00:00&#43;00:00">January 1, 1</time>
 
   <h2 id="background">Background</h2>
-<p>Welcome! I&rsquo;m [Your Name], and this is my academic and technical portfolio.</p>
+<p>Welcome! I'm [Your Name], and this is my academic and technical portfolio.</p>
 <h2 id="education">Education</h2>
 <p><strong>[Your Degree]</strong> - [University Name]<br>
 <em>[Year - Year]</em></p>
@@ -179,7 +202,8 @@ This page serves as a brief overview. For detailed CV or resume, please contact 
 
   <div class="footer-content">
     <p>&copy; 2025 Your Name. All rights reserved.</p>
-    <p>Built with <a href="https://gohugo.io/">Hugo</a> and <a href="#">NTS Academic Theme</a></p>
+    <p>Unless otherwise specified, all original content on this blog is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    <p>Built with <a href="https://gohugo.io/">Hugo</a>.</p>
 </div>
 </body>
 

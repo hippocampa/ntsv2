@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+
+
+<title>Demo Project for Load More Showcase | notesbyts</title>
+<meta name="description"
+    content="Project Overview
+This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &quot;[load more]&quot; button to appear.
+Features
+
+Interactive UI: Demonstrates modern web interaction patterns
+Minimal Design: Maintains the raw HTML aesthetic
+Performance: Lightweight JavaScript implementation
+Accessibility: Works without JavaScript as a fallback
+
+Technical Implementation
+The load more functionality uses vanilla JavaScript:">
+<meta name="author" content="Your Name">
+
+
+<meta property="og:title" content="Demo Project for Load More Showcase">
+<meta property="og:description"
+    content="Project Overview
+This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &quot;[load more]&quot; button to appear.
+Features
+
+Interactive UI: Demonstrates modern web interaction patterns
+Minimal Design: Maintains the raw HTML aesthetic
+Performance: Lightweight JavaScript implementation
+Accessibility: Works without JavaScript as a fallback
+
+Technical Implementation
+The load more functionality uses vanilla JavaScript:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/projects/demo-project-showcase/">
+<meta property="og:site_name" content="notesbyts">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Demo Project for Load More Showcase">
+<meta name="twitter:description"
+    content="Project Overview
+This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &quot;[load more]&quot; button to appear.
+Features
+
+Interactive UI: Demonstrates modern web interaction patterns
+Minimal Design: Maintains the raw HTML aesthetic
+Performance: Lightweight JavaScript implementation
+Accessibility: Works without JavaScript as a fallback
+
+Technical Implementation
+The load more functionality uses vanilla JavaScript:">
+
+
+<link rel="canonical" href="http://localhost:1313/projects/demo-project-showcase/">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpVOBD+PyJbkH2OjL7mnyMHFw5y5N12sKGaT9y5jc4nBIzG"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+    crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("KaTeX: DOMContentLoaded event fired.");
+        if (typeof renderMathInElement === 'function') {
+            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false 
+                });
+                console.log("KaTeX: renderMathInElement executed.");
+            } catch (e) {
+                console.error("KaTeX: Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
+    <link rel="stylesheet" href="/css/main.css">
+
+
+      <script src="/js/main.js"></script>
+
+
+
+
+</head>
+
+<body>
+  <div>
+    <h1><a href="/">notesbyts</a></h1>
+    <p>Academic notes, research, and technical insights</p>
+    <button id="theme-toggle">◐</button>
+</div>
+
+<div>
+    <a href="/">← home</a>
+</div>
+
+  
+<article>
+    <h1>Demo Project for Load More Showcase</h1>
+
+    <div>
+        
+        <small><strong>Date:</strong> December 18, 2024</small><br>
+        
+        
+        <small><strong>Status:</strong> demo</small><br>
+        
+        
+        
+    </div>
+
+    <div>
+        
+        
+        
+        
+        
+    </div>
+
+    <div>
+        <h2 id="project-overview">Project Overview</h2>
+<p>This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &quot;[load more]&quot; button to appear.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Interactive UI</strong>: Demonstrates modern web interaction patterns</li>
+<li><strong>Minimal Design</strong>: Maintains the raw HTML aesthetic</li>
+<li><strong>Performance</strong>: Lightweight JavaScript implementation</li>
+<li><strong>Accessibility</strong>: Works without JavaScript as a fallback</li>
+</ul>
+<h2 id="technical-implementation">Technical Implementation</h2>
+<p>The load more functionality uses vanilla JavaScript:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#57606a">// Simple toggle mechanism
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#57606a"></span><span style="color:#cf222e">function</span> <span style="color:#1f2328">setupLoadMore</span><span style="color:#1f2328">(</span><span style="color:#1f2328">sectionName</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#cf222e">const</span> <span style="color:#1f2328">loadMoreBtn</span> <span style="color:#0550ae">=</span> <span style="color:#6639ba">document</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getElementById</span><span style="color:#1f2328">(</span><span style="color:#1f2328">sectionName</span> <span style="color:#0550ae">+</span> <span style="color:#0a3069">&#39;-load-more&#39;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    <span style="color:#cf222e">const</span> <span style="color:#1f2328">items</span> <span style="color:#0550ae">=</span> <span style="color:#6639ba">document</span><span style="color:#1f2328">.</span><span style="color:#1f2328">querySelectorAll</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;.&#39;</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">sectionName</span><span style="color:#1f2328">.</span><span style="color:#1f2328">replace</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;s&#39;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#39;&#39;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">+</span> <span style="color:#0a3069">&#39;-item&#39;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">loadMoreBtn</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#1f2328">items</span><span style="color:#1f2328">.</span><span style="color:#1f2328">length</span> <span style="color:#0550ae">&gt;</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>        <span style="color:#57606a">// Toggle visibility logic here
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="color:#57606a"></span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h2 id="mathematics-in-projects">Mathematics in Projects</h2>
+<p>Even project documentation can benefit from mathematical notation:</p>
+<p>The complexity of the load more algorithm: $O(n)$ where $n$ is the number of items.</p>
+<p>Performance metrics: $$\text{Load Time} = \frac{\text{Total Items}}{\text{Render Speed}} + \text{Constant Overhead}$$</p>
+<h2 id="installation">Installation</h2>
+<p>This is a demo project, but if it were real:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>git clone https://github.com/example/demo-project
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6639ba">cd</span> demo-project
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>npm install
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>npm start
+</span></span></code></pre></div><h2 id="live-demo">Live Demo</h2>
+<p>Navigate to the homepage to see this project listed under the &quot;projects&quot; section with the interactive load more functionality.</p>
+<h2 id="repository">Repository</h2>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/example/demo-project">github.com/example/demo-project</a> (fictional)</li>
+<li><strong>License</strong>: MIT</li>
+<li><strong>Status</strong>: Demo/Educational</li>
+</ul>
+
+    </div> 
+    <div>
+        <h3>Tags</h3>
+        
+        <span>demo</span>, 
+        
+        <span>javascript</span>, 
+        
+        <span>ui</span>, 
+        
+        <span>showcase</span>
+        
+    </div>
+    
+</article>
+
+  <div class="footer-content">
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+    <p>Built with <a href="https://gohugo.io/">Hugo</a> and <a href="#">NTS Academic Theme</a></p>
+</div>
+</body>
+
+</html>

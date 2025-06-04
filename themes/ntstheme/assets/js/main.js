@@ -18,17 +18,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 applyDarkTheme();
             }
         });
-    }
-
-    function applyDarkTheme() {
+    } function applyDarkTheme() {
         document.body.style.backgroundColor = '#000';
         document.body.style.color = '#fff';
-        // Set link colors for dark mode
+        // Set link colors and blockquote styles for dark mode
         const style = document.createElement('style');
         style.id = 'dark-theme-links';
         style.textContent = `
             a { color: #60a5fa !important; } /* lighter blue for dark mode */
             a:visited { color: #60a5fa !important; } /* same blue for visited links */
+            blockquote { 
+                color: #ccc !important; 
+                border-left-color: #555 !important; 
+            }
         `;
         document.head.appendChild(style);
         localStorage.setItem('theme', 'dark');

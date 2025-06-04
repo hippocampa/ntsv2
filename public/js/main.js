@@ -24,6 +24,10 @@
       style.textContent = `
             a { color: #60a5fa !important; } /* lighter blue for dark mode */
             a:visited { color: #60a5fa !important; } /* same blue for visited links */
+            blockquote { 
+                color: #ccc !important; 
+                border-left-color: #555 !important; 
+            }
         `;
       document.head.appendChild(style);
       localStorage.setItem("theme", "dark");

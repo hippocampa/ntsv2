@@ -75,6 +75,15 @@ img {
   border-top: 1px solid #ddd;
 }
 
+/* blockquote styling */
+blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid #ddd;
+  font-style: italic;
+  color: #666;
+}
+
 /* basic responsive behavior */
 @media (max-width: 600px) {
   body {

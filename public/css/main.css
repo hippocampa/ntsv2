@@ -84,6 +84,27 @@ blockquote {
   color: #666;
 }
 
+/* project links styling */
+.project-links {
+  margin: 1rem 0;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.project-link {
+  color: #2563eb;
+  margin-right: 0.75rem;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.project-link:visited {
+  color: #2563eb;
+}
+
 /* basic responsive behavior */
 @media (max-width: 600px) {
   body {

@@ -1,4 +1,9 @@
 <div class="footer-content">
+    <p>
+        <a href="{{- "/blog/" | relURL -}}">blog</a> |
+        <a href="{{- "/publications/" | relURL -}}">publications</a> |
+        <a href="{{- "/projects/" | relURL -}}">projects</a>
+    </p>
     <p>&copy; {{ now.Year }} {{ site.Params.author | default site.Title }}. All rights reserved.</p>
     <p>Unless otherwise specified, all original content on this blog is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
     <p>Built with <a href="https://gohugo.io/">Hugo</a>.</p>

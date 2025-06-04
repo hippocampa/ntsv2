@@ -5,8 +5,8 @@ theme = 'ntstheme'
 
 
 [params]
-description = "Academic notes, research, and technical insights"
-author = "Your Name"
+description = ""
+author = "I Gede Teguh Satya Dharma"
 homepageMaxItems = 3
 math = true
 

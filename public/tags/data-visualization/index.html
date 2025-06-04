@@ -9,13 +9,13 @@
 
 <title>Data Visualization | notesbyts</title>
 <meta name="description"
-    content="Academic notes, research, and technical insights">
-<meta name="author" content="Your Name">
+    content="">
+<meta name="author" content="I Gede Teguh Satya Dharma">
 
 
 <meta property="og:title" content="Data Visualization">
 <meta property="og:description"
-    content="Academic notes, research, and technical insights">
+    content="">
 <meta property="og:type" content="website">
 <meta property="og:url" content="http://localhost:1313/tags/data-visualization/">
 <meta property="og:site_name" content="notesbyts">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Visualization">
 <meta name="twitter:description"
-    content="Academic notes, research, and technical insights">
+    content="">
 
 
 <link rel="canonical" href="http://localhost:1313/tags/data-visualization/">
@@ -34,16 +34,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-    integrity="sha384-XjKyOOlGwcjNTAIQHIpVOBD+PyJbkH2OjL7mnyMHFw5y5N12sKGaT9y5jc4nBIzG"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
     crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        console.log("KaTeX: DOMContentLoaded event fired.");
         if (typeof renderMathInElement === 'function') {
-            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
             try {
                 renderMathInElement(document.body, {
                     delimiters: [
@@ -52,14 +50,13 @@
                         {left: '\\(', right: '\\)', display: false},
                         {left: '\\[', right: '\\]', display: true}
                     ],
-                    throwOnError: false 
+                    throwOnError: false
                 });
-                console.log("KaTeX: renderMathInElement executed.");
             } catch (e) {
-                console.error("KaTeX: Error during renderMathInElement execution:", e);
+                console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
             }
         } else {
-            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+            console.error("KaTeX (from head.html): renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
         }
     });
 </script>
@@ -76,7 +73,7 @@
 <body>
   <div>
     <h1><a href="/">notesbyts</a></h1>
-    <p>Academic notes, research, and technical insights</p>
+    
     <button id="theme-toggle">◐</button>
 </div>
 
@@ -92,8 +89,14 @@
   
 
   <div class="footer-content">
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
-    <p>Built with <a href="https://gohugo.io/">Hugo</a> and <a href="#">NTS Academic Theme</a></p>
+    <p>
+        <a href="/blog/">blog</a> |
+        <a href="/publications/">publications</a> |
+        <a href="/projects/">projects</a>
+    </p>
+    <p>&copy; 2025 I Gede Teguh Satya Dharma. All rights reserved.</p>
+    <p>Unless otherwise specified, all original content on this blog is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    <p>Built with <a href="https://gohugo.io/">Hugo</a>.</p>
 </div>
 </body>
 

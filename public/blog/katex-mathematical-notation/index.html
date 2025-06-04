@@ -21,7 +21,7 @@ $\LaTeX$ compatibility: Supports most common $\LaTeX$ commands
 
 Basic Setup
 To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
-<meta name="author" content="Your Name">
+<meta name="author" content="I Gede Teguh Satya Dharma">
 
 
 <meta property="og:title" content="Understanding KaTeX and Mathematical Notation in Web Development">
@@ -66,16 +66,14 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-    integrity="sha384-XjKyOOlGwcjNTAIQHIpVOBD+PyJbkH2OjL7mnyMHFw5y5N12sKGaT9y5jc4nBIzG"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
     crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        console.log("KaTeX: DOMContentLoaded event fired.");
         if (typeof renderMathInElement === 'function') {
-            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
             try {
                 renderMathInElement(document.body, {
                     delimiters: [
@@ -84,14 +82,13 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
                         {left: '\\(', right: '\\)', display: false},
                         {left: '\\[', right: '\\]', display: true}
                     ],
-                    throwOnError: false 
+                    throwOnError: false
                 });
-                console.log("KaTeX: renderMathInElement executed.");
             } catch (e) {
-                console.error("KaTeX: Error during renderMathInElement execution:", e);
+                console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
             }
         } else {
-            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+            console.error("KaTeX (from head.html): renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
         }
     });
 </script>
@@ -111,13 +108,13 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
   "headline": "Understanding KaTeX and Mathematical Notation in Web Development",
   "author": {
     "@type": "Person",
-    "name": "Your Name"
+    "name": "I Gede Teguh Satya Dharma"
   },
   "datePublished": "2024-12-10",
   "dateModified": "2024-12-10",
   "publisher": {
     "@type": "Person",
-    "name": "Your Name"
+    "name": "I Gede Teguh Satya Dharma"
   },
   "description": "\u003ch2 id=\u0022introduction\u0022\u003eIntroduction\u003c\/h2\u003e\n\u003cp\u003eWhen building academic or technical websites, the ability to render mathematical notation is crucial. KaTeX has emerged as the go-to solution for fast, server-side rendering of mathematical expressions in web browsers.\u003c\/p\u003e\n\u003ch2 id=\u0022why-katex\u0022\u003eWhy KaTeX?\u003c\/h2\u003e\n\u003cp\u003eKaTeX offers several advantages over alternatives like MathJax:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003ePerformance\u003c\/strong\u003e: Renders math expressions significantly faster\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eSelf-contained\u003c\/strong\u003e: No external dependencies for basic functionality\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eServer-side rendering\u003c\/strong\u003e: Can generate static HTML\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e$\\LaTeX$ compatibility\u003c\/strong\u003e: Supports most common $\\LaTeX$ commands\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch2 id=\u0022basic-setup\u0022\u003eBasic Setup\u003c\/h2\u003e\n\u003cp\u003eTo integrate KaTeX into a website, you need both the CSS and JavaScript files:\u003c\/p\u003e",
   "url": "http:\/\/localhost:1313\/blog\/katex-mathematical-notation\/",
@@ -134,7 +131,7 @@ To integrate KaTeX into a website, you need both the CSS and JavaScript files:">
 <body>
   <div>
     <h1><a href="/">notesbyts</a></h1>
-    <p>Academic notes, research, and technical insights</p>
+    
     <button id="theme-toggle">◐</button>
 </div>
 
@@ -293,8 +290,14 @@ a_{31} &amp; a_{32} &amp; a_{33}
 </article>
 
   <div class="footer-content">
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
-    <p>Built with <a href="https://gohugo.io/">Hugo</a> and <a href="#">NTS Academic Theme</a></p>
+    <p>
+        <a href="/blog/">blog</a> |
+        <a href="/publications/">publications</a> |
+        <a href="/projects/">projects</a>
+    </p>
+    <p>&copy; 2025 I Gede Teguh Satya Dharma. All rights reserved.</p>
+    <p>Unless otherwise specified, all original content on this blog is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    <p>Built with <a href="https://gohugo.io/">Hugo</a>.</p>
 </div>
 </body>
 

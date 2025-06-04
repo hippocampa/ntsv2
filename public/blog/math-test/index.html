@@ -20,7 +20,7 @@ $$
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 $$
 Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a perfect square.">
-<meta name="author" content="Your Name">
+<meta name="author" content="I Gede Teguh Satya Dharma">
 
 
 <meta property="og:title" content="Math Test">
@@ -63,16 +63,14 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-    integrity="sha384-XjKyOOlGwcjNTAIQHIpVOBD+PyJbkH2OjL7mnyMHFw5y5N12sKGaT9y5jc4nBIzG"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
     crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
     integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
     crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        console.log("KaTeX: DOMContentLoaded event fired.");
         if (typeof renderMathInElement === 'function') {
-            console.log("KaTeX: renderMathInElement is available. Attempting to render math.");
             try {
                 renderMathInElement(document.body, {
                     delimiters: [
@@ -81,14 +79,13 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
                         {left: '\\(', right: '\\)', display: false},
                         {left: '\\[', right: '\\]', display: true}
                     ],
-                    throwOnError: false 
+                    throwOnError: false
                 });
-                console.log("KaTeX: renderMathInElement executed.");
             } catch (e) {
-                console.error("KaTeX: Error during renderMathInElement execution:", e);
+                console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
             }
         } else {
-            console.error("KaTeX: renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+            console.error("KaTeX (from head.html): renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
         }
     });
 </script>
@@ -108,13 +105,13 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
   "headline": "Math Test",
   "author": {
     "@type": "Person",
-    "name": "Your Name"
+    "name": "I Gede Teguh Satya Dharma"
   },
   "datePublished": "2024-01-15",
   "dateModified": "2024-01-15",
   "publisher": {
     "@type": "Person",
-    "name": "Your Name"
+    "name": "I Gede Teguh Satya Dharma"
   },
   "description": "\u003ch1 id=\u0022mathematical-notation-test\u0022\u003eMathematical Notation Test\u003c\/h1\u003e\n\u003cp\u003eThis is a test of inline math: $E = mc^2$\u003c\/p\u003e\n\u003cp\u003eAnd here\u0027s a display equation:\u003c\/p\u003e\n\u003cp\u003e$$\n\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}\n$$\u003c\/p\u003e\n\u003cp\u003eThe quadratic formula:\u003c\/p\u003e\n\u003cp\u003e$$\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n$$\u003c\/p\u003e\n\u003cp\u003eSome inline math in a sentence: The function $f(x) = x^2 \u002b 2x \u002b 1$ is a perfect square.\u003c\/p\u003e",
   "url": "http:\/\/localhost:1313\/blog\/math-test\/",
@@ -131,7 +128,7 @@ Some inline math in a sentence: The function $f(x) = x^2 &#43; 2x &#43; 1$ is a 
 <body>
   <div>
     <h1><a href="/">notesbyts</a></h1>
-    <p>Academic notes, research, and technical insights</p>
+    
     <button id="theme-toggle">◐</button>
 </div>
 
@@ -179,8 +176,14 @@ $$</p>
 </article>
 
   <div class="footer-content">
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
-    <p>Built with <a href="https://gohugo.io/">Hugo</a> and <a href="#">NTS Academic Theme</a></p>
+    <p>
+        <a href="/blog/">blog</a> |
+        <a href="/publications/">publications</a> |
+        <a href="/projects/">projects</a>
+    </p>
+    <p>&copy; 2025 I Gede Teguh Satya Dharma. All rights reserved.</p>
+    <p>Unless otherwise specified, all original content on this blog is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    <p>Built with <a href="https://gohugo.io/">Hugo</a>.</p>
 </div>
 </body>
 

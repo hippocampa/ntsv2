@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Demo on notesbyts</title>
-    <link>http://localhost:1313/categories/demo/</link>
+    <link>http://localhost:56201/categories/demo/</link>
     <description>Recent content in Demo on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/demo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:56201/categories/demo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Demo Project for Load More Showcase</title>
-      <link>http://localhost:1313/projects/demo-project-showcase/</link>
+      <link>http://localhost:56201/projects/demo-project-showcase/</link>
       <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/demo-project-showcase/</guid>
+      <guid>http://localhost:56201/projects/demo-project-showcase/</guid>
       <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;&#xA;&lt;p&gt;This is a demonstration project created to showcase the load more functionality for the projects section on the homepage. This project serves as the 3rd project entry, which will trigger the &amp;quot;[load more]&amp;quot; button to appear.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Interactive UI&lt;/strong&gt;: Demonstrates modern web interaction patterns&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Minimal Design&lt;/strong&gt;: Maintains the raw HTML aesthetic&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: Lightweight JavaScript implementation&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Accessibility&lt;/strong&gt;: Works without JavaScript as a fallback&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-implementation&#34;&gt;Technical Implementation&lt;/h2&gt;&#xA;&lt;p&gt;The load more functionality uses vanilla JavaScript:&lt;/p&gt;</description>
     </item>
   </channel>

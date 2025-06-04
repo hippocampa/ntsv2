@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scalability on notesbyts</title>
-    <link>http://localhost:1313/tags/scalability/</link>
+    <link>http://localhost:56201/tags/scalability/</link>
     <description>Recent content in Scalability on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 15 Oct 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/scalability/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:56201/tags/scalability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scalable Graph Neural Networks for Large-Scale Networks</title>
-      <link>http://localhost:1313/publications/scalable-gnn-2023/</link>
+      <link>http://localhost:56201/publications/scalable-gnn-2023/</link>
       <pubDate>Sun, 15 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publications/scalable-gnn-2023/</guid>
+      <guid>http://localhost:56201/publications/scalable-gnn-2023/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Graph Neural Networks (GNNs) have shown remarkable success in various domains, from social network analysis to molecular property prediction. However, scaling these models to large real-world graphs remains a significant challenge due to memory constraints and computational complexity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;problem-formulation&#34;&gt;Problem Formulation&lt;/h2&gt;&#xA;&lt;p&gt;Consider a graph $G = (V, E)$ with node features $X \in \mathbb{R}^{|V| \times d}$. A typical GNN layer performs message passing:&lt;/p&gt;&#xA;&lt;p&gt;$$h_v^{(l+1)} = \sigma\left(\sum_{u \in N(v)} \frac{1}{\sqrt{|N(v)||N(u)|}} W^{(l)} h_u^{(l)}\right)$$&lt;/p&gt;</description>
     </item>
   </channel>

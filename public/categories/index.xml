@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on notesbyts</title>
-    <link>http://localhost:56201/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:56201/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo</title>
-      <link>http://localhost:56201/categories/hugo/</link>
+      <link>http://localhost:1313/categories/hugo/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56201/categories/hugo/</guid>
+      <guid>http://localhost:1313/categories/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Development</title>
-      <link>http://localhost:56201/categories/web-development/</link>
+      <link>http://localhost:1313/categories/web-development/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56201/categories/web-development/</guid>
+      <guid>http://localhost:1313/categories/web-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Demo</title>
-      <link>http://localhost:56201/categories/demo/</link>
+      <link>http://localhost:1313/categories/demo/</link>
       <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56201/categories/demo/</guid>
+      <guid>http://localhost:1313/categories/demo/</guid>
       <description></description>
     </item>
     <item>
       <title>Mathematics</title>
-      <link>http://localhost:56201/categories/mathematics/</link>
+      <link>http://localhost:1313/categories/mathematics/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56201/categories/mathematics/</guid>
+      <guid>http://localhost:1313/categories/mathematics/</guid>
       <description></description>
     </item>
     <item>
       <title>Computer Science</title>
-      <link>http://localhost:56201/categories/computer-science/</link>
+      <link>http://localhost:1313/categories/computer-science/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56201/categories/computer-science/</guid>
+      <guid>http://localhost:1313/categories/computer-science/</guid>
       <description></description>
     </item>
     <item>
       <title>UI/UX</title>
-      <link>http://localhost:56201/categories/ui/ux/</link>
+      <link>http://localhost:1313/categories/ui/ux/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56201/categories/ui/ux/</guid>
+      <guid>http://localhost:1313/categories/ui/ux/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithms</title>
-      <link>http://localhost:56201/categories/algorithms/</link>
+      <link>http://localhost:1313/categories/algorithms/</link>
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56201/categories/algorithms/</guid>
+      <guid>http://localhost:1313/categories/algorithms/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:56201/categories/programming/</link>
+      <link>http://localhost:1313/categories/programming/</link>
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56201/categories/programming/</guid>
+      <guid>http://localhost:1313/categories/programming/</guid>
       <description></description>
     </item>
   </channel>

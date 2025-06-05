@@ -2,10 +2,17 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 
+{{ if .Pages }}
 {{ range .Pages.ByDate.Reverse }}
 <div>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     <small>{{ .Date.Format "06.01.02" }}</small>
+</div>
+{{ end }}
+{{ else }}
+<div class="no-content">
+    <p>no projects yet.</p>
+    <small>working on some cool stuff...</small>
 </div>
 {{ end }}
 {{ end }}

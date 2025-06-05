@@ -6,8 +6,29 @@
     <description>Recent content on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jun 2025 21:15:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CLI Tool Collection</title>
+      <link>http://localhost:1313/projects/cli-tool-collection/</link>
+      <pubDate>Wed, 04 Jun 2025 21:15:00 +0800</pubDate>
+      <guid>http://localhost:1313/projects/cli-tool-collection/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;A curated collection of command-line utilities built with Python, designed to enhance developer productivity and streamline common workflows. Each tool follows Unix philosophy: do one thing well.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;File Organizer&lt;/strong&gt;: Automatically sort files by type, date, or custom rules&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Log Parser&lt;/strong&gt;: Extract and analyze patterns from log files&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Config Generator&lt;/strong&gt;: Create configuration files from templates&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Batch Renamer&lt;/strong&gt;: Rename files using regex patterns and transformations&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Network Scanner&lt;/strong&gt;: Simple port and service discovery tool&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-details&#34;&gt;Technical Details&lt;/h2&gt;&#xA;&lt;p&gt;Built using Click for command-line interfaces and Rich for beautiful terminal output:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Minimal Web Framework</title>
+      <link>http://localhost:1313/projects/minimal-web-framework/</link>
+      <pubDate>Wed, 04 Jun 2025 21:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/projects/minimal-web-framework/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;A lightweight, high-performance web framework written in Go that prioritizes simplicity and developer experience. Built with zero external dependencies in the core package, focusing on essential web development patterns without bloat.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Zero Dependencies&lt;/strong&gt;: Core framework requires only Go standard library&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Minimal Footprint&lt;/strong&gt;: Less than 500 lines of core code&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;High Performance&lt;/strong&gt;: Sub-millisecond response times for simple routes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Developer Friendly&lt;/strong&gt;: Intuitive API design with excellent error messages&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Production Ready&lt;/strong&gt;: Built-in logging, middleware, and error handling&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-details&#34;&gt;Technical Details&lt;/h2&gt;&#xA;&lt;p&gt;The framework follows a middleware-first architecture:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pommet</title>
+      <link>http://localhost:1313/projects/pommet/</link>
+      <pubDate>Wed, 04 Jun 2025 20:26:39 +0800</pubDate>
+      <guid>http://localhost:1313/projects/pommet/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;Pommet is a terminal-based user interface (TUI) application built with Rust and Ratatui. It provides a minimalist, keyboard-driven interface for managing and monitoring web server configurations, specifically designed for Apache and MariaDB environments with PHP8 integration.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Terminal-First Design&lt;/strong&gt;: Native TUI interface built with Ratatui&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Server Monitoring&lt;/strong&gt;: Real-time Apache and MariaDB status monitoring&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Configuration Management&lt;/strong&gt;: Streamlined config file editing and validation&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Database Tools&lt;/strong&gt;: Quick MariaDB query execution and schema inspection&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cross-Platform&lt;/strong&gt;: Runs on Linux, macOS, and Windows terminals&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-details&#34;&gt;Technical Details&lt;/h2&gt;&#xA;&lt;p&gt;The application leverages Rust&#39;s performance characteristics and Ratatui&#39;s terminal rendering capabilities:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Sample Post to Showcase Load More Functionality</title>
       <link>http://localhost:1313/blog/sample-post-showcase/</link>

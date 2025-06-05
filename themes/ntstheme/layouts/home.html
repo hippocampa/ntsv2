@@ -7,7 +7,7 @@
 
 {{ $maxItems := site.Params.homepageMaxItems | default 3 }}
 
-{{ if or $blogPages $projectPages $publicationPages }}
+<!-- Always show the recent section, but with appropriate content or placeholders -->
 <h2>recent</h2>
 
 {{ if $blogPages }}
@@ -26,6 +26,9 @@
         style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
 </div>
 {{ end }}
+{{ else }}
+<h3>blog</h3>
+<p class="no-content-minimal">no posts yet</p>
 {{ end }}
 
 {{ if $projectPages }}
@@ -44,6 +47,9 @@
         style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
 </div>
 {{ end }}
+{{ else }}
+<h3>projects</h3>
+<p class="no-content-minimal">no projects yet</p>
 {{ end }}
 
 {{ if $publicationPages }}
@@ -62,6 +68,8 @@
         style="cursor: pointer; font-size: 0.9em; color: #666; text-decoration: none;">[load more]</a>
 </div>
 {{ end }}
-{{ end }}
+{{ else }}
+<h3>publications</h3>
+<p class="no-content-minimal">no publications yet</p>
 {{ end }}
 {{ end }}

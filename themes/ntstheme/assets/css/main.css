@@ -185,3 +185,21 @@ blockquote {
     padding: 0.5rem;
   }
 }
+
+/* no content message styling */
+.no-content {
+  color: #666;
+  font-style: italic;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px dashed #ddd;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.no-content-minimal {
+  color: #999;
+  font-style: italic;
+  margin: 0.5rem 0;
+  font-size: 0.9em;
+}

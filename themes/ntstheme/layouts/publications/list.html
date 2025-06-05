@@ -2,10 +2,17 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 
+{{ if .Pages }}
 {{ range (.Pages.ByParam "year").Reverse }}
 <div>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     <small>{{ if .Params.year }}{{ .Params.year }}{{ else }}{{ .Date.Format "06" }}{{ end }}</small>
+</div>
+{{ end }}
+{{ else }}
+<div class="no-content">
+    <p>no publications yet.</p>
+    <small>research in progress...</small>
 </div>
 {{ end }}
 {{ end }}

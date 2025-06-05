@@ -1,14 +1,48 @@
 /* minimal CSS - only for layout, code, math, and images */
 
+/* CSS custom properties for theme colors */
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #333;
+  --text-secondary: #666;
+  --border-color: #ddd;
+  --border-strong: #333;
+  --link-color: #2563eb;
+  --link-hover: #1d4ed8;
+  --code-bg: #f8f8f8;
+  --code-border: #e1e1e1;
+  --highlight-bg: #fff;
+  --blockquote-border: #ddd;
+  --blockquote-text: #666;
+}
+
+/* Dark theme with data attribute */
+[data-theme="dark"] {
+  --bg-color: #0f0f0f;
+  --text-color: #e8e6e3;
+  --text-secondary: #8b949e;
+  --border-color: #30363d;
+  --border-strong: #484f58;
+  --link-color: #58a6ff;
+  --link-hover: #79c0ff;
+  --code-bg: #161b22;
+  --code-border: #30363d;
+  --highlight-bg: #161b22;
+  --blockquote-border: #30363d;
+  --blockquote-text: #8b949e;
+}
+
 /* typography - using system serif fonts for academic feel */
 body {
   font-family: "Times New Roman", "Liberation Serif", "Nimbus Roman", Times, serif;
   font-size: 16px;
   line-height: 1.4;
-  color: #333;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   max-width: 65ch;
   margin: 0 auto;
   padding: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* balanced spacing for visual hierarchy */
@@ -37,11 +71,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   margin-top: 1em;
   margin-bottom: 0.3em;
+  color: var(--text-color);
 }
 
 h1 {
   font-size: 1.6em;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.2em;
   margin-top: 0.5em;
   margin-bottom: 0.4em;
@@ -61,24 +96,28 @@ h3 {
 
 /* link styling */
 a {
-  color: #2563eb; /* blue-600 */
+  color: var(--link-color);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   text-decoration: underline;
+  color: var(--link-hover);
 }
 
 a:visited {
-  color: #2563eb; /* keep same blue color for visited links */
+  color: var(--link-color);
 }
 
 /* code styling */
 pre, code {
   font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Consolas", "Courier New", monospace;
   font-size: 0.95em;
-  background-color: #f8f8f8;
-  border: 1px solid #e1e1e1;
+  background-color: var(--code-bg);
+  border: 1px solid var(--code-border);
+  color: var(--text-color);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 pre {
@@ -99,6 +138,24 @@ pre code {
   border: none;
   padding: 0;
 }
+
+/* syntax highlighting blocks */
+.highlight pre {
+  background-color: var(--highlight-bg) !important;
+  transition: background-color 0.2s ease;
+}
+
+/* Dark theme syntax highlighting */
+[data-theme="dark"] .highlight span[style*="color:#1f2328"] { color: #e8e6e3 !important; }
+[data-theme="dark"] .highlight span[style*="color:#cf222e"] { color: #ff7b72 !important; }
+[data-theme="dark"] .highlight span[style*="color:#0550ae"] { color: #79c0ff !important; }
+[data-theme="dark"] .highlight span[style*="color:#6639ba"] { color: #d2a8ff !important; }
+[data-theme="dark"] .highlight span[style*="color:#0a3069"] { color: #a5f3fc !important; }
+[data-theme="dark"] .highlight span[style*="color:#57606a"] { color: #8b949e !important; }
+[data-theme="dark"] .highlight span[style*="color:#6a737d"] { color: #8b949e !important; }
+[data-theme="dark"] .highlight span[style*="color:#24292e"] { color: #e8e6e3 !important; }
+[data-theme="dark"] .highlight span[style*="color:#7f7f7f"] { color: #7d8590 !important; }
+[data-theme="dark"] .highlight pre[style*="background-color:#fff"] { background-color: #161b22 !important; }
 
 /* math notation styling */
 .katex {
@@ -137,9 +194,10 @@ img {
 blockquote {
   margin: 0.8rem 0;
   padding-left: 1rem;
-  border-left: 3px solid #ddd;
+  border-left: 3px solid var(--blockquote-border);
   font-style: italic;
-  color: #666;
+  color: var(--blockquote-text);
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 /* project links styling */
@@ -150,17 +208,19 @@ blockquote {
 }
 
 .project-link {
-  color: #2563eb;
+  color: var(--link-color);
   margin-right: 0.75rem;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .project-link:hover {
   text-decoration: underline;
+  color: var(--link-hover);
 }
 
 .project-link:visited {
-  color: #2563eb;
+  color: var(--link-color);
 }
 
 /* 404 error page styling */
@@ -270,8 +330,9 @@ small {
   display: inline-block;
   margin: 0.1rem 0;
   font-size: 0.85em;
-  color: #666;
+  color: var(--text-secondary);
   font-family: "Times New Roman", "Liberation Serif", "Nimbus Roman", Times, serif;
+  transition: color 0.2s ease;
 }
 
 /* content list items spacing - balanced for visual hierarchy */
@@ -339,4 +400,195 @@ body > main .publication-item {
   margin: 0.2rem 0;
   line-height: 1.3;
   /* sufficient spacing for readability while maintaining compactness */
+}
+
+/* academic table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-family: "Times New Roman", "Liberation Serif", "Nimbus Roman", Times, serif;
+}
+
+th, td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+}
+
+tbody tr:last-child td {
+  border-bottom: 1px solid #333;
+}
+
+/* dark mode support with better contrast */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0f0f0f;
+    color: #e8e6e3;
+  }
+  
+  /* ensure all text is visible */
+  * {
+    color: inherit;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #f6f8fa;
+  }
+  
+  h1 {
+    border-bottom-color: #30363d;
+  }
+  
+  a {
+    color: #58a6ff !important; /* GitHub dark blue */
+  }
+  
+  a:hover {
+    color: #79c0ff !important;
+  }
+  
+  a:visited {
+    color: #58a6ff !important;
+  }
+  
+  /* specific text elements that might be invisible */
+  p, span, div, li, td, th {
+    color: #e8e6e3;
+  }
+  
+  /* code blocks in dark mode - improved styling */
+  pre, code {
+    background-color: #161b22;
+    border-color: #30363d;
+    color: #e8e6e3;
+  }
+  
+  /* syntax highlighting override for dark mode */
+  .highlight pre {
+    background-color: #161b22 !important;
+  }
+  
+  /* code syntax highlighting dark theme colors */
+  .highlight span[style*="color:#1f2328"] { color: #e8e6e3 !important; } /* default text */
+  .highlight span[style*="color:#cf222e"] { color: #ff7b72 !important; } /* keywords */
+  .highlight span[style*="color:#0550ae"] { color: #79c0ff !important; } /* numbers/constants */
+  .highlight span[style*="color:#6639ba"] { color: #d2a8ff !important; } /* functions */
+  .highlight span[style*="color:#0a3069"] { color: #a5f3fc !important; } /* strings */
+  .highlight span[style*="color:#57606a"] { color: #8b949e !important; } /* comments */
+  .highlight span[style*="color:#6a737d"] { color: #8b949e !important; } /* comments alt */
+  .highlight span[style*="color:#24292e"] { color: #e8e6e3 !important; } /* default alt */
+  .highlight span[style*="color:#7f7f7f"] { color: #7d8590 !important; } /* line numbers */
+  
+  /* ensure code block background is consistent */
+  .highlight pre[style*="background-color:#fff"] {
+    background-color: #161b22 !important;
+  }  
+  /* blockquotes in dark mode */
+  blockquote {
+    border-left-color: #30363d;
+    color: #8b949e;
+  }
+  
+  /* footer in dark mode */
+  .footer-content {
+    border-top-color: #30363d;
+    color: #8b949e;
+  }
+  
+  /* no content messages in dark mode */
+  .no-content {
+    background-color: #21262d;
+    border-color: #30363d;
+    color: #8b949e;
+  }
+  
+  .no-content-minimal {
+    color: #7d8590;
+  }
+  
+  /* small text and dates in dark mode */
+  small {
+    color: #8b949e;
+  }
+  
+  /* project links in dark mode */
+  .project-link {
+    color: #58a6ff;
+  }
+  
+  .project-link:visited {
+    color: #58a6ff;
+  }
+  
+  /* error page in dark mode */
+  .error-404 h1 {
+    color: #8b949e;
+  }
+  
+  .error-message {
+    color: #e8e6e3;
+  }
+  
+  .error-description {
+    color: #8b949e;
+  }
+  
+  .error-actions p {
+    color: #e8e6e3;
+  }
+  
+  .error-actions li:before {
+    color: #58a6ff;
+  }
+  
+  .error-meta {
+    border-top-color: #30363d;
+    color: #8b949e;
+  }
+  
+  .error-meta code {
+    background-color: #161b22;
+    color: #e8e6e3;
+  }
+  
+  /* load more links in dark mode */
+  body > main [style*="color: #666"] {
+    color: #8b949e !important;
+  }
+  
+  /* math notation in dark mode */
+  .katex {
+    color: #e8e6e3 !important;
+  }
+  
+  .katex-display {
+    color: #e8e6e3 !important;
+  }
+  
+  /* images in dark mode - add subtle border */
+  img {
+    border: 1px solid #30363d;
+    background-color: #21262d;
+  }
+  
+  /* academic tables in dark mode */
+  th, td {
+    border-bottom-color: #30363d;
+    color: #e8e6e3;
+  }
+  
+  th {
+    border-bottom-color: #484f58;
+    color: #f6f8fa;
+  }
+  
+  tbody tr:last-child td {
+    border-bottom-color: #484f58;
+  }
 }

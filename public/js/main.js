@@ -3,13 +3,13 @@
   document.addEventListener("DOMContentLoaded", function() {
     const toggle = document.querySelector("#theme-toggle");
     if (toggle) {
-      const theme = localStorage.getItem("theme") || "light";
-      if (theme === "dark") {
-        applyDarkTheme();
+      const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+      if (currentTheme === "dark") {
+        applyDarkThemeStyles();
       }
       toggle.addEventListener("click", function() {
-        const isDark = document.body.style.backgroundColor === "rgb(0, 0, 0)" || document.body.style.backgroundColor === "#000" || document.body.style.backgroundColor === "#000000";
-        if (isDark) {
+        const currentTheme2 = document.documentElement.getAttribute("data-theme") || "light";
+        if (currentTheme2 === "dark") {
           applyLightTheme();
         } else {
           applyDarkTheme();
@@ -17,29 +17,47 @@
       });
     }
     function applyDarkTheme() {
-      document.body.style.backgroundColor = "#000";
-      document.body.style.color = "#fff";
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+      applyDarkThemeStyles();
+    }
+    function applyDarkThemeStyles() {
+      let existingStyle = document.getElementById("syntax-override-styles");
+      if (existingStyle) {
+        existingStyle.remove();
+      }
       const style = document.createElement("style");
-      style.id = "dark-theme-links";
+      style.id = "syntax-override-styles";
       style.textContent = `
-            a { color: #60a5fa !important; } /* lighter blue for dark mode */
-            a:visited { color: #60a5fa !important; } /* same blue for visited links */
-            blockquote { 
-                color: #ccc !important; 
-                border-left-color: #555 !important; 
+            /* Override Hugo's inline syntax highlighting styles in dark mode */
+            [data-theme="dark"] .highlight span[style*="color:#1f2328"] { color: #e8e6e3 !important; } /* default text */
+            [data-theme="dark"] .highlight span[style*="color:#cf222e"] { color: #ff7b72 !important; } /* keywords */
+            [data-theme="dark"] .highlight span[style*="color:#0550ae"] { color: #79c0ff !important; } /* numbers/constants */
+            [data-theme="dark"] .highlight span[style*="color:#6639ba"] { color: #d2a8ff !important; } /* functions */
+            [data-theme="dark"] .highlight span[style*="color:#0a3069"] { color: #a5f3fc !important; } /* strings */
+            [data-theme="dark"] .highlight span[style*="color:#57606a"] { color: #8b949e !important; } /* comments */
+            [data-theme="dark"] .highlight span[style*="color:#6a737d"] { color: #8b949e !important; } /* comments alt */
+            [data-theme="dark"] .highlight span[style*="color:#24292e"] { color: #e8e6e3 !important; } /* default alt */
+            [data-theme="dark"] .highlight span[style*="color:#7f7f7f"] { color: #7d8590 !important; } /* line numbers */
+            [data-theme="dark"] .highlight span[style*="color:#900"] { color: #ff7b72 !important; } /* error colors */
+            
+            /* Override Hugo's background colors */
+            [data-theme="dark"] .highlight pre[style*="background-color:#fff"] { 
+                background-color: #161b22 !important; 
+            }
+            [data-theme="dark"] .highlight[style*="background-color:#fff"] { 
+                background-color: #161b22 !important; 
             }
         `;
       document.head.appendChild(style);
-      localStorage.setItem("theme", "dark");
     }
     function applyLightTheme() {
-      document.body.style.backgroundColor = "";
-      document.body.style.color = "";
-      const darkStyle = document.getElementById("dark-theme-links");
-      if (darkStyle) {
-        darkStyle.remove();
-      }
+      document.documentElement.setAttribute("data-theme", "light");
       localStorage.setItem("theme", "light");
+      const existingStyle = document.getElementById("syntax-override-styles");
+      if (existingStyle) {
+        existingStyle.remove();
+      }
     }
   });
 })();

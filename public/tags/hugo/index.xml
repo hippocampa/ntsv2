@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on notesbyts</title>
-    <link>http://localhost:1313/tags/hugo/</link>
+    <link>https://example.org/tags/hugo/</link>
     <description>Recent content in Hugo on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sample Post to Showcase Load More Functionality</title>
-      <link>http://localhost:1313/blog/sample-post-showcase/</link>
+      <link>https://example.org/blog/sample-post-showcase/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/sample-post-showcase/</guid>
+      <guid>https://example.org/blog/sample-post-showcase/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is a sample blog post created specifically to demonstrate the &amp;quot;load more&amp;quot; functionality on the homepage. When you have more than 3 posts in a section, a clickable &amp;quot;[load more]&amp;quot; button will appear next to the section heading.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-it-works&#34;&gt;How It Works&lt;/h2&gt;&#xA;&lt;p&gt;The load more functionality:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Initial Display&lt;/strong&gt;: Shows only the first 3 items in each section (blog, projects, publications)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Load More Button&lt;/strong&gt;: Appears when there are 4+ items in a section&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Toggle Behavior&lt;/strong&gt;:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Click &amp;quot;[load more]&amp;quot; → Shows all items, button changes to &amp;quot;[show less]&amp;quot;&lt;/li&gt;&#xA;&lt;li&gt;Click &amp;quot;[show less]&amp;quot; → Hides items beyond the first 3, button reverts to &amp;quot;[load more]&amp;quot;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;mathematical-notation-example&#34;&gt;Mathematical Notation Example&lt;/h2&gt;&#xA;&lt;p&gt;Since this site supports KaTeX, here&#39;s a sample equation to test the math rendering:&lt;/p&gt;</description>
     </item>
   </channel>

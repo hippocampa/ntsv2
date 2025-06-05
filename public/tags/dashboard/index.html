@@ -7,6 +7,16 @@
 <meta name="robots" content="index, follow">
 
 
+<script>
+(function() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+})();
+</script>
+
+
 <title>Dashboard | notesbyts</title>
 <meta name="description"
     content="">

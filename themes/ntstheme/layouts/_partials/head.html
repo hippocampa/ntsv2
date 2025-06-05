@@ -2,6 +2,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 
+<!-- Inline script to prevent FOUC (Flash of Unstyled Content) -->
+<script>
+(function() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+})();
+</script>
+
 <!-- SEO Meta Tags -->
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <meta name="description"

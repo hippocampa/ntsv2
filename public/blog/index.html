@@ -7,6 +7,16 @@
 <meta name="robots" content="index, follow">
 
 
+<script>
+(function() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+})();
+</script>
+
+
 <title>Blog | notesbyts</title>
 <meta name="description"
     content="Welcome to my blog, where I share learning notes, technical insights, tutorials, and thoughts on various topics in computer science, mathematics, and technology.

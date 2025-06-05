@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications on notesbyts</title>
-    <link>http://localhost:1313/publications/</link>
+    <link>https://example.org/publications/</link>
     <description>Recent content in Publications on notesbyts</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/publications/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/publications/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Demonstration of Load More UI Patterns in Academic Web Interfaces</title>
-      <link>http://localhost:1313/publications/load-more-ui-patterns-demo/</link>
+      <link>https://example.org/publications/load-more-ui-patterns-demo/</link>
       <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publications/load-more-ui-patterns-demo/</guid>
+      <guid>https://example.org/publications/load-more-ui-patterns-demo/</guid>
       <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;&#xA;&lt;p&gt;This demonstration publication showcases the implementation of progressive disclosure patterns in academic web interfaces, specifically focusing on &amp;quot;load more&amp;quot; functionality for content-heavy sections. The research examines user interaction patterns and performance implications of such implementations.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Keywords&lt;/strong&gt;: progressive disclosure, web interfaces, academic publishing, user experience, load more patterns&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In academic web interfaces, the challenge of presenting large amounts of content while maintaining usability has led to the adoption of progressive disclosure patterns. This paper demonstrates the implementation and effectiveness of &amp;quot;load more&amp;quot; functionality in sectioned content displays.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Novel Approach to Machine Learning Optimization</title>
-      <link>http://localhost:1313/publications/ml-optimization-2024/</link>
+      <link>https://example.org/publications/ml-optimization-2024/</link>
       <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publications/ml-optimization-2024/</guid>
+      <guid>https://example.org/publications/ml-optimization-2024/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Deep learning optimization remains a fundamental challenge in machine learning. Traditional gradient descent methods often struggle with convergence speed and local minima. This work addresses these limitations through a novel adaptive optimization strategy.&lt;/p&gt;&#xA;&lt;h2 id=&#34;methodology&#34;&gt;Methodology&lt;/h2&gt;&#xA;&lt;p&gt;Our approach builds upon the mathematical foundation of gradient descent:&lt;/p&gt;&#xA;&lt;p&gt;$$\theta_{t+1} = \theta_t - \alpha \nabla_\theta J(\theta_t)$$&lt;/p&gt;&#xA;&lt;p&gt;Where $\theta$ represents the model parameters, $\alpha$ is the learning rate, and $J(\theta)$ is the loss function.&lt;/p&gt;&#xA;&lt;p&gt;We introduce an adaptive component that modifies the learning rate based on the historical gradient information:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Scalable Graph Neural Networks for Large-Scale Networks</title>
-      <link>http://localhost:1313/publications/scalable-gnn-2023/</link>
+      <link>https://example.org/publications/scalable-gnn-2023/</link>
       <pubDate>Sun, 15 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publications/scalable-gnn-2023/</guid>
+      <guid>https://example.org/publications/scalable-gnn-2023/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Graph Neural Networks (GNNs) have shown remarkable success in various domains, from social network analysis to molecular property prediction. However, scaling these models to large real-world graphs remains a significant challenge due to memory constraints and computational complexity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;problem-formulation&#34;&gt;Problem Formulation&lt;/h2&gt;&#xA;&lt;p&gt;Consider a graph $G = (V, E)$ with node features $X \in \mathbb{R}^{|V| \times d}$. A typical GNN layer performs message passing:&lt;/p&gt;&#xA;&lt;p&gt;$$h_v^{(l+1)} = \sigma\left(\sum_{u \in N(v)} \frac{1}{\sqrt{|N(v)||N(u)|}} W^{(l)} h_u^{(l)}\right)$$&lt;/p&gt;</description>
     </item>
   </channel>

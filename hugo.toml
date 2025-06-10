@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'hippocampa'
 theme = 'ntstheme'
 
+[[module.mounts]]
+source = 'images'
+target = 'static/images'
 
 [params]
 description = ""

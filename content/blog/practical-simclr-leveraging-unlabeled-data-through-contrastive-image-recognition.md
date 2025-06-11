@@ -53,8 +53,15 @@ Given an input $x \in \mathcal{X}$, we generate two augmented views $x_1 = T_1(x
 Methods like BYOL (Bootstrap Your Own Latent) [4] train the online network to predict the target network's representation of $x_2$ given $x_1$, optimizing $\mathcal{L}{distill} = ||f\theta(x_1) - \text{sg}(f_\xi(x_2))||_2^2$, where $\text{sg}(\cdot)$ denotes the stop-gradient operation. These self-distillation methods will not be discussed further in this post.
 
 ## Similarity Contrastive Learning (SimCLR) for Image Classification
+### The motivation
 
-***tobecontinued***
+Previous works in unsupervised learning often involve a pretext task and the use of a memory bank to generate pseudolabels. A pretext task is an artificial learning objective designed to train a model without requiring human-annotated labels. Pseudolabels are automatically generated labels derived from the structure of the data or the task itself, rather than from manual labeling.
+
+For example, the paper [5] uses image rotation as a pretext task. The model is trained to predict which geometric transformation (e.g., 0°, 90°, 180°, or 270° rotation) was applied to an input image. In this case, the rotation label serves as a pseudolabel, enabling the model to learn meaningful visual representations in a self-supervised manner.
+
+Geometric transformations, such as image rotation, are chosen because a convolutional neural network cannot correctly predict the rotation of an image without understanding the salient object, local structures, and important features within the image [5]. If a model is able to accurately identify the type of rotation or geometric transformation applied, it suggests that the model has learned meaningful semantic representations. These representations are crucial for downstream tasks such as image classification, clustering, and segmentation.
+
+***Tobecontinued: having to manually set a lot of gemoetric trasnform can limit generalization***
 
 ## Citations:
 
@@ -65,6 +72,10 @@ Methods like BYOL (Bootstrap Your Own Latent) [4] train the online network to pr
 [3] G. Ting Chen et al. "A Simple Framework for Contrastive Learning of Visual Representations," 2020.
 
 [4] Jean-Bastien Grill et al. "Bootstrap your own latent: A new approach to self-supervised Learning," 2020.
+
+[5] N. Spyros Gidaris, "Unsupervised Representation Learning by Predicting Image Rotations," 2018.
+
+
 
 
 

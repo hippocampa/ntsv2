@@ -1,8 +1,11 @@
-+++
-date = '2025-06-10T22:25:43+08:00'
-draft = true
-title = 'Practical SimCLR: Leveraging Unlabeled Data Through Contrastive Image Recognition'
-+++
+---
+title: "Practical Simclr Leveraging Unlabeled Data Through Contrastive Image Recognition"
+date: 2025-06-15T00:23:10+08:00
+readingTime: 5
+categories: []
+tags: []
+draft: true
+---
 
 ## Representation Learning
 

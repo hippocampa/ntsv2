@@ -6,8 +6,15 @@
     <description>Recent content on hippocampa</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jun 2025 00:23:10 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Jun 2025 00:37:03 +0800</lastBuildDate>
     <atom:link href="https://hippocampa.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://hippocampa.github.io/blog/test/</link>
+      <pubDate>Sun, 15 Jun 2025 00:37:03 +0800</pubDate>
+      <guid>https://hippocampa.github.io/blog/test/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Brief introduction to the topic.&lt;/p&gt;&#xA;&lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;&#xA;&lt;p&gt;Your blog post content here. Feel free to include:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Mathematical notation: $E = mc^2$&lt;/li&gt;&#xA;&lt;li&gt;Code examples&lt;/li&gt;&#xA;&lt;li&gt;Images and diagrams&lt;/li&gt;&#xA;&lt;li&gt;Lists and structured content&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;&#xA;&lt;p&gt;Summary and key takeaways.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Practical Simclr Leveraging Unlabeled Data Through Contrastive Image Recognition</title>
       <link>https://hippocampa.github.io/blog/practical-simclr-leveraging-unlabeled-data-through-contrastive-image-recognition/</link>

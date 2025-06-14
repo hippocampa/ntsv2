@@ -1,69 +1,51 @@
 // raw HTML with minimal functionality
-document.addEventListener('DOMContentLoaded', function () {
-    // theme toggle
-    const toggle = document.querySelector('#theme-toggle');
-    if (toggle) {
-        // Apply initial theme state (dark theme data-theme attribute should already be set by inline script)
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        if (currentTheme === 'dark') {
-            applyDarkThemeStyles();
-        }
+document.addEventListener("DOMContentLoaded", function () {
+	// theme toggle functionality disabled
+	console.log("Theme toggle disabled");
 
-        toggle.addEventListener('click', function () {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            if (currentTheme === 'dark') {
-                applyLightTheme();
-            } else {
-                applyDarkTheme();
-            }
-        });
-    } function applyDarkTheme() {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        applyDarkThemeStyles();
-    }
-
-    function applyDarkThemeStyles() {
-        // Create comprehensive dark theme styles for Hugo's inline syntax highlighting
-        let existingStyle = document.getElementById('syntax-override-styles');
-        if (existingStyle) {
-            existingStyle.remove();
-        }
-
-        const style = document.createElement('style');
-        style.id = 'syntax-override-styles';
-        style.textContent = `
-            /* Override Hugo's inline syntax highlighting styles in dark mode */
-            [data-theme="dark"] .highlight span[style*="color:#1f2328"] { color: #e8e6e3 !important; } /* default text */
-            [data-theme="dark"] .highlight span[style*="color:#cf222e"] { color: #ff7b72 !important; } /* keywords */
-            [data-theme="dark"] .highlight span[style*="color:#0550ae"] { color: #79c0ff !important; } /* numbers/constants */
-            [data-theme="dark"] .highlight span[style*="color:#6639ba"] { color: #d2a8ff !important; } /* functions */
-            [data-theme="dark"] .highlight span[style*="color:#0a3069"] { color: #a5f3fc !important; } /* strings */
-            [data-theme="dark"] .highlight span[style*="color:#57606a"] { color: #8b949e !important; } /* comments */
-            [data-theme="dark"] .highlight span[style*="color:#6a737d"] { color: #8b949e !important; } /* comments alt */
-            [data-theme="dark"] .highlight span[style*="color:#24292e"] { color: #e8e6e3 !important; } /* default alt */
-            [data-theme="dark"] .highlight span[style*="color:#7f7f7f"] { color: #7d8590 !important; } /* line numbers */
-            [data-theme="dark"] .highlight span[style*="color:#900"] { color: #ff7b72 !important; } /* error colors */
-            
-            /* Override Hugo's background colors */
-            [data-theme="dark"] .highlight pre[style*="background-color:#fff"] { 
-                background-color: #161b22 !important; 
-            }
-            [data-theme="dark"] .highlight[style*="background-color:#fff"] { 
-                background-color: #161b22 !important; 
-            }
-        `;
-        document.head.appendChild(style);
-    }
-
-    function applyLightTheme() {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-
-        // Remove syntax override styles
-        const existingStyle = document.getElementById('syntax-override-styles');
-        if (existingStyle) {
-            existingStyle.remove();
-        }
-    }
+	// Add image captions based on alt text
+	addImageCaptions();
 });
+
+function addImageCaptions() {
+	// Find all images in the content that have alt text
+	const images = document.querySelectorAll("img[alt]");
+
+	images.forEach(function (img) {
+		const altText = img.getAttribute("alt");
+
+		// Skip if alt text is empty, already has a caption, or is in a figure element
+		if (
+			!altText ||
+			altText.trim() === "" ||
+			img.parentElement.classList.contains("image-container") ||
+			img.closest("figure")
+		) {
+			return;
+		}
+
+		// Skip if this appears to be a decorative image (common patterns)
+		const decorativePatterns = /^(icon|logo|decoration|spacer)$/i;
+		if (decorativePatterns.test(altText.trim())) {
+			return;
+		}
+
+		// Create container div
+		const container = document.createElement("div");
+		container.className = "image-container";
+
+		// Create caption element
+		const caption = document.createElement("div");
+		caption.className = "image-caption";
+		caption.textContent = altText;
+
+		// Insert container before the image
+		img.parentNode.insertBefore(container, img);
+
+		// Move image into container
+		container.appendChild(img);
+
+		// Add caption after image
+		container.appendChild(caption);
+	});
+}

@@ -1,9 +1,9 @@
 ---
-title: "Practical Simclr Leveraging Unlabeled Data Through Contrastive Image Recognition"
+title: "Practical SimCLR: Leveraging Unlabeled Data Through Contrastive Image Recognition"
 date: 2025-06-15T00:23:10+08:00
 readingTime: 5
-categories: []
-tags: []
+categories: ["computer vision"]
+tags: ["deep learning", "computer vision", "contrastive learning"]
 draft: false
 ---
 

@@ -1,0 +1,594 @@
+/* minimal CSS - only for layout, code, math, and images */
+
+/* CSS custom properties for theme colors */
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #333;
+  --text-secondary: #666;
+  --border-color: #ddd;
+  --border-strong: #333;
+  --link-color: #2563eb;
+  --link-hover: #1d4ed8;
+  --code-bg: #f8f8f8;
+  --code-border: #e1e1e1;
+  --highlight-bg: #fff;
+  --blockquote-border: #ddd;
+  --blockquote-text: #666;
+}
+
+/* Dark theme with data attribute */
+[data-theme="dark"] {
+  --bg-color: #0f0f0f;
+  --text-color: #e8e6e3;
+  --text-secondary: #8b949e;
+  --border-color: #30363d;
+  --border-strong: #484f58;
+  --link-color: #58a6ff;
+  --link-hover: #79c0ff;
+  --code-bg: #161b22;
+  --code-border: #30363d;
+  --highlight-bg: #161b22;
+  --blockquote-border: #30363d;
+  --blockquote-text: #8b949e;
+}
+
+/* typography - using system serif fonts for academic feel */
+body {
+  font-family: "Times New Roman", "Liberation Serif", "Nimbus Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* balanced spacing for visual hierarchy */
+p {
+  margin: 0.3em 0;
+}
+
+/* article and main content */
+article p {
+  margin: 0.4em 0;
+}
+
+/* list and item spacing */
+ul, ol {
+  margin: 0.4em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.2em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Times New Roman", "Liberation Serif", "Nimbus Roman", Times, serif;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 1.6em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.4em;
+}
+
+h2 {
+  font-size: 1.3em;
+  margin-top: 0.8em;
+  margin-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.1em;
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+}
+
+/* link styling */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--link-hover);
+}
+
+a:visited {
+  color: var(--link-color);
+}
+
+/* code styling */
+pre, code {
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Consolas", "Courier New", monospace;
+  font-size: 0.95em;
+  background-color: var(--code-bg);
+  border: 1px solid var(--code-border);
+  color: var(--text-color);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+pre {
+  padding: 0.6rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  line-height: 1.3;
+  margin: 0.6rem 0;
+}
+
+code {
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* syntax highlighting blocks */
+.highlight pre {
+  background-color: var(--highlight-bg) !important;
+  transition: background-color 0.2s ease;
+}
+
+/* Dark theme syntax highlighting */
+[data-theme="dark"] .highlight span[style*="color:#1f2328"] { color: #e8e6e3 !important; }
+[data-theme="dark"] .highlight span[style*="color:#cf222e"] { color: #ff7b72 !important; }
+[data-theme="dark"] .highlight span[style*="color:#0550ae"] { color: #79c0ff !important; }
+[data-theme="dark"] .highlight span[style*="color:#6639ba"] { color: #d2a8ff !important; }
+[data-theme="dark"] .highlight span[style*="color:#0a3069"] { color: #a5f3fc !important; }
+[data-theme="dark"] .highlight span[style*="color:#57606a"] { color: #8b949e !important; }
+[data-theme="dark"] .highlight span[style*="color:#6a737d"] { color: #8b949e !important; }
+[data-theme="dark"] .highlight span[style*="color:#24292e"] { color: #e8e6e3 !important; }
+[data-theme="dark"] .highlight span[style*="color:#7f7f7f"] { color: #7d8590 !important; }
+[data-theme="dark"] .highlight pre[style*="background-color:#fff"] { background-color: #161b22 !important; }
+
+/* math notation styling */
+.katex {
+  font-size: 1em !important;
+}
+
+.katex-display {
+  margin: 0.8rem 0;
+  text-align: center;
+}
+
+/* image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.8rem auto;
+}
+
+/* home page intro section styling */
+.intro p {
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+
+/* footer styling */
+.footer-content {
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.9em;
+  line-height: 1.3;
+  padding-top: 0.8rem;
+}
+
+/* blockquote styling */
+blockquote {
+  margin: 0.8rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--blockquote-border);
+  font-style: italic;
+  color: var(--blockquote-text);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+/* project links styling */
+.project-links {
+  margin: 0.4rem 0;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Consolas", "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+.project-link {
+  color: var(--link-color);
+  margin-right: 0.75rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+  color: var(--link-hover);
+}
+
+.project-link:visited {
+  color: var(--link-color);
+}
+
+/* 404 error page styling */
+.error-404 {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 50ch;
+}
+
+.error-404 h1 {
+  font-size: 4rem;
+  margin: 0;
+  color: #666;
+  font-family: monospace;
+  font-weight: normal;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 1.5rem 0;
+  color: #333;
+}
+
+.error-description {
+  margin: 1.5rem 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.error-actions {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.error-actions p {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.error-actions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.error-actions li {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}
+
+.error-actions li:before {
+  content: "→ ";
+  margin-left: -1rem;
+  color: #2563eb;
+  font-family: monospace;
+}
+
+.error-meta {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.error-meta code {
+  background-color: #f8f8f8;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+.error-meta small {
+  font-family: monospace;
+  opacity: 0.7;
+}
+
+/* basic responsive behavior */
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+  }
+}
+
+/* no content message styling */
+.no-content {
+  color: #666;
+  font-style: italic;
+  margin: 0.4rem 0;
+  padding: 0.4rem;
+  border: 1px dashed #ddd;
+  background-color: #fafafa;
+  text-align: center;
+  font-family: "Times New Roman", "Liberation Serif", "Nimbus Roman", Times, serif;
+  line-height: 1.2;
+}
+
+.no-content-minimal {
+  color: #999;
+  font-style: italic;
+  margin: 0.3rem 0 0 0; /* no bottom margin since content-section handles section separation */
+  font-size: 0.9em;
+  font-family: "Times New Roman", "Liberation Serif", "Nimbus Roman", Times, serif;
+}
+
+/* improve readability of small text and dates */
+small {
+  display: inline-block;
+  margin: 0.1rem 0;
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  font-family: "Times New Roman", "Liberation Serif", "Nimbus Roman", Times, serif;
+  transition: color 0.2s ease;
+}
+
+/* content list items spacing - balanced for visual hierarchy */
+.blog-item, .project-item, .publication-item {
+  margin: 0.3rem 0;
+  line-height: 1.3;
+}
+
+.blog-item a, .project-item a, .publication-item a {
+  display: inline;
+  margin-right: 0.5em;
+}
+
+.blog-item small, .project-item small, .publication-item small {
+  margin: 0;
+  display: inline;
+}
+
+/* content list items - proper section separation */
+#blog-list, #projects-list, #publications-list {
+  margin: 0.4rem 0 0.2rem 0; /* reduced bottom margin since load more is part of the group */
+}
+
+/* content section containers - create clear visual groups */
+.content-section {
+  margin-bottom: 1rem; /* this creates the separation between blog/projects/publications */
+}
+
+.content-section:last-child {
+  margin-bottom: 0; /* no margin after the last section */
+}
+
+/* homepage visual hierarchy improvements using Gestalt principles */
+/* create clear section groupings */
+body > main h2 {
+  margin-top: 0.8em;
+  margin-bottom: 0.4em;
+  /* creates clear separation between intro and sections */
+}
+
+body > main h3 {
+  margin-top: 0.6em;
+  margin-bottom: 0.3em;
+  /* subsection headers with moderate spacing */
+}
+
+/* homepage content with proper grouping */
+body > main {
+  line-height: 1.3;
+}
+
+/* homepage content lists with visual separation */
+body > main #blog-list,
+body > main #projects-list, 
+body > main #publications-list {
+  margin: 0.4rem 0 0.2rem 0;
+  line-height: 1.3;
+  /* reduced bottom margin - load more is part of this group */
+}
+
+/* homepage item containers - readable but compact */
+body > main .blog-item,
+body > main .project-item,
+body > main .publication-item {
+  margin: 0.2rem 0;
+  line-height: 1.3;
+  /* sufficient spacing for readability while maintaining compactness */
+}
+
+/* academic table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-family: "Times New Roman", "Liberation Serif", "Nimbus Roman", Times, serif;
+}
+
+th, td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+}
+
+tbody tr:last-child td {
+  border-bottom: 1px solid #333;
+}
+
+/* dark mode support with better contrast */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0f0f0f;
+    color: #e8e6e3;
+  }
+  
+  /* ensure all text is visible */
+  * {
+    color: inherit;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #f6f8fa;
+  }
+  
+  h1 {
+    border-bottom-color: #30363d;
+  }
+  
+  a {
+    color: #58a6ff !important; /* GitHub dark blue */
+  }
+  
+  a:hover {
+    color: #79c0ff !important;
+  }
+  
+  a:visited {
+    color: #58a6ff !important;
+  }
+  
+  /* specific text elements that might be invisible */
+  p, span, div, li, td, th {
+    color: #e8e6e3;
+  }
+  
+  /* code blocks in dark mode - improved styling */
+  pre, code {
+    background-color: #161b22;
+    border-color: #30363d;
+    color: #e8e6e3;
+  }
+  
+  /* syntax highlighting override for dark mode */
+  .highlight pre {
+    background-color: #161b22 !important;
+  }
+  
+  /* code syntax highlighting dark theme colors */
+  .highlight span[style*="color:#1f2328"] { color: #e8e6e3 !important; } /* default text */
+  .highlight span[style*="color:#cf222e"] { color: #ff7b72 !important; } /* keywords */
+  .highlight span[style*="color:#0550ae"] { color: #79c0ff !important; } /* numbers/constants */
+  .highlight span[style*="color:#6639ba"] { color: #d2a8ff !important; } /* functions */
+  .highlight span[style*="color:#0a3069"] { color: #a5f3fc !important; } /* strings */
+  .highlight span[style*="color:#57606a"] { color: #8b949e !important; } /* comments */
+  .highlight span[style*="color:#6a737d"] { color: #8b949e !important; } /* comments alt */
+  .highlight span[style*="color:#24292e"] { color: #e8e6e3 !important; } /* default alt */
+  .highlight span[style*="color:#7f7f7f"] { color: #7d8590 !important; } /* line numbers */
+  
+  /* ensure code block background is consistent */
+  .highlight pre[style*="background-color:#fff"] {
+    background-color: #161b22 !important;
+  }  
+  /* blockquotes in dark mode */
+  blockquote {
+    border-left-color: #30363d;
+    color: #8b949e;
+  }
+  
+  /* footer in dark mode */
+  .footer-content {
+    border-top-color: #30363d;
+    color: #8b949e;
+  }
+  
+  /* no content messages in dark mode */
+  .no-content {
+    background-color: #21262d;
+    border-color: #30363d;
+    color: #8b949e;
+  }
+  
+  .no-content-minimal {
+    color: #7d8590;
+  }
+  
+  /* small text and dates in dark mode */
+  small {
+    color: #8b949e;
+  }
+  
+  /* project links in dark mode */
+  .project-link {
+    color: #58a6ff;
+  }
+  
+  .project-link:visited {
+    color: #58a6ff;
+  }
+  
+  /* error page in dark mode */
+  .error-404 h1 {
+    color: #8b949e;
+  }
+  
+  .error-message {
+    color: #e8e6e3;
+  }
+  
+  .error-description {
+    color: #8b949e;
+  }
+  
+  .error-actions p {
+    color: #e8e6e3;
+  }
+  
+  .error-actions li:before {
+    color: #58a6ff;
+  }
+  
+  .error-meta {
+    border-top-color: #30363d;
+    color: #8b949e;
+  }
+  
+  .error-meta code {
+    background-color: #161b22;
+    color: #e8e6e3;
+  }
+  
+  /* load more links in dark mode */
+  body > main [style*="color: #666"] {
+    color: #8b949e !important;
+  }
+  
+  /* math notation in dark mode */
+  .katex {
+    color: #e8e6e3 !important;
+  }
+  
+  .katex-display {
+    color: #e8e6e3 !important;
+  }
+  
+  /* images in dark mode - add subtle border */
+  img {
+    border: 1px solid #30363d;
+    background-color: #21262d;
+  }
+  
+  /* academic tables in dark mode */
+  th, td {
+    border-bottom-color: #30363d;
+    color: #e8e6e3;
+  }
+  
+  th {
+    border-bottom-color: #484f58;
+    color: #f6f8fa;
+  }
+  
+  tbody tr:last-child td {
+    border-bottom-color: #484f58;
+  }
+}

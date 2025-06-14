@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+
+
+<script>
+(function() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+})();
+</script>
+
+
+<title>Practical Simclr Leveraging Unlabeled Data Through Contrastive Image Recognition | hippocampa</title>
+<meta name="description"
+    content="Representation Learning
+All you need is a good representation. Whether you&#39;re classifying images, grouping them into clusters, segmenting objects or detecting patterns, deep learning is fundamentally about teaching models to learn meaningful representations of data.
+Good representation will lead to good results. For example, imagine you&#39;re looking at a group photo with your friends. You can instantly tell who&#39;s who because you&#39;ve learned the &quot;representation&quot; of each friend. Let&#39;s say your friend Nyoman has a distinctive round face and curly hair while your friend Ketut is recognizable by her bright smile and glasses.">
+<meta name="author" content="I Gede Teguh Satya Dharma">
+
+
+<meta property="og:title" content="Practical Simclr Leveraging Unlabeled Data Through Contrastive Image Recognition">
+<meta property="og:description"
+    content="Representation Learning
+All you need is a good representation. Whether you&#39;re classifying images, grouping them into clusters, segmenting objects or detecting patterns, deep learning is fundamentally about teaching models to learn meaningful representations of data.
+Good representation will lead to good results. For example, imagine you&#39;re looking at a group photo with your friends. You can instantly tell who&#39;s who because you&#39;ve learned the &quot;representation&quot; of each friend. Let&#39;s say your friend Nyoman has a distinctive round face and curly hair while your friend Ketut is recognizable by her bright smile and glasses.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hippocampa.github.io/blog/practical-simclr-leveraging-unlabeled-data-through-contrastive-image-recognition/">
+<meta property="og:site_name" content="hippocampa">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Practical Simclr Leveraging Unlabeled Data Through Contrastive Image Recognition">
+<meta name="twitter:description"
+    content="Representation Learning
+All you need is a good representation. Whether you&#39;re classifying images, grouping them into clusters, segmenting objects or detecting patterns, deep learning is fundamentally about teaching models to learn meaningful representations of data.
+Good representation will lead to good results. For example, imagine you&#39;re looking at a group photo with your friends. You can instantly tell who&#39;s who because you&#39;ve learned the &quot;representation&quot; of each friend. Let&#39;s say your friend Nyoman has a distinctive round face and curly hair while your friend Ketut is recognizable by her bright smile and glasses.">
+
+
+<link rel="canonical" href="https://hippocampa.github.io/blog/practical-simclr-leveraging-unlabeled-data-through-contrastive-image-recognition/">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+    crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement === 'function') {
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false
+                });
+            } catch (e) {
+                console.error("KaTeX (from head.html): Error during renderMathInElement execution:", e);
+            }
+        } else {
+            console.error("KaTeX (from head.html): renderMathInElement is NOT available. The KaTeX auto-render script might have failed to load or execute. Check for network errors or conflicts.");
+        }
+    });
+</script>
+      <link rel="stylesheet" href="/css/main.min.411a6591b82c520699b83bc411d549518451d9c2a0d59e3fe5bf4303560c2bcd.css" integrity="sha256-QRplkbgsUgaZuDvEEdVJUYRR2cKg1Z4/5b9DA1YMK80=" crossorigin="anonymous">
+
+
+        <script src="/js/main.ae5d408793d34f59c006558f6087799766afbb2c6d695e9d2598cc47cf4420a5.js" integrity="sha256-rl1Ah5PTT1nABlWPYId5l2avuyxtaV6dJZjMR89EIKU=" crossorigin="anonymous"></script>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Practical Simclr Leveraging Unlabeled Data Through Contrastive Image Recognition",
+  "author": {
+    "@type": "Person",
+    "name": "I Gede Teguh Satya Dharma"
+  },
+  "datePublished": "2025-06-15",
+  "dateModified": "2025-06-15",
+  "publisher": {
+    "@type": "Person",
+    "name": "I Gede Teguh Satya Dharma"
+  },
+  "description": "\u003ch2 id=\u0022representation-learning\u0022\u003eRepresentation Learning\u003c\/h2\u003e\n\u003cp\u003e\u003cstrong\u003eAll you need is a good representation\u003c\/strong\u003e. Whether you\u0027re classifying images, grouping them into clusters, segmenting objects or detecting patterns, deep learning is fundamentally about teaching models to \u003cem\u003elearn meaningful representations of data\u003c\/em\u003e.\u003c\/p\u003e\n\u003cp\u003eGood representation will lead to good results. For example, imagine you\u0027re looking at a group photo with your friends. You can instantly tell who\u0027s who because you\u0027ve learned the \u0026quot;representation\u0026quot; of each friend. Let\u0027s say your friend Nyoman has a distinctive round face and curly hair while your friend Ketut is recognizable by her bright smile and glasses.\u003c\/p\u003e",
+  "url": "https:\/\/hippocampa.github.io\/blog\/practical-simclr-leveraging-unlabeled-data-through-contrastive-image-recognition\/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/hippocampa.github.io\/blog\/practical-simclr-leveraging-unlabeled-data-through-contrastive-image-recognition\/"
+  }
+}
+</script>
+
+
+</head>
+
+<body>
+  <div>
+    <h1><a href="/">hippocampa</a></h1>
+    
+    <button id="theme-toggle">◐</button>
+</div>
+
+<div>
+    <a href="/">← home</a>
+</div>
+
+  
+<article>
+    <h1>Practical Simclr Leveraging Unlabeled Data Through Contrastive Image Recognition</h1>
+
+    <div>
+        <small><strong>Published:</strong> June 15, 2025</small>
+        
+        <br><small><strong>Last Updated:</strong> June 15, 2025</small>
+        
+        
+    </div>
+
+    <div>
+        <h2 id="representation-learning">Representation Learning</h2>
+<p><strong>All you need is a good representation</strong>. Whether you're classifying images, grouping them into clusters, segmenting objects or detecting patterns, deep learning is fundamentally about teaching models to <em>learn meaningful representations of data</em>.</p>
+<p>Good representation will lead to good results. For example, imagine you're looking at a group photo with your friends. You can instantly tell who's who because you've learned the &quot;representation&quot; of each friend. Let's say your friend Nyoman has a distinctive round face and curly hair while your friend Ketut is recognizable by her bright smile and glasses.</p>
+<p>Your brain has unconsciously processed and stored these features, allowing you to recognize them effortlessly, even in a crowd or a different pose.</p>
+<p>This mirrors deep learning's core objective: Transform raw data into compact representations where semantically similar items cluster together in feature space. For images, this means mapping an input image $I \in \mathbb{R}^{C \times H \times W}$ to a $D$-dimensional <em>latent</em> vector $z \in \mathbb{R}^D$:</p>
+<p>$$ f: I \to \mathbb{R}^D $$</p>
+<p>Since you already know the identity (label) of each of your friends, your brain will automatically infer the related features in the latent spaces and associate them with your friend's name. This process is often referred to as <strong>supervised learning</strong>.</p>
+<p>Now, what if you're looking at a group photo of strangers you've never met? You might still be able to group them based on similar physical features, perhaps some have dark hair and are tall, while others are blonde and short. Here, <em>you don't know their identities or labels</em>.</p>
+<p>In scenarios like this, where explicit human-provided labels are missing, we're broadly in the realm of <strong>unsupervised learning</strong>. This type of learning aims to discover hidden patterns or structures within the data itself, like simply clustering similar faces together without knowing their names. A really powerful approach within this area is <strong>self-supervised learning</strong>.</p>
+<h2 id="supervised-learning-vs-unsupervised-learning-vs-self-supervised-learning">Supervised learning vs unsupervised learning vs self-supervised learning</h2>
+<p>Based on [1], self-supervised learning (SSL) involves generating output labels “intrinsically” from input data examples by revealing the relationships between data components or various views of the data. These output labels are derived directly from the data examples.</p>
+<p><img src="/images/usl_vs_ssl.png" alt="Figure 1: The difference between supervised, unsupervised and self-supervised learning. Image source: [1]"></p>
+<p><strong>Supervised learning</strong> operates with labeled pairs $\mathcal{D} = {(x_i, y_i)}{i=1}^N$ where $x \in \mathbb{R}^d$ is the cow image and $y \in \mathcal{Y}$ is the discrete label &quot;cow&quot;. The objective is learning $f\theta: \mathbb{R}^d \rightarrow \mathcal{Y}$ by minimizing $\mathcal{L} = \mathbb{E}{(x,y) \sim \mathcal{D}}[\ell(f\theta(x), y)]$. As shown in Figure 1 (left), supervision $y$ comes externally: manual annotation provides ground truth labels.</p>
+<p><strong>Unsupervised learning</strong> works with unlabeled data $\mathcal{D} = {x_i}{i=1}^N$ where $x \in \mathbb{R}^d$. The goal is learning meaningful representations $g\phi: \mathbb{R}^d \rightarrow \mathbb{R}^k$ or discovering latent structure $p(x) = \int p(x|z)p(z)dz$. Figure 1 (middle) illustrates this: identical input $x$ but no external supervision: the model must discover patterns autonomously.</p>
+<p><strong>Self-supervised learning</strong> constructs <em>pseudo-labels</em> from data itself. Given $x$, we create $(x', y')$ pairs where $y' = h(x)$ for some transformation $h$. The loss becomes $\mathcal{L} = \mathbb{E}{x \sim \mathcal{D}}[\ell(f\theta(x'), h(x))]$. Figure 1 (right) demonstrates this perfectly: visual input $x_{visual}$ paired with co-occurring audio $x_{audio}$, where $y' = x_{audio}$ derives intrinsically from the multimodal data structure without external annotation.</p>
+<h2 id="families-of-self-supervised-learning">Families of self-supervised learning</h2>
+<p>Self-supervised learning can be done using 2 approaches: <em>Deep Metric Learning</em> and <em>Self Distillation</em> [2].</p>
+<h3 id="deep-metric-learning">Deep Metric Learning</h3>
+<p>Given an input $x \in \mathcal{X}$, we produce an augmentation or variant $\tilde{x}$ of $x$ through a semantic preserving transformation $T: \mathcal{X} \rightarrow \mathcal{X}$, where $\tilde{x} = T(x)$. This creates positive pairs $(x, \tilde{x})$ and negative pairs $(x, x')$ where $x' \neq x$. We then train a neural network $f_\theta: \mathcal{X} \rightarrow \mathbb{R}^d$ to minimize the contrastive loss $\mathcal{L}{contrastive}$, which makes the embeddings of positive pairs $f\theta(x)$ and $f_\theta(\tilde{x})$ closer in the representation space while pushing apart the embeddings of negative pairs $f_\theta(x)$ and $f_\theta(x')$. For the visual learner just like myself, Fig. 2 depict this process.</p>
+<p><img src="/images/deep-metric-learning.png" alt="Figure 2: Deep Metric Learning framework"></p>
+<p>One particular architecture for image classification that we will talk about in this post, SimCLR [3], uses Deep Metric Learning paradigm.</p>
+<h3 id="self-distillation">Self Distillation</h3>
+<p>Given an input $x \in \mathcal{X}$, we generate two augmented views $x_1 = T_1(x)$ and $x_2 = T_2(x)$ using different data augmentation functions. The self-distillation paradigm employs two networks: an online network $f_\theta$ and a target network $f_\xi$, where $f_\theta, f_\xi: \mathcal{X} \rightarrow \mathbb{R}^d$. The target network parameters $\xi$ are updated as an exponential moving average of the online network parameters: $\xi \leftarrow \tau \xi + (1-\tau)\theta$, where $\tau \in [0,1]$ is the momentum coefficient.</p>
+<p>Methods like BYOL (Bootstrap Your Own Latent) [4] train the online network to predict the target network's representation of $x_2$ given $x_1$, optimizing $\mathcal{L}{distill} = ||f\theta(x_1) - \text{sg}(f_\xi(x_2))||_2^2$, where $\text{sg}(\cdot)$ denotes the stop-gradient operation. These self-distillation methods will not be discussed further in this post.</p>
+<h2 id="similarity-contrastive-learning-simclr-for-image-classification">Similarity Contrastive Learning (SimCLR) for Image Classification</h2>
+<h3 id="the-motivation">The Motivation</h3>
+<p>Previous works in unsupervised learning often involve a pretext task and the use of a memory bank to generate pseudolabels. A pretext task is an artificial learning objective designed to train a model without requiring human-annotated labels. Pseudolabels are automatically generated labels derived from the structure of the data or the task itself, rather than from manual labeling.</p>
+<p>For example, the paper [5] uses image rotation as a pretext task. The model is trained to predict which geometric transformation (e.g., 0°, 90°, 180°, or 270° rotation) was applied to an input image. In this case, the rotation label serves as a pseudolabel, enabling the model to learn meaningful visual representations in a self-supervised manner.</p>
+<p>Geometric transformations, such as image rotation, are chosen because a convolutional neural network cannot correctly predict the rotation of an image without understanding the salient object, local structures, and important features within the image [5]. If a model is able to accurately identify the type of rotation or geometric transformation applied, it suggests that the model has learned meaningful semantic representations. These representations are crucial for downstream tasks such as image classification, clustering, and segmentation.</p>
+<p>However, having to manually set a lot of geometric transformations can limit generalization, as the model may overfit to those specific augmentations rather than learning broadly useful representations. This constraint arises because pretext tasks like rotation prediction rely on carefully designed transformations, which may not always capture the full complexity of real-world visual data.</p>
+<p>If the chosen augmentations are too narrow or simplistic, the learned features may not transfer well to downstream tasks, while overly complex transformations could introduce noise or unnecessary learning challenges.</p>
+<p>SimCLR circumvents this issue by replacing predefined pretext tasks with a contrastive learning framework, where the model learns by comparing different augmented views of the same image, allowing it to discover more flexible and generalizable visual features without relying on handcrafted transformation rules.</p>
+<p>Another common approach in unsupervised learning is the use of <em>memory bank</em>, such as in MoCo (Momentum Contrast) [6]. The memory bank stored a dynamic dictionary of encoded features from previous batches, serving as negative samples for the current contrastive learning task.</p>
+<p>While effective, this method has limitations:</p>
+<ol>
+<li>The stored features can become stale, as they are not updated in real-time with the encoder, leading to inconsistency in the contrastive objective</li>
+<li>Maintaining a large memory bank increases computational overhead and memory usage.</li>
+</ol>
+<p>SimCLR addressed these issues by eliminating the memory bank entirely and instead using large batches with in-batch negatives. This approach ensured all compared features were encoded by the same up-to-date model while simplifying the training pipeline.</p>
+<p>Although requiring more computational resources per batch, SimCLR's memory-free design produced superior representations by maintaining consistency across all contrastive comparisons.</p>
+<p>The removal of the memory bank also made the framework more conceptually straightforward, as it relied solely on data augmentation and batch processing rather than maintaining an external feature storage system.</p>
+<h3 id="how-it-works">How It Works</h3>
+<p>Given a mini-batch of images ${x_k}_{k=1}^N$ sampled from a dataset $\mathcal{D}$, we apply stochastic data augmentations twice to each image to obtain two correlated views $\tilde{x}_k^{(1)}$ and $\tilde{x}_k^{(2)}$:</p>
+<p>$$
+\tilde{x}_k^{(1)}, \tilde{x}_k^{(2)} \sim \mathcal{T}(x_k)
+$$</p>
+<p>where $\mathcal{T}$ is a family of random augmentation functions (e.g., cropping, color jitter). These augmented batches are passed through a shared encoder network $f_\theta$ to obtain representations:</p>
+<p>$$
+h_k^{(1)} = f_{\theta}(\tilde{x}_k^{(1)})
+$$</p>
+<p>$$ h_k^{(2)} = f_{\theta}(\tilde{x}_k^{(2)}) $$</p>
+<p>These are further transformed by a projection head $g_\phi$ into the latent space:</p>
+<p>$$
+z_k^{(1)} = g_\phi(h_k^{(1)}), \quad z_k^{(2)} = g_\phi(h_k^{(2)})
+$$</p>
+<p>We then apply a contrastive loss $\mathcal{L}_{\text{contrastive}}$ over the latent pairs ${(z_k^{(1)}, z_k^{(2)})}$ to pull positive pairs together and push apart negatives. The training objective is to minimize the loss:</p>
+<p>$$
+\min_{\theta, \phi} \ \mathcal{L}_{\text{contrastive}}(z_k^{(1)}, z_k^{(2)})
+$$</p>
+<p>This encourages the model to learn meaningful representations by aligning the views of the same image while separating different images in the latent space.</p>
+<p>While the math provides a compact explanation, the following code shows how it’s implemented in practice:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>train_bar <span style="color:#0550ae">=</span> tqdm<span style="color:#1f2328">(</span>train_loader<span style="color:#1f2328">,</span> desc<span style="color:#0550ae">=</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Epoch </span><span style="color:#0a3069">{</span>epoch <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span><span style="color:#0a3069">}</span><span style="color:#0a3069">/</span><span style="color:#0a3069">{</span>MAX_EPOCH<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#cf222e">for</span> epoch <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span>MAX_EPOCH<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    simclr_model<span style="color:#0550ae">.</span>train<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    <span style="color:#57606a"># notice we don&#39;t use the label to train the model</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#57606a"># normally, people often use something like `for batch_idx, image in enumerate(train_bar)`</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#57606a"># or `for batch_idx, (image, _) in enumerate(train_bar)`</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#57606a"># but in this example, the &#34;label&#34; is written just to demonstrate the common `dataloader.__getitem__()` return values format: (image, label)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    <span style="color:#cf222e">for</span> batch_idx<span style="color:#1f2328">,</span> <span style="color:#1f2328">(</span>image<span style="color:#1f2328">,</span> label<span style="color:#1f2328">)</span> <span style="color:#0550ae">in</span> <span style="color:#6639ba">enumerate</span><span style="color:#1f2328">(</span>train_bar<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        optimizer<span style="color:#0550ae">.</span>zero_grad<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        image<span style="color:#0550ae">.</span>to<span style="color:#1f2328">(</span>DEVICE<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        x_i<span style="color:#1f2328">,</span> x_j <span style="color:#0550ae">=</span> augmentor<span style="color:#1f2328">(</span>image<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        <span style="color:#57606a"># h is the encoded features</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        <span style="color:#57606a"># z is the latent projection</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        hi<span style="color:#1f2328">,</span> zi <span style="color:#0550ae">=</span> simclr_model<span style="color:#1f2328">(</span>x_i<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>        hj<span style="color:#1f2328">,</span> zj <span style="color:#0550ae">=</span> simclr_model<span style="color:#1f2328">(</span>x_j<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>        loss <span style="color:#0550ae">=</span> loss_fn<span style="color:#1f2328">(</span>zi<span style="color:#1f2328">,</span> zj<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        loss<span style="color:#0550ae">.</span>backward<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>        optimizer<span style="color:#0550ae">.</span>step<span style="color:#1f2328">()</span>
+</span></span></code></pre></div><p>with the <code>augmentor</code> is defined as:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#57606a"># assuming the data in batch is a normalized tensor</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Augmentor</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>transform <span style="color:#0550ae">=</span> T<span style="color:#0550ae">.</span>Compose<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>            <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>                T<span style="color:#0550ae">.</span>RandomResizedCrop<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>                    IMAGE_SIZE<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>                    scale<span style="color:#0550ae">=</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0.08</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1.0</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>                    interpolation<span style="color:#0550ae">=</span>InterpolationMode<span style="color:#0550ae">.</span>BICUBIC<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>                <span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>                T<span style="color:#0550ae">.</span>RandomHorizontalFlip<span style="color:#1f2328">(),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>                T<span style="color:#0550ae">.</span>RandomApply<span style="color:#1f2328">([</span>T<span style="color:#0550ae">.</span>ColorJitter<span style="color:#1f2328">(</span><span style="color:#0550ae">0.4</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0.4</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0.4</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0.1</span><span style="color:#1f2328">)],</span> p<span style="color:#0550ae">=</span><span style="color:#0550ae">0.8</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>                T<span style="color:#0550ae">.</span>RandomGrayscale<span style="color:#1f2328">(</span>p<span style="color:#0550ae">=</span><span style="color:#0550ae">0.2</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>            <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__call__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> imgbatch<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>        aug1 <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>transform<span style="color:#1f2328">(</span>imgbatch<span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>to<span style="color:#1f2328">(</span>DEVICE<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>        aug2 <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>transform<span style="color:#1f2328">(</span>imgbatch<span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>to<span style="color:#1f2328">(</span>DEVICE<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        <span style="color:#cf222e">return</span> aug1<span style="color:#1f2328">,</span> aug2
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#57606a"># instantiating the augmentor</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>augmentor <span style="color:#0550ae">=</span> Augmentor<span style="color:#1f2328">()</span>
+</span></span></code></pre></div><p>As for the encoder $f_\theta$ and the projection head $g_\theta$, we have several options:</p>
+<ol>
+<li>Use a pre-trained model (e.g., ResNet [7]) for $f_\theta$, or build a custom one from scratch.</li>
+<li>Design $g_\theta$ as a simple neural network, typically a small MLP.</li>
+</ol>
+<p>In this example, we use a pre-trained ResNet-18 as the feature encoder $f_\theta$, and define $g_\theta$ as a lightweight non-linear projection head:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>PRETRAINED_ENCODER <span style="color:#0550ae">=</span> models<span style="color:#0550ae">.</span>resnet18<span style="color:#1f2328">(</span>weights<span style="color:#0550ae">=</span>ResNet18_Weights<span style="color:#0550ae">.</span>DEFAULT<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>PRETRAINED_ENCODER<span style="color:#0550ae">.</span>fc <span style="color:#0550ae">=</span> torch<span style="color:#0550ae">.</span>nn<span style="color:#0550ae">.</span>Identity<span style="color:#1f2328">()</span> <span style="color:#57606a"># we are not going to use the fc</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Projector</span><span style="color:#1f2328">(</span>nn<span style="color:#0550ae">.</span>Module<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        <span style="color:#6a737d">self</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        in_features<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">512</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        hidden_features<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">1024</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        out_features<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">512</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    <span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        <span style="color:#6639ba">super</span><span style="color:#1f2328">(</span>Projector<span style="color:#1f2328">,</span> <span style="color:#6a737d">self</span><span style="color:#1f2328">)</span><span style="color:#0550ae">.</span><span style="color:#6639ba">__init__</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>layers <span style="color:#0550ae">=</span> nn<span style="color:#0550ae">.</span>Sequential<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>            nn<span style="color:#0550ae">.</span>Linear<span style="color:#1f2328">(</span>in_features<span style="color:#1f2328">,</span> hidden_features<span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>            nn<span style="color:#0550ae">.</span>ReLU<span style="color:#1f2328">(</span>inplace<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>            nn<span style="color:#0550ae">.</span>Linear<span style="color:#1f2328">(</span>hidden_features<span style="color:#1f2328">,</span> out_features<span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">forward</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> x<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>        <span style="color:#cf222e">return</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>layers<span style="color:#1f2328">(</span>x<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">SimClr</span><span style="color:#1f2328">(</span>nn<span style="color:#0550ae">.</span>Module<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>        <span style="color:#6639ba">super</span><span style="color:#1f2328">(</span>SimClr<span style="color:#1f2328">,</span> <span style="color:#6a737d">self</span><span style="color:#1f2328">)</span><span style="color:#0550ae">.</span><span style="color:#6639ba">__init__</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>encoder <span style="color:#0550ae">=</span> PRETRAINED_ENCODER
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>projection <span style="color:#0550ae">=</span> Projector<span style="color:#1f2328">(</span><span style="color:#0550ae">512</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">512</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">forward</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> x<span style="color:#1f2328">:</span> torch<span style="color:#0550ae">.</span>Tensor<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>        latent <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>encoder<span style="color:#1f2328">(</span>x<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>        proj <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>projection<span style="color:#1f2328">(</span>latent<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>        <span style="color:#cf222e">return</span> latent<span style="color:#1f2328">,</span> proj
+</span></span></code></pre></div><h3 id="nt-xent-loss-explained">NT-Xent Loss Explained</h3>
+<p>The NT-Xent (Normalized Temperature-scaled Cross Entropy) loss is a contrastive objective function used in self-supervised learning. Given two normalized embedding vectors $z_i$ and $z_j$ from positive pairs (augmented views of the same image), the loss is computed as:</p>
+<p>$$\mathcal{L} = -\frac{1}{N}\sum_{k=1}^N \log \frac{\exp(\text{sim}(z_i^{(k)}, z_j^{(k)}) / \tau)}{\sum_{m \neq k} \exp(\text{sim}(z_i^{(k)}, z_j^{(m)}) / \tau)}$$</p>
+<p>where $\text{sim}(u,v) = u^Tv$ denotes cosine similarity, $\tau$ is the temperature parameter, $N$ is the batch size, and the denominator sums over all negative pairs (embeddings from different images).</p>
+<p><strong>Step-by-Step Computation (Batch Size=2)</strong>:<br>
+Consider two images (A and B) with normalized embeddings:</p>
+<ul>
+<li>$z_i = \begin{bmatrix} A1 \ B1 \end{bmatrix} = \begin{bmatrix} 0.8 &amp; 0.6 \ -0.7 &amp; 0.7 \end{bmatrix}$</li>
+<li>$z_j = \begin{bmatrix} A2 \ B2 \end{bmatrix} = \begin{bmatrix} 0.9 &amp; 0.4 \ -0.8 &amp; 0.6 \end{bmatrix}$</li>
+</ul>
+<div class="ntxent-steps">
+1. <b>Concatenate embeddings</b>  
+   <div>$z = \begin{bmatrix} A1 \\ B1 \\ A2 \\ B2 \end{bmatrix} = \begin{bmatrix} 0.8 & 0.6 \\ -0.7 & 0.7 \\ 0.9 & 0.4 \\ -0.8 & 0.6 \end{bmatrix}$</div>
+   <div class="why">Why: Creates a single tensor containing all embeddings from both views (A1/A2 and B1/B2) for efficient pairwise comparison</div>
+<ol start="2">
+<li>
+<p><strong>Similarity matrix</strong> ($\tau=0.5$)</p>
+<div>$\texttt{sim} = \frac{z \cdot z^T}{0.5} = 2 \times \begin{bmatrix} 
+\color{gray}{1.0} & -0.14 & 0.96 & -0.28 \\ 
+-0.14 & \color{gray}{0.98} & -0.35 & 0.98 \\ 
+0.96 & -0.35 & \color{gray}{0.97} & -0.48 \\ 
+-0.28 & 0.98 & -0.48 & \color{gray}{1.0}
+\end{bmatrix} = \begin{bmatrix} 
+\color{gray}{2.0} & -0.28 & \color{green}{1.92} & -0.56 \\ 
+-0.28 & \color{gray}{1.96} & -0.70 & \color{green}{1.96} \\ 
+\color{green}{1.92} & -0.70 & \color{gray}{1.94} & -0.96 \\ 
+-0.56 & \color{green}{1.96} & -0.96 & \color{gray}{2.0}
+\end{bmatrix}$</div>
+<div class="why">Why: Measures similarity between all embedding pairs. Temperature $\tau$ sharpens the distribution</div>
+</li>
+<li>
+<p><strong>Mask diagonal</strong></p>
+<div>$\texttt{sim} = \begin{bmatrix} 
+\color{red}{\texttt{-1e9}} & -0.28 & \color{green}{1.92} & -0.56 \\ 
+-0.28 & \color{red}{\texttt{-1e9}} & -0.70 & \color{green}{1.96} \\ 
+\color{green}{1.92} & -0.70 & \color{red}{\texttt{-1e9}} & -0.96 \\ 
+-0.56 & \color{green}{1.96} & -0.96 & \color{red}{\texttt{-1e9}}
+\end{bmatrix}$</div>
+<div class="why">Why: Prevents trivial solution of self-similarity. We use <code>-1e9</code> (not -inf) for numerical stability</div>
+</li>
+<li>
+<p><strong>Create targets</strong></p>
+<div>$\texttt{targets} = \begin{bmatrix} 2 \\ 3 \\ 0 \\ 1 \end{bmatrix}$  
+(A1→A2 (index 2), B1→B2 (index 3), A2→A1 (index 0), B2→B1 (index 1))</div>
+<div class="why">Why: Maps each embedding to its positive pair's index for cross-entropy calculation</div>
+</li>
+<li>
+<p><strong>Cross-entropy</strong> (for A1)</p>
+<div>$\texttt{logits} = [\texttt{-1e9}, -0.28, \color{green}{1.92}, -0.56]$  
+$\texttt{softmax} = [0, 0.03, \color{green}{0.95}, 0.02]$  
+$\texttt{loss} = -\log(\color{green}{0.95}) \approx 0.05$</div>
+<div class="why">Why: Maximizes similarity for positive pairs (green) while minimizing similarity to negatives</div>
+</li>
+</ol>
+</div>
+<p>The PyTorch implementation precisely follows this process with clear design choices:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">NTXentLoss</span><span style="color:#1f2328">(</span>nn<span style="color:#0550ae">.</span>Module<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> temperature<span style="color:#1f2328">:</span> <span style="color:#6639ba">float</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">0.07</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>        <span style="color:#6639ba">super</span><span style="color:#1f2328">()</span><span style="color:#0550ae">.</span><span style="color:#6639ba">__init__</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>temperature <span style="color:#0550ae">=</span> temperature
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">forward</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> z_i<span style="color:#1f2328">:</span> torch<span style="color:#0550ae">.</span>Tensor<span style="color:#1f2328">,</span> z_j<span style="color:#1f2328">:</span> torch<span style="color:#0550ae">.</span>Tensor<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> torch<span style="color:#0550ae">.</span>Tensor<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        batch_size <span style="color:#0550ae">=</span> z_i<span style="color:#0550ae">.</span>size<span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        device <span style="color:#0550ae">=</span> z_i<span style="color:#0550ae">.</span>device
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        <span style="color:#57606a"># Normalize to unit sphere (why: cosine similarity requires unit vectors)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        z_i <span style="color:#0550ae">=</span> F<span style="color:#0550ae">.</span>normalize<span style="color:#1f2328">(</span>z_i<span style="color:#1f2328">,</span> p<span style="color:#0550ae">=</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> dim<span style="color:#0550ae">=</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> eps<span style="color:#0550ae">=</span><span style="color:#0550ae">1e-6</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        z_j <span style="color:#0550ae">=</span> F<span style="color:#0550ae">.</span>normalize<span style="color:#1f2328">(</span>z_j<span style="color:#1f2328">,</span> p<span style="color:#0550ae">=</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> dim<span style="color:#0550ae">=</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> eps<span style="color:#0550ae">=</span><span style="color:#0550ae">1e-6</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        <span style="color:#57606a"># Prevent extreme values (why: avoid NaN in gradient calculations)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        z_i <span style="color:#0550ae">=</span> torch<span style="color:#0550ae">.</span>clamp<span style="color:#1f2328">(</span>z_i<span style="color:#1f2328">,</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        z_j <span style="color:#0550ae">=</span> torch<span style="color:#0550ae">.</span>clamp<span style="color:#1f2328">(</span>z_j<span style="color:#1f2328">,</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>        <span style="color:#57606a"># Concatenate both views (why: enables batch-wise pairwise comparison)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>        z <span style="color:#0550ae">=</span> torch<span style="color:#0550ae">.</span>cat<span style="color:#1f2328">([</span>z_i<span style="color:#1f2328">,</span> z_j<span style="color:#1f2328">],</span> dim<span style="color:#0550ae">=</span><span style="color:#0550ae">0</span><span style="color:#1f2328">)</span>  <span style="color:#57606a"># (2*B, D)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>        <span style="color:#57606a"># Compute similarity matrix (why: measure all embedding relationships)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>        sim <span style="color:#0550ae">=</span> torch<span style="color:#0550ae">.</span>matmul<span style="color:#1f2328">(</span>z<span style="color:#1f2328">,</span> z<span style="color:#0550ae">.</span>T<span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>temperature  <span style="color:#57606a"># (2B,2B)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>        <span style="color:#57606a"># Remove self-similarity (why: avoid trivial solution)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>        N <span style="color:#0550ae">=</span> <span style="color:#0550ae">2</span> <span style="color:#0550ae">*</span> batch_size
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>        diag_mask <span style="color:#0550ae">=</span> torch<span style="color:#0550ae">.</span>eye<span style="color:#1f2328">(</span>N<span style="color:#1f2328">,</span> device<span style="color:#0550ae">=</span>device<span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>bool<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>        sim<span style="color:#0550ae">.</span>masked_fill_<span style="color:#1f2328">(</span>diag_mask<span style="color:#1f2328">,</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1e9</span><span style="color:#1f2328">)</span>  <span style="color:#57606a"># Exact code value: -1e9</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>        <span style="color:#57606a"># Create targets (why: define positive pairs for cross-entropy)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>        <span style="color:#57606a"># Structure: [positive_for_z_i, positive_for_z_j]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>        targets <span style="color:#0550ae">=</span> torch<span style="color:#0550ae">.</span>arange<span style="color:#1f2328">(</span>batch_size<span style="color:#1f2328">,</span> device<span style="color:#0550ae">=</span>device<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>        targets <span style="color:#0550ae">=</span> torch<span style="color:#0550ae">.</span>cat<span style="color:#1f2328">([</span>targets <span style="color:#0550ae">+</span> batch_size<span style="color:#1f2328">,</span> targets<span style="color:#1f2328">],</span> dim<span style="color:#0550ae">=</span><span style="color:#0550ae">0</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>        <span style="color:#57606a"># Cross-entropy loss (why: standard objective for classification)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>        loss <span style="color:#0550ae">=</span> F<span style="color:#0550ae">.</span>cross_entropy<span style="color:#1f2328">(</span>sim<span style="color:#1f2328">,</span> targets<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>        
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>        <span style="color:#57606a"># Handle NaN edge cases (why: training stability)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>        <span style="color:#cf222e">if</span> torch<span style="color:#0550ae">.</span>isnan<span style="color:#1f2328">(</span>loss<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>            <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Warning: NaN loss detected!&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>            <span style="color:#cf222e">return</span> torch<span style="color:#0550ae">.</span>tensor<span style="color:#1f2328">(</span><span style="color:#0550ae">0.0</span><span style="color:#1f2328">,</span> device<span style="color:#0550ae">=</span>device<span style="color:#1f2328">,</span> requires_grad<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>            
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>        <span style="color:#cf222e">return</span> loss
+</span></span></code></pre></div><style>
+.ntxent-steps {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #4e73df;
+}
+.ntxent-steps div {
+  margin: 12px 0;
+}
+.ntxent-steps .why {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  margin-top: 5px;
+  background: #e9ecef;
+  border-radius: 4px;
+  border-left: 3px solid #6c757d;
+}
+</style>
+<blockquote>
+<p>Wait, there is a cross entropy in the NT-Xent formula? Where is it?</p></blockquote>
+<p>The NT-Xent formula <em>is</em> a specialized cross entropy loss where:</p>
+<ol>
+<li><strong>Logits</strong> are the similarity scores between an anchor embedding and all other embeddings</li>
+<li><strong>Target class</strong> is the index of its positive pair</li>
+<li><strong>Temperature scaling</strong> ($\tau$) sharpens the probability distribution</li>
+</ol>
+<p>The PyTorch implementation <code>F.cross_entropy(sim, targets)</code> computes:<br>
+$$\mathcal{L} = -\frac{1}{2N}\sum_{k=0}^{2N-1} \log \frac{\exp(\text{sim}[k, \text{target}[k]])}{\sum_{j=0}^{2N-1} \exp(\text{sim}[k, j])}$$</p>
+<p>This exactly matches the NT-Xent formulation because:</p>
+<ul>
+<li>The numerator $\exp(\text{sim}[k, \text{target}[k]])$ corresponds to $\exp(\text{sim}(z_i^{(k)}, z_j^{(k)})/\tau)$</li>
+<li>The denominator sums over all embeddings (including negatives)</li>
+<li>Diagonal masking ensures self-similarity ($j=k$) is excluded from the sum</li>
+</ul>
+<p><strong>Key insight</strong>: The code implements NT-Xent as a multi-class classification task where each anchor must identify its positive pair among all other embeddings in the batch.</p>
+<h3 id="hyperparameters">Hyperparameters</h3>
+<p>The SimCLR paper emphasizes several critical hyperparameters for optimization:</p>
+<ul>
+<li><strong>Batch size</strong>: Large batches (4096-8192) provide more negative samples, crucial for contrastive learning</li>
+<li><strong>Temperature</strong> (τ): Typically set to 0.07, controls similarity distribution sharpness</li>
+<li><strong>Learning rate</strong>: Base LR=0.3 with linear scaling (LR=0.075×batch_size/256)</li>
+<li><strong>Scheduler</strong>: Cosine decay without restarts over long epochs (100-1000)</li>
+<li><strong>Projection head</strong>: MLP with ReLU (hidden size=2048, output=128) improves representation</li>
+<li><strong>Augmentation strength</strong>: Color distortion (strength=1.0) and Gaussian blur are essential</li>
+</ul>
+<p>Training typically runs 100-1000 epochs using LARS optimizer with weight decay=1e-6 and gradient clipping.</p>
+<h3 id="limitations">Limitations</h3>
+<p>SimCLR has several notable limitations:</p>
+<ol>
+<li><strong>Computational cost</strong>: Requires large batches (≥4096) and long training (100-1000 epochs)</li>
+<li><strong>Augmentation sensitivity</strong>: Performance heavily depends on carefully tuned augmentation strategies</li>
+<li><strong>False negatives</strong>: Treats different images of same class as negatives</li>
+<li><strong>Projection head dependency</strong>: Final representations require discarding the projection layer</li>
+<li><strong>Batch uniformity</strong>: Assumes all negatives are equally irrelevant</li>
+<li><strong>Memory constraints</strong>: Large batch sizes demand significant GPU/TPU resources</li>
+</ol>
+<p>These limitations inspired subsequent approaches like MoCo (memory banks) [6] and BYOL (asymmetric networks)[4] to reduce computational demands.</p>
+<h3 id="downstream-network">Downstream Network</h3>
+<p>The beauty of SimCLR lies in its versatility for downstream tasks. Once the encoder is pre-trained, you can attach <strong>any classifier</strong> to its output features for supervised learning. The key steps are:</p>
+<ol>
+<li>Feature Extraction: Use the frozen SimCLR encoder to convert input images into rich latent representations</li>
+<li>Classifier Design: Attach a simple neural network (e.g., MLP) that maps features to class labels</li>
+<li>Transfer Learning: Only train the classifier while keeping the pre-trained encoder frozen</li>
+</ol>
+<p><strong>Example Implementation</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#57606a"># Simple MLP classifier</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">DownstreamClassifier</span><span style="color:#1f2328">(</span>nn<span style="color:#0550ae">.</span>Module<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> in_feat<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">512</span><span style="color:#1f2328">,</span> hidden_feat<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">128</span><span style="color:#1f2328">,</span> num_class<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        <span style="color:#6639ba">super</span><span style="color:#1f2328">()</span><span style="color:#0550ae">.</span><span style="color:#6639ba">__init__</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>layers <span style="color:#0550ae">=</span> nn<span style="color:#0550ae">.</span>Sequential<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>            nn<span style="color:#0550ae">.</span>Linear<span style="color:#1f2328">(</span>in_feat<span style="color:#1f2328">,</span> hidden_feat<span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>            nn<span style="color:#0550ae">.</span>ReLU<span style="color:#1f2328">(</span>inplace<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>            nn<span style="color:#0550ae">.</span>Dropout<span style="color:#1f2328">(</span><span style="color:#0550ae">0.2</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>            nn<span style="color:#0550ae">.</span>Linear<span style="color:#1f2328">(</span>hidden_feat<span style="color:#1f2328">,</span> hidden_feat<span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>            nn<span style="color:#0550ae">.</span>ReLU<span style="color:#1f2328">(</span>inplace<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>            nn<span style="color:#0550ae">.</span>Dropout<span style="color:#1f2328">(</span><span style="color:#0550ae">0.2</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>            nn<span style="color:#0550ae">.</span>Linear<span style="color:#1f2328">(</span>hidden_feat<span style="color:#1f2328">,</span> num_class<span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">forward</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> x<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        <span style="color:#cf222e">return</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>layers<span style="color:#1f2328">(</span>x<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#57606a"># Training setup</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>downstream_model <span style="color:#0550ae">=</span> DownstreamClassifier<span style="color:#1f2328">()</span><span style="color:#0550ae">.</span>to<span style="color:#1f2328">(</span>DEVICE<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>downstream_optim <span style="color:#0550ae">=</span> torch<span style="color:#0550ae">.</span>optim<span style="color:#0550ae">.</span>Adam<span style="color:#1f2328">(</span>downstream_model<span style="color:#0550ae">.</span>parameters<span style="color:#1f2328">(),</span> lr<span style="color:#0550ae">=</span><span style="color:#0550ae">1e-4</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>downstream_loss_fn <span style="color:#0550ae">=</span> nn<span style="color:#0550ae">.</span>CrossEntropyLoss<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#57606a"># Freeze SimCLR encoder</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>simclr_model<span style="color:#0550ae">.</span>eval<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#cf222e">for</span> param <span style="color:#0550ae">in</span> simclr_model<span style="color:#0550ae">.</span>parameters<span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>    param<span style="color:#0550ae">.</span>requires_grad <span style="color:#0550ae">=</span> <span style="color:#cf222e">False</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="color:#57606a"># Training loop</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#cf222e">for</span> epoch <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span>MAX_EPOCHS<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    <span style="color:#cf222e">for</span> image<span style="color:#1f2328">,</span> label <span style="color:#0550ae">in</span> train_loader<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>        <span style="color:#cf222e">with</span> torch<span style="color:#0550ae">.</span>no_grad<span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>            latent<span style="color:#1f2328">,</span> _ <span style="color:#0550ae">=</span> simclr_model<span style="color:#1f2328">(</span>image<span style="color:#1f2328">)</span>  <span style="color:#57606a"># Extract features</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>            
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>        outputs <span style="color:#0550ae">=</span> downstream_model<span style="color:#1f2328">(</span>latent<span style="color:#1f2328">)</span>    <span style="color:#57606a"># Classify</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>        loss <span style="color:#0550ae">=</span> downstream_loss_fn<span style="color:#1f2328">(</span>outputs<span style="color:#1f2328">,</span> label<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>        loss<span style="color:#0550ae">.</span>backward<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>        downstream_optim<span style="color:#0550ae">.</span>step<span style="color:#1f2328">()</span>
+</span></span></code></pre></div><p>In my implementation of contrastive learning using the SimCLR framework on the <a href="https://www.kaggle.com/datasets/alessiocorrado99/animals10">Animals-10</a> dataset, I employ a ResNet18 encoder followed by a simple neural network for downstream classification, with the complete code available in this <a href="https://www.kaggle.com/code/teguhsatyadharma/ctrsl-wip">Kaggle notebook</a>.</p>
+<p>Due to hardware constraints (SimCLR's substantial memory requirements causing resource exhaustion) and time limitations for finalizing this initial post, I conducted raw training without fine-tuning, achieving 71.50% validation accuracy.</p>
+<p>While this result has room for optimization, it successfully demonstrates the core principles of contrastive learning in practice.</p>
+<h2 id="citations">Citations:</h2>
+<p>[1] Gui et al., A Survey on Self-supervised Learning: Algorithms, Applications, and Future Trends. 2024. [Online]. Available: <a href="https://arxiv.org/abs/2301.05712">https://arxiv.org/abs/2301.05712</a></p>
+<p>[2] R. Balestriero et al., A Cookbook of Self-Supervised Learning. 2023. [Online]. Available: <a href="https://arxiv.org/abs/2304.12210">https://arxiv.org/abs/2304.12210</a></p>
+<p>[3] T. Chen, S. Kornblith, M. Norouzi, and G. Hinton, A Simple Framework for Contrastive Learning of Visual Representations. 2020. [Online]. Available: <a href="https://arxiv.org/abs/2002.05709">https://arxiv.org/abs/2002.05709</a></p>
+<p>[4] .-B. Grill et al., Bootstrap your own latent: A new approach to self-supervised Learning. 2020. [Online]. Available: <a href="https://arxiv.org/abs/2006.07733">https://arxiv.org/abs/2006.07733</a></p>
+<p>[5] S. Gidaris, P. Singh, and N. Komodakis, Unsupervised Representation Learning by Predicting Image Rotations. 2018. [Online]. Available: <a href="https://arxiv.org/abs/1803.07728">https://arxiv.org/abs/1803.07728</a></p>
+<p>[6] K. He, H. Fan, Y. Wu, S. Xie, and R. Girshick, Momentum Contrast for Unsupervised Visual Representation Learning. 2020. [Online]. Available: <a href="https://arxiv.org/abs/1911.05722">https://arxiv.org/abs/1911.05722</a></p>
+<p>[7] K. He, X. Zhang, S. Ren, and J. Sun, Deep Residual Learning for Image Recognition. 2015. [Online]. Available: <a href="https://arxiv.org/abs/1512.03385">https://arxiv.org/abs/1512.03385</a></p>
+
+    </div>
+
+    
+
+    <nav>
+        
+        
+    </nav>
+</article>
+
+  <div class="footer-content">
+    <p>
+        <a href="/blog/">blog</a> |
+        <a href="/publications/">publications</a> |
+        <a href="/projects/">projects</a>
+    </p>
+    <p>&copy; 2025 I Gede Teguh Satya Dharma. All rights reserved.</p>
+    <p>Unless otherwise specified, all original content on this blog is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    <p>Built with <a href="https://gohugo.io/">Hugo</a>.</p>
+</div>
+</body>
+
+</html>
